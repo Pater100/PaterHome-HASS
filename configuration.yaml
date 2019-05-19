@@ -65,7 +65,9 @@ device_tracker:
     password: !secret device_tracker_password
     new_device_defaults:
       track_new_devices: true
-  - platform: bluetooth_tracker 
+  - platform: ping
+    hosts:
+      hostone: !secret Ping_host_Paterphone
 
 #thermostaat
 nest:
