@@ -1,0 +1,49 @@
+resources:
+  - url: /local/mini-graph-card-bundle.js?v=0.3.3
+    type: module
+
+views:
+  - id: Algemeen
+    icon: mdi:castle
+    title: Algemeen
+    cards:
+      - type: vertical-stack
+        cards:     
+        - type: custom:mini-graph-card
+          name: Tempratuur
+          animate: true
+          entities:
+            - sensor.living_room_thermostat_temperature
+            - sensor.toilet_sensor_temperature
+            - sensor.hue_motion_sensor_1_temperature
+      - type: horizontal-stack
+        cards:
+        - type: custom:mini-graph-card
+          name: Luchtvochtigheid
+          entities:
+            - sensor.living_room_thermostat_humidity
+          line_color: blue
+          line_width: 8
+          font_size: 75
+        - type: custom:mini-graph-card
+          name: Electriciteit verbruik
+          entities:
+            - sensor.power_consumption
+          line_color: '#e74c3c'
+          line_width: 8
+          font_size: 75
+      - type: weather-forecast
+        entity: weather.volkel
+      - type: picture-glance
+        title: Living room
+        entities:
+          - light.tradfri_driver
+        camera_image: camera.octoprint
+        camera_view: live
+
+  - id: schakelaars
+    icon: mdi:light-switch
+    title: Schakelaars
+    card:
+
+

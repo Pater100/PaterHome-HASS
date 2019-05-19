@@ -1,0 +1,7 @@
+#versterker aan
+versterker_aan:
+  alias: toggle reciever
+  sequence:
+      service: remote.toggle
+      data:
+        activity: 'Versterker'

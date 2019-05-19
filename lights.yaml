@@ -1,0 +1,50 @@
+#Licht groepen
+
+- platform: group
+  name: keuken_group
+  entities: 
+    - light.keuken_1
+    - light.keuken_2
+    - light.keuken_3
+
+- platform: group
+  name: eetkamer_group
+  entities:
+    - light.eettafel_lamp_links
+    - light.eettafel_lamp_midden
+    - light.eettafel_lamp_rechts
+
+- platform: group
+  name: woonkamer_group
+  entities:
+    - light.tv_lamp
+    - light.woonkamer
+    - light.staande_lamp_bank
+
+- platform: group
+  name: gang_group
+  entities:
+    - light.gang_richting_kamer
+    - light.gang_richting_voordeur
+
+- platform: group
+  name: werkkamer_group
+  entities:
+    - light.office_1
+    - light.office_2
+
+- platform: group
+  name: slaapkamer_group
+  entities:
+    - light.woonkamer_bank
+    - light.woonkamer_gangdeur
+    - light.woonkamer_muur_achter_bank
+
+- platform: group
+  name: badkamer_group
+  entities:
+    - light.badkamer_1
+    - light.badkamer_2
+    - light.bathroom
+
+

@@ -1,0 +1,150 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: PaterHome
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+  # Customization file
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+  base_url: !secret base_url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+# Discover some devices automatically
+discovery:
+#themes
+frontend:
+  themes: !include themes.yaml
+
+# Homekit entitie injectie
+homekit:
+  filter:
+    include_domains:
+      - climate
+      - script
+
+#camera
+camera:
+  - platform: ring
+  - platform: mjpeg
+    name: OctoPrint
+    still_image_url: !secret octoprint_still
+    mjpeg_url: !secret octoprint_mjpeg
+
+#usb Passtrough RFXCOM
+rfxtrx:
+  device: /dev/ttyUSB0
+  debug: true
+
+#het weer
+weather:
+  - platform: buienradar
+    name: 'volkel'
+    # Forceer 'Meetstation Volkel'
+    latitude: !secret weerstation_latitude
+    longitude: !secret weerstation_longitude
+    forecast: true
+
+# Human pressence detection system (beta)
+device_tracker:
+  - platform: unifi_direct
+    host: !secret device_tracker_unifi_host
+    username: !secret device_tracker_user
+    password: !secret device_tracker_password
+    new_device_defaults:
+      track_new_devices: true
+
+#thermostaat
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
+#ring
+ring:
+  username: !secret ring_username 
+  password: !secret ring_password
+
+#Harmony hub
+remote:
+  - platform: harmony
+    name: livingroom
+    host: !secret remote_host
+
+# Sensors
+sensor:
+  # Weather prediction
+  - platform: yr
+  #RFXCOM
+  - platform: rfxtrx
+    automatic_add: true
+  #slimme meter
+  - platform: dsmr
+    host: !secret dsmr_ip
+    port: !secret dsmr_poort
+    dsmr_version: 4
+  #raam sensoren
+  - platform: mqtt
+    name: "Voor-links"
+    state_topic: "Voorraam-links"
+  #essent
+  - platform: essent
+    username: !secret essent_user
+    password: !secret essent_password
+
+binary_sensor:
+  #RFXCOM
+  - platform: rfxtrx
+    #automatic_add: true
+    devices:
+      0b110067011f84d20a010f70:
+        name: Backdoor
+
+#ios intergratie
+ios:
+
+#mqtt broker
+mqtt:
+  broker: !secret mqtt_broker
+  username: !secret mqtt_user
+  password: !secret mqtt_password
+
+#Octoprint
+octoprint:
+  - host: !secret octoprint_host
+    api_key: !secret octoprint_api
+    name: Creality CR-10
+    number_of_tools: 1
+    sensors:
+      monitored_conditions:
+        - 'Current State'
+        - 'Job Percentage'
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+#checking for updates
+updater:
+
+# UI
+lovelace:
+  mode: yaml
+
+system_health:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+light: !include lights.yaml
