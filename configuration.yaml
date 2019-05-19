@@ -76,7 +76,7 @@ ring:
   username: !secret ring_username 
   password: !secret ring_password
 
-#Harmony hub
+#Harmony hubb
 remote:
   - platform: harmony
     name: livingroom
