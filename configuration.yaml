@@ -110,6 +110,10 @@ sensor:
   - platform: essent
     username: !secret essent_user
     password: !secret essent_password
+  #postNL Pakket en Briefpost dienst
+  - platform: postnl
+    username: !secret POSTNL_USERNAME
+    password: !secret POSTNL_PASSWORD
 
 binary_sensor:
   #RFXCOM
