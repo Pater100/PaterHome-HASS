@@ -37,6 +37,7 @@ homekit:
       - script
 
 #camera
+stream:
 camera:
   - platform: ring
   - platform: mjpeg
