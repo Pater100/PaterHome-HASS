@@ -128,10 +128,6 @@ switch:
   #RFXCOM
   - platform: rfxtrx
 
-light:
-  #RFXCOM
-  - platform: rfxtrx
-
 #ios intergratie
 ios:
 
