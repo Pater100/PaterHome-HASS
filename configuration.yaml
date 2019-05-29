@@ -119,10 +119,18 @@ sensor:
 binary_sensor:
   #RFXCOM
   - platform: rfxtrx
-    #automatic_add: true
+    automatic_add: true
     devices:
       0b110067011f84d20a010f70:
         name: Backdoor
+
+switch:
+  #RFXCOM
+  - platform: rfxtrx
+
+light:
+  #RFXCOM
+  - platform: rfxtrx
 
 #ios intergratie
 ios:
