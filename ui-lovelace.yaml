@@ -44,6 +44,23 @@ views:
   - id: schakelaars
     icon: mdi:light-switch
     title: Schakelaars
-    card:
+    cards:
+      - type: horizontal-stack
+        cards:
+        - type: entity-button
+          name: eetkamer lampen
+          icon: mdi:silverware-fork-knife
+          entity: light.eetkamer_group
+          hold_action:
+        - type: entity-button
+          name: keuken lampen
+          icon: mdi:fridge-outline
+          entity: light.keuken_group
+        - type: entity-button
+          name: woonkamer
+          icon: mdi:sofa
+          entity: light.woonkamer_group
+
+
 
 
