@@ -61,13 +61,9 @@ views:
           entity: light.woonkamer_group
       - type: horizontal-stack
         cards:
-        - type: picture-glance
-          name: Printer
-          entities:
-            - light.tradfri_driver
-          camera_image: camera.octoprint
-          camera_view: live
-
+        - type: entity-button
+          icon: mdi:code-braces
+          entity: light.tradfri_driver
 
 
 
