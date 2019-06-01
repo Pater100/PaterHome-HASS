@@ -62,6 +62,7 @@ views:
       - type: horizontal-stack
         cards:
         - type: entity-button
+          name: workspace
           icon: mdi:code-braces
           entity: light.tradfri_driver
 
