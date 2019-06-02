@@ -120,8 +120,8 @@ sensor:
     password: !secret POSTNL_PASSWORD
   #glances (Sensor from host)
   - platform: glances
-    host: 192.168.2.155
-    port: 61208
+    host: !secret glances_host
+    port: !secret glances_port
     resources:
       - 'memory_use_percent'
       - 'processor_load'
