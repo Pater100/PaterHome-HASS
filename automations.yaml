@@ -1,0 +1,9 @@
+#this automation switches all lights of when i leave the house.
+- alias: 'lichten uit bij vertrek'
+  trigger:
+    - platform: state
+      entity_id: person.patrick_smits
+      to: "afwezig"
+  action:
+    service: light.turn_off
+    entity_id: group.all_lights
