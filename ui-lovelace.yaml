@@ -65,6 +65,3 @@ views:
           name: workspace
           icon: mdi:code-braces
           entity: light.tradfri_driver
-
-
-
