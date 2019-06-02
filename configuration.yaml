@@ -107,6 +107,9 @@ sensor:
   - platform: mqtt
     name: "Voor-links"
     state_topic: "Voorraam-links"
+  - platform: mqtt
+    name: "voor-rechts"
+    state_topic: "Voorraam-rechts"
   #essent
   - platform: essent
     username: !secret essent_user
