@@ -121,11 +121,9 @@ sensor:
   #glances (Sensor from host)
   - platform: glances
     host: !secret glances_host
-    port: !secret glances_port
+    version: 3
     resources:
       - 'memory_use_percent'
-      - 'processor_load'
-      - 'cpu_temp'
       - 'cpu_use_percent'
 
 binary_sensor:
