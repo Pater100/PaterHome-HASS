@@ -1,1 +1,9 @@
-switch:
+#switch declarations
+  - platform: mqtt
+    name: "keuken werkplaats"
+    command_topic: "cmnd/keuken-workspace/POWER"
+    state_topic: "cmnd/keuken-workspace/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true

@@ -158,6 +158,10 @@ octoprint:
         - 'Current State'
         - 'Job Percentage'
 
+#SabNZBD
+sabnzbd:
+  api_key: !secret sabnzbd_api
+
 # Text to speech
 tts:
   - platform: google_translate
