@@ -161,6 +161,7 @@ octoprint:
 #SabNZBD
 sabnzbd:
   api_key: !secret sabnzbd_api
+  host: !secret sabnzbd_host
 
 # Text to speech
 tts:
