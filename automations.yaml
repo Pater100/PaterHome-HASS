@@ -1,9 +1,25 @@
 #this automation switches all lights of when i leave the house.
-- alias: 'lichten uit bij vertrek'
+- alias: 'lichten_uit_bij_vertrek'
   trigger:
-    - platform: state
-      entity_id: person.patrick_smits
-      to: "afwezig"
+    platform: state
+    entity_id: person.patrick_smits
+    to: 'not_home'
   action:
     service: light.turn_off
     entity_id: group.all_lights
+
+- alias: 'alarm_openen_achterdeur'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.backdoor
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: person.patrick_smits
+      state: 'not_home'
+  action:
+    service: notify.ios_pater100
+    data:
+      title: 'Indringer!'
+      message: 'Iemand komt binnen via de achterdeur'
