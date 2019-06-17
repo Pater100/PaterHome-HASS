@@ -174,10 +174,6 @@ updater:
 lovelace:
   mode: yaml
 
-#speedtest
-fastdotcom:
-
-
 system_health:
 
 group: !include groups.yaml
