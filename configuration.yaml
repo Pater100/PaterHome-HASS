@@ -167,6 +167,11 @@ sabnzbd:
 tts:
   - platform: google_translate
 
+#HACS
+hacs:
+  token: !secret Git_hub_token
+
+
 #checking for updates
 updater:
 
