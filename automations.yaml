@@ -8,6 +8,8 @@
     service: light.turn_off
     entity_id: group.all_lights
 
+#When away, if the backdoor opens. message paterPhone.
+
 - alias: 'alarm_openen_achterdeur'
   trigger:
     platform: state
@@ -23,3 +25,27 @@
     data:
       title: 'Indringer!'
       message: 'Iemand komt binnen via de achterdeur'
+
+#Bayesian Sensor accuratie test
+  
+- alias: 'Pressence_detected_Home'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.patrick_presence
+    to: 'on'
+  action:
+    service: notify.ios_pater100
+    data:
+      title: 'Patrick is Thuis!'
+      message: 'De sensor is geschakeld naar thuis'
+
+- alias: 'Pressence_detected_Away'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.patrick_presence
+    to: 'off'
+  action:
+    service: notify.ios_pater100
+    data:
+      title: 'Patrick is niet meer thuis!'
+      message: 'De sensor is geschakeld naar Afwezig'
