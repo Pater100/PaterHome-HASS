@@ -75,9 +75,9 @@ device_tracker:
   - platform: ping
     hosts:
       hostone: !secret Ping_host_Paterphone
+
 #configuratie Owntrack
 owntracks:
-
 
 #thermostaat
 nest:
@@ -137,6 +137,27 @@ binary_sensor:
     devices:
       0b110067011f84d20a010f70:
         name: Backdoor
+  # Bayesian Sensor
+  - platform: bayesian
+    prior: 0.5
+    name: 'Patrick presence'
+    probability_threshold: 0.9
+    observations:
+      - entity_id: 'device_tracker.hostone'
+        prob_given_true: 0.9
+        prob_given_false: 0.1
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: 'device_tracker.pater100_owntrack'
+        prob_given_true: 0.9
+        prob_given_false: 0.4
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: 'device_tracker.pater100'
+        prob_given_true: 0.9
+        prob_given_false: 0.2
+        platform: 'state'
+        to_state: 'home'
 
 #ios intergratie
 ios:
