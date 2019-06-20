@@ -207,3 +207,4 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 light: !include lights.yaml
 switch: !include switch.yaml
+scene: !include scene.yaml
