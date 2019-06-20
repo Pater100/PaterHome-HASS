@@ -26,6 +26,35 @@
       title: 'Indringer!'
       message: 'Iemand komt binnen via de achterdeur'
 
+#one light only can be on at one time upstairs
+- alias: 'Als lampen aan in werkkamer'
+  trigger:
+    platform: state
+    entity_id: light.werkkamer_group
+    from: 'off'
+    to: 'on'
+  action:
+    service: scene.turn_on
+    entity_id: scene.Bedroom_en_bathroom_off
+- alias: 'Als lampen aan in slaapkamer'
+  trigger:
+    platform: state
+    entity_id: light.slaapkamer_group
+    from: 'off'
+    to: 'on'
+  action:
+    service: scene.turn_on
+    entity_id: scene.office_en_bathroom_off
+- alias: 'als lampen aan in badkamer'
+  trigger:
+    platform: state
+    entity_id: light.badkamer_group
+    from: 'off'
+    to: 'on'
+  action:
+    service: scene.turn_on
+    entity_id: scene.Bedroom_en_office_off
+
 #Bayesian Sensor accuratie test
   
 - alias: 'Pressence_detected_Home'
