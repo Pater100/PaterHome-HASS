@@ -32,6 +32,10 @@
     entity_id: light.werkkamer_group
     from: 'off'
     to: 'on'
+  condition:
+    condition: sun
+    after: 'sunset'
+    after_offset: '-01:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.Bedroom_en_bathroom_off
@@ -41,6 +45,10 @@
     entity_id: light.slaapkamer_group
     from: 'off'
     to: 'on'
+  condition:
+    condition: sun
+    after: 'sunset'
+    after_offset: '-01:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.office_en_bathroom_off
@@ -50,6 +58,10 @@
     entity_id: light.badkamer_group
     from: 'off'
     to: 'on'
+  condition:
+    condition: sun
+    after: 'sunset'
+    after_offset: '-01:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.Bedroom_en_office_off
