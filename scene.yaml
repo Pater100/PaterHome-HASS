@@ -1,3 +1,4 @@
+#Scenes for one light on upstairs
 - name: Bedroom en bathroom off
   entities:
     light.slaapkamer_group:
