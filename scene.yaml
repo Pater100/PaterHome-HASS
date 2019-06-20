@@ -1,0 +1,18 @@
+- name: Bedroom en bathroom off
+  entities:
+    light.slaapkamer_group:
+      state: false
+    light.badkamer_group:
+      state: false
+- name: Bedroom en office off
+  entities:
+    light.slaapkamer_group:
+      state: false
+    light.werkkamer_group:
+      state: false
+- name: office en bathroom off
+  entities:
+    light.werkkamer_group:
+      state: false
+    light.badkamer_group:
+      state: false
