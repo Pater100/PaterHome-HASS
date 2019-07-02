@@ -12,7 +12,6 @@
 .cloud
 .google.token
 node-red
-scenegen
 
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
