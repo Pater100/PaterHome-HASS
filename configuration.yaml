@@ -192,6 +192,13 @@ tts:
 hacs:
   token: !secret Git_hub_token
 
+#iBeacon zones
+zone:
+  - name: 'paterhome'
+    latitude: !secret latitude
+    longitude: !secret longitude
+    radius: 100
+
 
 #checking for updates
 updater:
