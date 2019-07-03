@@ -33,7 +33,7 @@ views:
           line_width: 8
           font_size: 75
       - type: weather-forecast
-        entity: weather.volkel
+        entity: weather.uden
       - type: picture-glance
         title: Living room
         entities:
