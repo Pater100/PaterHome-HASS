@@ -17,3 +17,17 @@
       state: false
     light.badkamer_group:
       state: false
+    
+#Scene for livingroom lights
+- name: Ambiance
+  entities:
+    light.keuken_group:
+      state: true
+      color_temp: 366
+      brightness: 1
+    light.staande_lamp_bank:
+      state: true
+      brightness: 1
+    light.tv_lamp:
+      state: true
+      brightness: 1
