@@ -192,7 +192,7 @@ tts:
 hacs:
   token: !secret Git_hub_token
 
-#iBeacon zones
+#iBeacon zones (in need for change)
 zone:
   - name: 'paterhome'
     latitude: !secret latitude
