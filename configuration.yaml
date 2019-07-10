@@ -71,6 +71,11 @@ device_tracker:
     password: !secret device_tracker_password
     new_device_defaults:
       track_new_devices: true
+  #custom component for detecting Paterphone
+  - platform: iphonedetect
+    consider_home: 60
+    hosts:
+      iPhone_Paterphone: !secret Paterphone_ip
   # ping naat paterphone voor pressence detection 
   - platform: ping
     hosts:
@@ -143,7 +148,7 @@ binary_sensor:
     name: 'Patrick presence'
     probability_threshold: 0.9
     observations:
-      - entity_id: 'device_tracker.hostone'
+      - entity_id: 'device_tracker.iphone_paterphone'
         prob_given_true: 0.9
         prob_given_false: 0.1
         platform: 'state'
