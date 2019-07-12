@@ -134,6 +134,18 @@ sensor:
     resources:
       - 'memory_use_percent'
       - 'cpu_use_percent'
+  #pi-hole
+  - platform: pi_hole
+    host: !secret pi_hole_ip
+    monitored_conditions:
+      - ads_blocked_today
+      - ads_percentage_today
+      - dns_queries_today
+      - domains_being_blocked
+      - queries_cached
+      - queries_forwarded
+      - unique_clients
+      - unique_domains
 
 binary_sensor:
   #RFXCOM
@@ -203,7 +215,6 @@ zone:
     latitude: !secret latitude
     longitude: !secret longitude
     radius: 100
-
 
 #checking for updates
 updater:
