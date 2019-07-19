@@ -58,7 +58,7 @@ rfxtrx:
 weather:
   - platform: buienradar
     name: 'Uden'
-    # Forceer 'Meetstation Volkel'
+    # Forceer 'Meetstation Uden'
     latitude: !secret weerstation_latitude
     longitude: !secret weerstation_longitude
     forecast: true
