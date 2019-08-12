@@ -178,6 +178,7 @@ binary_sensor:
 
 #ios intergratie
 ios:
+apple_tv:
 
 #mqtt broker
 mqtt:
