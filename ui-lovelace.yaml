@@ -35,7 +35,7 @@ views:
       - type: weather-forecast
         entity: weather.uden
       - type: picture-glance
-        title: Living room
+        title: Replicator Room
         entities:
           - light.tradfri_driver
         camera_image: camera.octoprint
