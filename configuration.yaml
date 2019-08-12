@@ -134,6 +134,12 @@ sensor:
     resources:
       - 'memory_use_percent'
       - 'cpu_use_percent'
+  #platform rest API
+  - platform: rest
+    name: CPU-temprature
+    resource: !secret CPU_temp_sensor_adres
+    value_template: '{{ value_json[3]["value"] }}'
+    unit_of_measurement: "°C"
   #pi-hole
   - platform: pi_hole
     host: !secret pi_hole_ip
