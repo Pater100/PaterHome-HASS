@@ -208,6 +208,10 @@ sabnzbd:
   api_key: !secret sabnzbd_api
   host: !secret sabnzbd_host
 
+media_player:
+  - platform: samsungtv
+    host: !secret tv_IP
+
 # Text to speech
 tts:
   - platform: google_translate
