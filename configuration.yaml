@@ -217,9 +217,19 @@ sabnzbd:
   api_key: !secret sabnzbd_api
   host: !secret sabnzbd_host
 
+#media player apparaten
 media_player:
   - platform: samsungtv
     host: !secret tv_ip
+
+#speedtest
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 # Text to speech
 tts:
