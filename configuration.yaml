@@ -185,6 +185,11 @@ binary_sensor:
 #ios intergratie
 ios:
 apple_tv:
+  - host: !secret applt_tv_ip
+    login_id: !secret apple_tv_login
+    name: apple TV Livingroom
+    start_off: true
+    credentials: !secret apple_tv_credentials
 
 #mqtt broker
 mqtt:
@@ -210,7 +215,7 @@ sabnzbd:
 
 media_player:
   - platform: samsungtv
-    host: !secret tv_IP
+    host: !secret tv_ip
 
 # Text to speech
 tts:
