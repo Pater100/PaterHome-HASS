@@ -152,6 +152,8 @@ sensor:
       - queries_forwarded
       - unique_clients
       - unique_domains
+  #ring Sensor
+  - platform: ring
 
 binary_sensor:
   #RFXCOM
@@ -181,6 +183,8 @@ binary_sensor:
         prob_given_false: 0.2
         platform: 'state'
         to_state: 'home'
+  #Ring
+  - platform: ring
 
 #ios intergratie
 ios:
