@@ -75,3 +75,26 @@
     data:
       title: 'Patrick is niet meer thuis!'
       message: 'De sensor is geschakeld naar Afwezig'
+
+#Turning Versterker on when tv turns on
+- alias: 'Turn Homecinema Set on when TV is on'
+  initial_state: true
+  trigger:
+    - entity_id: media_player.samsung_tv_remote
+      platform: state
+      to: 'on'
+  action:
+    data:
+      entity_id: script.versterker_aan
+    service: script.turn_on
+
+- alias: 'turn Homecinema Set off when TV is off'
+  initial_state: true
+  trigger:
+    - entity_id: media_player.samsung_tv_remote
+      platform: state
+      to: 'off'
+  action:
+    data:
+      entity_id: script.versterker_aan
+    service: script.turn_on
