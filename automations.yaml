@@ -1,5 +1,6 @@
 #this automation switches all lights of when i leave the house.
 - alias: 'lichten_uit_bij_vertrek'
+  hide_entity: true
   trigger:
     platform: state
     entity_id: person.patrick_smits
@@ -10,6 +11,7 @@
 
 #When away, if the backdoor opens. message paterPhone.
 - alias: 'alarm_openen_achterdeur'
+  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.backdoor
@@ -27,6 +29,7 @@
 
 #one light only can be on at one time upstairs
 - alias: 'Als lampen aan in werkkamer'
+  hide_entity: true
   trigger:
     platform: state
     entity_id: light.werkkamer_group
@@ -36,6 +39,7 @@
     service: scene.turn_on
     entity_id: scene.Bedroom_en_bathroom_off
 - alias: 'Als lampen aan in slaapkamer'
+  hide_entity: true
   trigger:
     platform: state
     entity_id: light.slaapkamer_group
@@ -45,6 +49,7 @@
     service: scene.turn_on
     entity_id: scene.office_en_bathroom_off
 - alias: 'als lampen aan in badkamer'
+  hide_entity: true
   trigger:
     platform: state
     entity_id: light.badkamer_group
@@ -56,6 +61,7 @@
 
 #Bayesian Sensor accuratie test
 - alias: 'Pressence_detected_Home'
+  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.patrick_presence
@@ -66,6 +72,7 @@
       title: 'Patrick is Thuis!'
       message: 'De sensor is geschakeld naar thuis'
 - alias: 'Pressence_detected_Away'
+  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.patrick_presence
@@ -78,6 +85,7 @@
 
 #Turning Versterker on when tv turns on
 - alias: 'Turn Homecinema Set on when TV is on'
+  hide_entity: true
   initial_state: true
   trigger:
     - entity_id: media_player.samsung_tv_remote
@@ -90,6 +98,7 @@
 
 - alias: 'turn Homecinema Set off when TV is off'
   initial_state: true
+  hide_entity: true
   trigger:
     - entity_id: media_player.samsung_tv_remote
       platform: state
@@ -98,3 +107,19 @@
     data:
       entity_id: script.versterker_aan
     service: script.turn_on
+
+- alias: 'tv on after sunset, turn on ambiance scene'
+  initial_state: true
+  hide_entity: true
+  trigger:
+    - entity_id: media_player.samsung_tv_remote
+      platform: state
+      to: 'on'
+  condition:
+    condition: sun
+    after: sunset
+    after_offset: "-00:30:00"
+  action:
+    data:
+      entity_id: scene.ambiance
+    service: scene.turn_on
