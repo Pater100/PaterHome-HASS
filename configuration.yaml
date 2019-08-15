@@ -253,6 +253,9 @@ updater:
 lovelace:
   mode: yaml
 
+#sun
+sun:
+
 system_health:
 
 group: !include groups.yaml
