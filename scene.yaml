@@ -33,3 +33,9 @@
       state: true
       brightness: 1
       rgb_color: [255,182,109]
+
+#scene for turning off all lights
+- name: Alle Lampen uit
+  entities:
+    group.all_lights:
+      state: false
