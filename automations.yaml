@@ -123,3 +123,20 @@
     data:
       entity_id: scene.ambiance
     service: scene.turn_on
+
+#lights can't turn on when not at home
+- alias: "lights can't turn on when nobady is home"
+  initial_state: true
+  hide_entity: true
+  trigger:
+    - entity_id: group.all_lights
+      platform: state
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: binary_sensor.patrick_presence
+    state: 'off'
+  action:
+    data:
+      entity_id: scene.alle_lampen_uit
+    service: scene.turn_on
