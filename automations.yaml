@@ -140,3 +140,25 @@
     data:
       entity_id: scene.alle_lampen_uit
     service: scene.turn_on
+
+#night and morning routine automations
+- alias: 'if frontdoor opens at night, turn lights on in bedroom'
+  initial_state: true
+  hide_entity: true
+  trigger:
+    - entity_id: binary_sensor.frontdoor
+      platform: state
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.patrick_presence
+      state: 'on'
+    - condition: time
+      after: '23:00:00'
+      before: '06:00:00'
+  action:
+    data:
+      entity_id: scene.slaapkamer_lichten_100%
+    service: scene.turn_on
