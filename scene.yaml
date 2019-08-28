@@ -39,3 +39,10 @@
   entities:
     group.all_lights:
       state: false
+
+#alarm light when door opens in the middle of the night
+- name: slaapkamer lichten 100%
+  entities:
+    light.slaapkamer_group:
+      state: true
+      brightness: 100
