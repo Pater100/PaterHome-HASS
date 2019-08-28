@@ -162,7 +162,7 @@
     data:
       entity_id: scene.slaapkamer_lichten_100%
     service: scene.turn_on
-  
+
 - alias: 'if backdoor opens at night, turn lights on in bedroom'
   initial_state: true
   hide_entity: true
