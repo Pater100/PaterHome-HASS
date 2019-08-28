@@ -160,7 +160,7 @@
       before: '06:00:00'
   action:
     data:
-      entity_id: scene.slaapkamer_lichten_100%
+      entity_id: scene.slaapkamer_lichten_100
     service: scene.turn_on
 
 - alias: 'if backdoor opens at night, turn lights on in bedroom'
@@ -181,5 +181,5 @@
       before: '06:00:00'
   action:
     data:
-      entity_id: scene.slaapkamer_lichten_100%
+      entity_id: scene.slaapkamer_lichten_100
     service: scene.turn_on
