@@ -45,4 +45,4 @@
   entities:
     light.slaapkamer_group:
       state: true
-      brightness: 100
+      brightness: 254
