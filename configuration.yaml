@@ -225,7 +225,7 @@ media_player:
 #speedtest
 speedtestdotnet:
   scan_interval:
-    minutes: 30
+    minutes: 60
   monitored_conditions:
     - ping
     - download
