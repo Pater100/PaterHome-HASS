@@ -162,6 +162,8 @@ binary_sensor:
     devices:
       0b110067011f84d20a010f70:
         name: Backdoor
+      0b11000a0161ec560a000070:
+        name: Frontdoor
   # Bayesian Sensor
   - platform: bayesian
     prior: 0.5
