@@ -224,15 +224,6 @@ media_player:
   - platform: samsungtv
     host: !secret tv_ip
 
-#speedtest
-speedtestdotnet:
-  scan_interval:
-    minutes: 60
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
 # Text to speech
 tts:
   - platform: google_translate
