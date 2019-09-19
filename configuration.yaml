@@ -142,7 +142,6 @@ sensor:
     unit_of_measurement: "°C"
   #pi-hole
   - platform: pi_hole
-    host: !secret pi_hole_ip
     
   #ring Sensor
   - platform: ring
@@ -179,6 +178,10 @@ binary_sensor:
         to_state: 'home'
   #Ring
   - platform: ring
+
+#Pi-hole
+pi_hole:
+  host: !secret pi_hole_ip
 
 #ios intergratie
 ios:
