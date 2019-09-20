@@ -7,3 +7,11 @@
     payload_on: "ON"
     payload_off: "OFF"
     retain: true
+  - platform: mqtt
+    name: "Schuur"
+    command_topic: "cmnd/sonoffschuur/POWER"
+    state_topic: "cmnd/sonoffschuur/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
