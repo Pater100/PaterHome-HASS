@@ -142,7 +142,6 @@ sensor:
     unit_of_measurement: "°C"
   #pi-hole
   - platform: pi_hole
-    
   #ring Sensor
   - platform: ring
 
