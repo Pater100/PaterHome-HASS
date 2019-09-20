@@ -65,3 +65,7 @@ views:
           name: workspace
           icon: mdi:code-braces
           entity: light.tradfri_driver
+        - type: entity-button
+          name: Schuur
+          icon: mdi:code-braces
+          entity: switch.schuur
