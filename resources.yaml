@@ -1,0 +1,4 @@
+- url: /local/mini-graph-card-bundle.js?v=0.3.3
+  type: module
+- url: /community_plugin/weather-card/weather-card.js
+  type: module
