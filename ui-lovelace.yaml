@@ -1,7 +1,3 @@
-resources:
-  - url: /local/mini-graph-card-bundle.js?v=0.3.3
-    type: module
-
 views:
   - id: Algemeen
     icon: mdi:castle
@@ -32,7 +28,7 @@ views:
           line_color: '#e74c3c'
           line_width: 8
           font_size: 75
-      - type: weather-forecast
+      - type: custom:weather-card
         entity: weather.uden
       - type: picture-glance
         title: Replicator Room
@@ -67,5 +63,7 @@ views:
           entity: light.tradfri_driver
         - type: entity-button
           name: Schuur
-          icon: mdi:code-braces
+          icon: mdi:bank
           entity: switch.schuur
+
+resources: !include resources.yaml
