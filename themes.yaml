@@ -42,7 +42,7 @@ Dark - Blue:
   table-row-background-color: var(--primary-background-color)
   table-row-alternative-background-color: var(--secondary-background-color)
 
-dark:
+Pater-dark:
   # Background image
   background-image: 'center / cover no-repeat url("/local/night.jpg") fixed'
 
