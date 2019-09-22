@@ -154,6 +154,10 @@ binary_sensor:
         name: Backdoor
       0b11000a0161ec560a000070:
         name: Frontdoor
+      0b1100000180f5ee0a000060:
+        name: Schuurdeur
+      0b1100000161ee3a0a000070:
+        name: schuurpoort
   # Bayesian Sensor
   - platform: bayesian
     prior: 0.5
