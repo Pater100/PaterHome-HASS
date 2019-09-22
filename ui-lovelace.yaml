@@ -1,19 +1,30 @@
 views:
-  - id: Algemeen
+  - id: Algemeen nieuw
     icon: mdi:castle
-    title: Algemeen
+    title: Info Glance
     cards:
-      - type: vertical-stack
-        cards:     
-        - type: custom:mini-graph-card
-          name: Tempratuur
-          animate: true
-          entities:
-            - sensor.living_room_thermostat_temperature
-            - sensor.toilet_sensor_temperature
-            - sensor.hue_motion_sensor_1_temperature
+    - type: vertical-stack
+      cards:
+      - type: custom:weather-card
+        entity: weather.uden   
+      - type: custom:mini-graph-card
+        name: Tempratuur
+        animate: true
+        entities:
+          - sensor.living_room_thermostat_temperature
+          - sensor.toilet_sensor_temperature
+          - sensor.hue_motion_sensor_1_temperature
+    - type: vertical-stack
+      cards:
       - type: horizontal-stack
         cards:
+        - type: custom:mini-graph-card
+          name: Electriciteit verbruik
+          entities:
+            - sensor.power_consumption
+          line_color: yellow
+          line_width: 8
+          font_size: 75
         - type: custom:mini-graph-card
           name: Luchtvochtigheid
           entities:
@@ -21,21 +32,64 @@ views:
           line_color: blue
           line_width: 8
           font_size: 75
+    - type: vertical-stack
+      cards:
+      - type: horizontal-stack
+        cards:
         - type: custom:mini-graph-card
-          name: Electriciteit verbruik
+          name: Gasverbruik
           entities:
-            - sensor.power_consumption
-          line_color: '#e74c3c'
+            - sensor.hourly_gas_consumption
+          line_color: red
           line_width: 8
           font_size: 75
-      - type: custom:weather-card
-        entity: weather.uden
-      - type: picture-glance
-        title: Replicator Room
-        entities:
-          - light.tradfri_driver
-        camera_image: camera.octoprint
-        camera_view: live
+        - type: custom:mini-graph-card
+          name: Server CPU
+          entities:
+            - sensor.cpu_temprature
+          line_color: green
+          line_width: 8
+          font_size: 75
+      - type: horizontal-stack
+        cards:
+        - type: entities
+          title: Beweging sensoren & deur sensoren 
+          show_header_toggle: false
+          entities:
+            - sensor.ring_front_door_last_motion
+            - binary_sensor.hue_motion_sensor_1_motion
+            - binary_sensor.backdoor
+            - binary_sensor.frontdoor
+    - type: horizontal-stack
+      cards:
+      - type: light
+        name: Woonkamer
+        icon: mdi:sofa
+        entity: light.woonkamer_group
+      - type: light
+        name: Eetkamertafel
+        icon: mdi:silverware-fork-knife
+        entity: light.eetkamer_group
+    - type: horizontal-stack
+      cards:
+      - type: light
+        name: keuken
+        icon: mdi:fridge-outline
+        entity: light.keuken_group
+      - type: light
+        name: gang
+        icon: mdi:hanger
+        entity: light.gang_group
+    - type: horizontal-stack
+      cards:
+      - type: light
+        name: Replicator
+        icon: mdi:printer-3d-nozzle
+        entity: light.werkkamer_group
+      - type: light
+        name: slaapkamer
+        icon: mdi:bed-empty
+        entity: light.slaapkamer_group 
 
   - id: schakelaars
     icon: mdi:light-switch
@@ -43,21 +97,21 @@ views:
     cards:
       - type: horizontal-stack
         cards:
-        - type: entity-button
+        - type: light
           name: eetkamer lampen
           icon: mdi:silverware-fork-knife
           entity: light.eetkamer_group
-        - type: entity-button
+        - type: light
           name: keuken lampen
           icon: mdi:fridge-outline
           entity: light.keuken_group
-        - type: entity-button
+        - type: light
           name: woonkamer
           icon: mdi:sofa
           entity: light.woonkamer_group
       - type: horizontal-stack
         cards:
-        - type: entity-button
+        - type: light
           name: workspace
           icon: mdi:code-braces
           entity: light.tradfri_driver
