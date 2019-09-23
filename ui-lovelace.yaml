@@ -56,8 +56,8 @@ views:
           title: Beweging sensoren & deur sensoren 
           show_header_toggle: false
           entities:
-            - sensor.ring_front_door_last_motion
-            - binary_sensor.hue_motion_sensor_1_motion
+            - binary_sensor.schuurpoort
+            - binary_sensor.schuurdeur
             - binary_sensor.backdoor
             - binary_sensor.frontdoor
     - type: horizontal-stack
