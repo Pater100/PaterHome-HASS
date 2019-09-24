@@ -9,7 +9,7 @@
     service: light.turn_off
     entity_id: group.all_lights
 
-#When away, if the backdoor opens. message paterPhone.
+#notifications
 - alias: 'alarm_openen_achterdeur'
   hide_entity: true
   trigger:
@@ -26,8 +26,56 @@
     data:
       title: 'Indringer!'
       message: 'Iemand komt binnen via de achterdeur'
+- alias: 'alarm_openen_Voordeur'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.frontdoor
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: person.patrick_smits
+      state: 'not_home'
+  action:
+    service: notify.ios_pater100
+    data:
+      title: 'Indringer!'
+      message: 'Iemand komt binnen via de voordeur'
+- alias: 'alarm_openen_schuurdeur'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.schuurdeur
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: person.patrick_smits
+      state: 'not_home'
+  action:
+    service: notify.ios_pater100
+    data:
+      title: 'Indringer!'
+      message: 'Iemand komt binnen via de schuurdeur'
+- alias: 'alarm_openen_schuurpoort'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.schuurpoort
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: person.patrick_smits
+      state: 'not_home'
+  action:
+    service: notify.ios_pater100
+    data:
+      title: 'Indringer!'
+      message: 'Iemand komt binnen via de schuurpoort'
 
-#one light only can be on at one time upstairs
+#Light System Upstairs
 - alias: 'Als lampen aan in werkkamer'
   hide_entity: true
   trigger:
