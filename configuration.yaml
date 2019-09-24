@@ -25,6 +25,8 @@ http:
 
 # Discover some devices automatically
 discovery:
+  ignore:
+    - apple_tv
 #themes
 frontend:
   themes: !include themes.yaml
@@ -35,6 +37,7 @@ homekit:
     include_domains:
       - climate
       - script
+      - switch
 
 #camera
 stream:
