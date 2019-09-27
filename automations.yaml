@@ -232,11 +232,24 @@
       entity_id: scene.slaapkamer_lichten_100
     service: scene.turn_on
 
+#light System in Shed
 - alias: "if shed door opens turn shed lights on"
   initial_state: true
   hide_entity: true
   trigger:
     - entity_id: binary_sensor.schuurdeur
+      platform: state
+      to: 'on'
+  action:
+    data:
+      entity_id: switch.schuur
+    service: switch.turn_on
+
+- alias: "if shed backdoor opens turn on shed lights"
+  initial_state: true
+  hide_entity: true
+  trigger:
+    - entity_id: binary_sensor.schuurpoort
       platform: state
       to: 'on'
   action:
