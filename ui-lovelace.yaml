@@ -53,7 +53,7 @@ views:
       - type: horizontal-stack
         cards:
         - type: entities
-          title: Beweging sensoren & deur sensoren 
+          title: Deur sensoren 
           show_header_toggle: false
           entities:
             - binary_sensor.schuurpoort
