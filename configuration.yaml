@@ -39,6 +39,12 @@ homekit:
       - script
       - switch
 
+calendar:
+  - platform: caldav
+    username: !secret caldav_username
+    password: !secret caldav_password
+    url: https://caldav.icloud.com 
+
 #camera
 stream:
 camera:
