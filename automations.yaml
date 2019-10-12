@@ -101,6 +101,42 @@
       title: 'Indringer!'
       message: 'Iemand komt binnen via de schuurpoort'
 
+# - alias: "Home assistant Update"
+#   trigger:
+#     platform: state
+#     entity_id: sensor.version_availeble
+#   condition:
+#     - condition: template
+#       value_template: >-
+#         {{
+#           states('sensor.version_availeble')
+#           !=
+#           states('sensor.version_current')
+#         }}
+#   action:
+#     - service: notify.ios_pater100
+#       data_template:
+#         title: "Home assistant update"
+#           message: >-
+#             {% if is_state('sensor.potential_breaking_changes', '0') %}
+#             Er is een Home Assistant update beschikbaar.
+#             Versie: {{ states('sensor.version_available') }} .
+#             {% else %}
+#             Er is een Home Assistant update beschikbaar.
+#             Versie: {{ states('sensor.version_available') }} .
+#             LET OP: ER ZIJN {{ states('sensor.potential_breaking_changes') }} BREAKING CHANGES.
+#           {% endif %}
+#         data:
+#           attachment:
+#             content-type: png
+#             url: https://cdn1.iconfinder.com/data/icons/basic-ui-elements-color/700/012_refresh-512.png
+#     - service: persistent_notification.create
+#       data_template:
+#         title: "Home Assistant update"
+#         message: >-
+#           Er is een Home Assistant update voor Hass.io beschikbaar!
+#           Versie: {{ states('sensor.version_available') }} .
+#         notification_id: hassio_upgrade
 #   __ _       _     _                   _                 
 #  / /(_) __ _| |__ | |_   ___ _   _ ___| |_ ___ _ __ ___  
 # / / | |/ _` | '_ \| __| / __| | | / __| __/ _ \ '_ ` _ \ 
