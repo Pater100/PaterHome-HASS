@@ -154,7 +154,12 @@ sensor:
   #ring Sensor
   - platform: ring
   #Version Checker
-  - platform: version 
+  - platform: version
+    name: version_availeble
+    source: hassio
+    image: qemux86-64
+  - platform: version
+    name: version_current
 
 binary_sensor:
   #RFXCOM
