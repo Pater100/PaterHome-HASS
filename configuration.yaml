@@ -153,6 +153,8 @@ sensor:
   - platform: pi_hole
   #ring Sensor
   - platform: ring
+  #Version Checker
+  - platform: version 
 
 binary_sensor:
   #RFXCOM
