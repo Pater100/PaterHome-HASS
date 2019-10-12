@@ -90,16 +90,6 @@ views:
         name: slaapkamer
         icon: mdi:bed-empty
         entity: light.slaapkamer_group 
-    # - type: horizontal-stack
-    #   cards:
-    #   - type: "custom:atomic-calendar"
-    #     title: "Kalender"
-    #     enableModeChange: true
-    #     defaultMode: 1
-    #     entities:
-    #     - entity: calendar.patrick
-    #       type: icon2
-
 
   - id: schakelaars
     icon: mdi:light-switch
