@@ -256,6 +256,9 @@ zone:
 #checking for updates
 updater:
 
+#BrowserMOD
+browser_mod:
+
 # UI
 lovelace:
   mode: yaml
