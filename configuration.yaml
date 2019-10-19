@@ -57,12 +57,15 @@ camera:
     ip: !secret foscam_ip
     username: !secret foscam_username
     password: !secret foscam_password
-  - platform: onvif
-    name: Camera-voor
-    host: !secret foscam_ip
-    username: !secret foscam_username
-    password: !secret foscam_password
-    port: 888
+  # - platform: onvif
+  #   name: Camera-voor
+  #   host: !secret foscam_ip
+  #   username: !secret foscam_username
+  #   password: !secret foscam_password
+  #   port: 888
+
+
+
 
 #usb Passtrough RFXCOM
 rfxtrx:
@@ -149,6 +152,10 @@ sensor:
     resources:
       - 'memory_use_percent'
       - 'cpu_use_percent'
+      - 'memory_free'
+      - 'memory_use'
+      - 'disk_use'
+      - 'disk_free'
   #platform rest API
   - platform: rest
     name: CPU-temprature
