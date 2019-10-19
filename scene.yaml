@@ -33,6 +33,8 @@
       state: true
       brightness: 1
       rgb_color: [255,182,109]
+    light.woonkamer:
+      state: false
 
 #scene for turning off all lights
 - name: Alle Lampen uit
