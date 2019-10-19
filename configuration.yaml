@@ -258,6 +258,7 @@ updater:
 
 #BrowserMOD
 browser_mod:
+  service: browser_mod.no_blackout
 
 # UI
 lovelace:
