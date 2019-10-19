@@ -2,5 +2,5 @@
   type: module
 - url: /community_plugin/weather-card/weather-card.js
   type: module
-- url: /community_plugin/atomic_calendar/atomic_calendar.js
-  type: module
+- url: /community_plugin/calendar-card/calendar-card.js
+  type: js

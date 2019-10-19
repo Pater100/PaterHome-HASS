@@ -89,7 +89,16 @@ views:
       - type: light
         name: slaapkamer
         icon: mdi:bed-empty
-        entity: light.slaapkamer_group 
+        entity: light.slaapkamer_group
+    - type: vertical-stack
+      cards:
+      - type: horizontal-stack
+        cards:
+        - type: custom:calendar-card
+          title: "Agenda Patrick"
+          numberOfDays: 7
+          entities:
+            - calendar.patrick
 
   - id: schakelaars
     icon: mdi:light-switch
