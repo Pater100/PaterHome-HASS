@@ -270,8 +270,8 @@ zone:
 updater:
 
 #BrowserMOD
-browser_mod:
-  service: browser_mod.no_blackout
+# browser_mod:
+#   service: browser_mod.no_blackout
 
 # UI
 lovelace:

@@ -97,6 +97,7 @@ views:
         - type: custom:calendar-card
           title: "Agenda Patrick"
           numberOfDays: 7
+          progressBar: true
           entities:
             - calendar.patrick
 
