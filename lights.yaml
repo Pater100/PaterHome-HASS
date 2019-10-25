@@ -30,8 +30,8 @@
 - platform: group
   name: werkkamer_group
   entities:
-    - light.office_1
-    - light.office_2
+    - light.replicator_room_1
+    - light.replicator_room_2
 
 - platform: group
   name: slaapkamer_group
