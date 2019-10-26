@@ -112,8 +112,8 @@
   trigger:
     platform: state
     entity_id: binary_sensor.replicator_motion_sensor
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
     service: scene.turn_on
     entity_id: scene.Bedroom_en_bathroom_off
@@ -137,6 +137,13 @@
   action:
     service: scene.turn_on
     entity_id: scene.Bedroom_en_office_off
+  # - alias: 'if motion in Replicator room is detected? turn light on'
+  #   hide_entity: true
+  #   trigger:
+  #     platform: state
+  #     entity_id: binary_sensor.replicator_motion_sensor
+  #     from: true
+  #     to: false
 
 #light System in Shed
 - alias: "if shed door opens turn shed lights on"

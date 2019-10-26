@@ -57,12 +57,6 @@ camera:
     ip: !secret foscam_ip
     username: !secret foscam_username
     password: !secret foscam_password
-  # - platform: onvif
-  #   name: Camera-voor
-  #   host: !secret foscam_ip
-  #   username: !secret foscam_username
-  #   password: !secret foscam_password
-  #   port: 888
 
 
 
