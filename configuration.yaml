@@ -96,6 +96,13 @@ device_tracker:
 #configuratie Owntrack
 owntracks:
 
+#Dezonz Logger
+logger:
+  default: info
+  logs:
+    pydeconz: debug
+    homeassistant.components.deconz: debug
+
 #thermostaat
 nest:
   client_id: !secret nest_client_id
