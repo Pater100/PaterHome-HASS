@@ -36,13 +36,13 @@
 - platform: group
   name: slaapkamer_group
   entities:
-    - light.woonkamer_bank
-    - light.woonkamer_gangdeur
-    - light.woonkamer_muur_achter_bank
+    - light.bedroom_1
+    - light.bedroom_2
+    - light.bedroom_3
 
 - platform: group
   name: badkamer_group
   entities:
-    - light.badkamer_1
-    - light.badkamer_2
-    - light.bathroom
+    - light.bathroom_1
+    - light.bathroom_2
+    - light.bathroom_3
