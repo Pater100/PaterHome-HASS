@@ -13,7 +13,7 @@ views:
         entities:
           - sensor.living_room_thermostat_temperature
           - sensor.toilet_sensor_temperature
-          - sensor.hue_motion_sensor_1_temperature
+          - sensor.bedroom_temperature
     - type: vertical-stack
       cards:
       - type: horizontal-stack
