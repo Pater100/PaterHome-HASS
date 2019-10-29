@@ -46,3 +46,12 @@
     - light.bathroom_1
     - light.bathroom_2
     - light.bathroom_3
+
+- platform: group
+  name: Boven_group
+  entities:
+    - light.badkamer_group
+    - light.bathroom_group
+    - light.slaapkamer_group
+    - light.werkkamer_group
+    - light.waskamer
