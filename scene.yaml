@@ -1,23 +1,17 @@
 #Scenes for one light on upstairs
-- name: Bedroom en bathroom off
-  entities:
-    light.slaapkamer_group:
-      state: false
-    light.badkamer_group:
-      state: false
-- name: Bedroom en office off
-  entities:
-    light.slaapkamer_group:
-      state: false
-    light.werkkamer_group:
-      state: false
-- name: office en bathroom off
+- name: Replicator room aan daglicht
   entities:
     light.werkkamer_group:
-      state: false
+      state: true
+- name: badkamer aan daglicht
+  entities:
     light.badkamer_group:
-      state: false
-    
+      state: true
+- name: slaapkamer aan daglight
+  entities:
+    light.slaapkamer_group:
+      state: true
+      
 #Scene for livingroom lights
 - name: Ambiance
   entities:
