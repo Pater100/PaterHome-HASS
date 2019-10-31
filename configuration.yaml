@@ -21,7 +21,6 @@ http:
   base_url: !secret base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
-  api_password: !secret owntracks_api
 
 # Discover some devices automatically
 discovery:

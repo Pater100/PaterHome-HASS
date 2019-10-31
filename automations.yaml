@@ -137,36 +137,36 @@
   action:
     service: scene.turn_on
     entity_id: scene.Bedroom_en_office_off
-- alias: 'if motion in Replicator room is detected? turn light on'
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id: binary_sensor.replicator_motion_sensor
-    to: 'on'
-  action:
-    data:
-      entity_id: light.werkkamer_group
-    service: light.turn_on
-- alias: 'if motion in bedroom is detected? turn on light'
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id: binary_sensor.bedroom_motion
-    to: 'on'
-  action:
-    data:
-      entity_id: light.slaapkamer_group
-    service: light.turn_on
-- alias: 'if motion is bathroom is detected? turn light on'
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id: binary_sensor.bathroom_motion
-    to: 'on'
-  action:
-    data:
-      entity_id: light.badkamer_group
-    service: light.turn_on
+# - alias: 'if motion in Replicator room is detected? turn light on'
+#   hide_entity: true
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.replicator_motion_sensor
+#     to: 'on'
+#   action:
+#     data:
+#       entity_id: light.werkkamer_group
+#     service: light.turn_on
+# - alias: 'if motion in bedroom is detected? turn on light'
+#   hide_entity: true
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.bedroom_motion
+#     to: 'on'
+#   action:
+#     data:
+#       entity_id: light.slaapkamer_group
+#     service: light.turn_on
+# - alias: 'if motion is bathroom is detected? turn light on'
+#   hide_entity: true
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.bathroom_motion
+#     to: 'on'
+#   action:
+#     data:
+#       entity_id: light.badkamer_group
+#     service: light.turn_on
 
 #light System in Shed
 - alias: "if shed door opens turn shed lights on"
