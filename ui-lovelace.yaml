@@ -92,7 +92,7 @@ views:
         entity: light.slaapkamer_group
     - type: vertical-stack
       cards:
-      - type: horizontal-stack
+      - type: vertical-stack
         cards:
         - type: custom:calendar-card
           title: "Agenda Patrick"
@@ -101,6 +101,10 @@ views:
           entities:
             - calendar.patrick
             - calendar.afval_kalender
+    - type: vertical-stack
+      cards:
+      - type: thermostat
+        entity: climate.living_room
 
   - id: schakelaars
     icon: mdi:light-switch
