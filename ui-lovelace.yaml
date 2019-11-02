@@ -105,7 +105,18 @@ views:
       cards:
       - type: thermostat
         entity: climate.living_room
-
+  - title: Surveillance
+    icon: mdi:cctv
+    panel: true
+    cards:
+    - type: vertical-stack
+      cards:
+      - type: custom:surveillance-card
+        thumb_interval: 10
+        update_interval: 1
+        cameras:
+          - entity: camera.foscam_camera
+          - entity: camera.octoprint
   - id: schakelaars
     icon: mdi:light-switch
     title: Schakelaars
