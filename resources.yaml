@@ -4,3 +4,5 @@
   type: module
 - url: /community_plugin/calendar-card/calendar-card.js
   type: js
+- url: /community_plugin/surveillance-card/surveillance-card.js
+  type: module
