@@ -92,7 +92,7 @@ views:
         entity: light.slaapkamer_group
     - type: vertical-stack
       cards:
-      - type: vertical-stack
+      - type: horizontal-stack
         cards:
         - type: custom:calendar-card
           title: "Agenda Patrick"
@@ -105,6 +105,7 @@ views:
       cards:
       - type: thermostat
         entity: climate.living_room
+
   - title: Surveillance
     icon: mdi:cctv
     panel: true
@@ -117,6 +118,7 @@ views:
         cameras:
           - entity: camera.foscam_camera
           - entity: camera.octoprint
+
   - id: schakelaars
     icon: mdi:light-switch
     title: Schakelaars
