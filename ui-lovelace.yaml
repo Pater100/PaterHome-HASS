@@ -148,4 +148,5 @@ views:
           icon: mdi:bank
           entity: switch.schuur
 
+service: browser_mod.no_blackout
 resources: !include resources.yaml
