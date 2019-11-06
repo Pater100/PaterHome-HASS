@@ -3,10 +3,11 @@ views:
     icon: mdi:castle
     title: Info Glance
     cards:
+    #Stack Left
     - type: vertical-stack
       cards:
       - type: custom:weather-card
-        entity: weather.uden   
+        entity: weather.uden
       - type: custom:mini-graph-card
         name: Tempratuur
         animate: true
@@ -14,99 +15,123 @@ views:
           - sensor.living_room_thermostat_temperature
           - sensor.toilet_sensor_temperature
           - sensor.bedroom_temperature
+      - type: vertical-stack
+        cards:
+        - type: horizontal-stack
+          cards:
+          - type: custom:calendar-card
+            title: "Agenda Patrick"
+            numberOfDays: 7
+            progressBar: true
+            entities:
+              - calendar.patrick
+              - calendar.afval_kalender
+    #Stack Middle
+    - type: vertical-stack
+      cards:
+      - type: vertical-stack
+        cards:
+        - type: horizontal-stack
+          cards:
+          - type: custom:mini-graph-card
+            name: Electriciteit verbruik
+            entities:
+              - sensor.power_consumption
+            line_color: yellow
+            line_width: 8
+            font_size: 75
+          - type: custom:mini-graph-card
+            name: Luchtvochtigheid
+            entities:
+              - sensor.living_room_thermostat_humidity
+            line_color: blue
+            line_width: 8
+            font_size: 75
+      - type: vertical-stack
+        cards:
+        - type: horizontal-stack
+          cards:
+          - type: custom:mini-graph-card
+            name: Gasverbruik
+            entities:
+              - sensor.hourly_gas_consumption
+            line_color: red
+            line_width: 8
+            font_size: 75
+          - type: custom:mini-graph-card
+            name: Server CPU
+            entities:
+              - sensor.cpu_temprature
+            line_color: green
+            line_width: 8
+            font_size: 75
+        - type: horizontal-stack
+          cards:
+          - type: entities
+            title: Deur sensoren 
+            show_header_toggle: false
+            entities:
+              - binary_sensor.schuurpoort
+              - binary_sensor.schuurdeur
+              - binary_sensor.backdoor
+              - binary_sensor.frontdoor
+        - type: horizontal-stack
+          cards:
+          - type: "custom:radial-menu"
+            icon: mdi:light-switch
+            name: "Schakelaars"
+            items:
+              - entity: switch.schuur
+                icon: mdi:barn
+                name: Schuur
+                tap_action:
+                  action: toggle
+                  haptic: true
+              - entity: switch.kofiemachine
+                icon: mdi:coffee-maker
+                name: Koffiemachine
+                tap_action: toggle
+                haptic: true
+    #Right Stack
     - type: vertical-stack
       cards:
       - type: horizontal-stack
         cards:
-        - type: custom:mini-graph-card
-          name: Electriciteit verbruik
-          entities:
-            - sensor.power_consumption
-          line_color: yellow
-          line_width: 8
-          font_size: 75
-        - type: custom:mini-graph-card
-          name: Luchtvochtigheid
-          entities:
-            - sensor.living_room_thermostat_humidity
-          line_color: blue
-          line_width: 8
-          font_size: 75
-    - type: vertical-stack
-      cards:
+        - type: light
+          name: Woonkamer
+          icon: mdi:sofa
+          entity: light.woonkamer_group
+        - type: light
+          name: Eetkamertafel
+          icon: mdi:silverware-fork-knife
+          entity: light.eetkamer_group
       - type: horizontal-stack
         cards:
-        - type: custom:mini-graph-card
-          name: Gasverbruik
-          entities:
-            - sensor.hourly_gas_consumption
-          line_color: red
-          line_width: 8
-          font_size: 75
-        - type: custom:mini-graph-card
-          name: Server CPU
-          entities:
-            - sensor.cpu_temprature
-          line_color: green
-          line_width: 8
-          font_size: 75
+        - type: light
+          name: keuken
+          icon: mdi:fridge-outline
+          entity: light.keuken_group
+        - type: light
+          name: gang
+          icon: mdi:hanger
+          entity: light.gang_group
       - type: horizontal-stack
         cards:
-        - type: entities
-          title: Deur sensoren 
-          show_header_toggle: false
-          entities:
-            - binary_sensor.schuurpoort
-            - binary_sensor.schuurdeur
-            - binary_sensor.backdoor
-            - binary_sensor.frontdoor
-    - type: horizontal-stack
-      cards:
-      - type: light
-        name: Woonkamer
-        icon: mdi:sofa
-        entity: light.woonkamer_group
-      - type: light
-        name: Eetkamertafel
-        icon: mdi:silverware-fork-knife
-        entity: light.eetkamer_group
-    - type: horizontal-stack
-      cards:
-      - type: light
-        name: keuken
-        icon: mdi:fridge-outline
-        entity: light.keuken_group
-      - type: light
-        name: gang
-        icon: mdi:hanger
-        entity: light.gang_group
-    - type: horizontal-stack
-      cards:
-      - type: light
-        name: Replicator
-        icon: mdi:printer-3d-nozzle
-        entity: light.werkkamer_group
-      - type: light
-        name: slaapkamer
-        icon: mdi:bed-empty
-        entity: light.slaapkamer_group
-    - type: vertical-stack
-      cards:
+        - type: light
+          name: Replicator
+          icon: mdi:printer-3d-nozzle
+          entity: light.werkkamer_group
+        - type: light
+          name: slaapkamer
+          icon: mdi:bed-empty
+          entity: light.slaapkamer_group
       - type: horizontal-stack
         cards:
-        - type: custom:calendar-card
-          title: "Agenda Patrick"
-          numberOfDays: 7
-          progressBar: true
-          entities:
-            - calendar.patrick
-            - calendar.afval_kalender
-    - type: vertical-stack
-      cards:
-      - type: thermostat
-        entity: climate.living_room
+        - type: thermostat
+          entity: climate.living_room
 
-  - title: Surveillance
+  - id: cameras
+    title: Surveillance
     icon: mdi:cctv
     panel: true
     cards:
@@ -148,5 +173,4 @@ views:
           icon: mdi:bank
           entity: switch.schuur
 
-service: browser_mod.no_blackout
 resources: !include resources.yaml
