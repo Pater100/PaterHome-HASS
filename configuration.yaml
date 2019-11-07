@@ -57,9 +57,6 @@ camera:
     username: !secret foscam_username
     password: !secret foscam_password
 
-
-
-
 #usb Passtrough RFXCOM
 rfxtrx:
   device: /dev/ttyUSB0
