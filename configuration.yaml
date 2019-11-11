@@ -269,6 +269,9 @@ updater:
 #BrowserMOD
 browser_mod:
   prefix: "browser_"
+  devices:
+    7d7d0fa1-58e12222:
+      name: Wall-display
 
 
 # UI
