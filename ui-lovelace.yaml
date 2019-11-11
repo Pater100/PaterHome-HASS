@@ -77,21 +77,61 @@ views:
               - binary_sensor.frontdoor
         - type: horizontal-stack
           cards:
-          - type: "custom:radial-menu"
-            icon: mdi:light-switch
-            name: "Schakelaars"
-            items:
-              - entity: switch.schuur
-                icon: mdi:barn
-                name: Schuur
-                tap_action:
-                  action: toggle
-                  haptic: true
-              - entity: switch.kofiemachine
-                icon: mdi:coffee-maker
-                name: Koffiemachine
-                tap_action: toggle
-                haptic: true
+          - type: "custom:button-card" 
+            color_type: label-card
+            color: rgb(218, 218, 219)
+            name: Schakelaars
+        - type: horizontal-stack
+          cards:
+          - type: "custom:button-card"
+            entity: switch.kofiemachine
+            color_type: card
+            color: rgb(218, 218, 219)
+            icon: mdi:coffee-maker
+            name: koffiemachine
+          - type: "custom:button-card"
+            entity: switch.schuur
+            color_type: card
+            color: rgb(218, 218, 219)
+            name: Schuur
+            icon: mdi:barn
+          - type: "custom:button-card"
+            entity: light.tradfri_driver
+            color_type: card
+            color: rgb(218, 218, 219)
+            name: Werkplaats
+            icon: mdi:soldering-iron
+        - type: horizontal-stack
+          cards:
+          - type: "custom:button-card" 
+            color_type: label-card
+            color: rgb(218, 218, 219)
+            name: TV Geluid
+        - type: horizontal-stack
+          cards:
+          - type: "custom:button-card"
+            color_type: card
+            color: rgb(218, 218, 219)
+            icon: mdi:speaker
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.versterker_aan
+          - type: "custom:button-card"
+            color_type: card
+            color: rgb(218, 218, 219)
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                entity_id: remote.livingroom_2
+                command:
+                  - VolumeUp
+                device: 46809977
+          
+
     #Right Stack
     - type: vertical-stack
       cards:
