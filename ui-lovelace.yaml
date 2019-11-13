@@ -130,7 +130,6 @@ views:
                 command:
                   - VolumeUp
                 device: 46809977
-          
 
     #Right Stack
     - type: vertical-stack
