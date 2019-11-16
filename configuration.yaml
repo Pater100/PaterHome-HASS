@@ -251,7 +251,8 @@ media_player:
 # Text to speech
 tts:
   - platform: google_translate
-
+    languages: nl
+    
 #HACS
 hacs:
   token: !secret Git_hub_token
