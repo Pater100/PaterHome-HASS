@@ -79,39 +79,48 @@ views:
           cards:
           - type: "custom:button-card" 
             color_type: label-card
-            color: rgb(218, 218, 219)
+            color: rgb(67, 73, 82)
             name: Schakelaars
         - type: horizontal-stack
           cards:
           - type: "custom:button-card"
             entity: switch.kofiemachine
             color_type: card
-            color: rgb(218, 218, 219)
+            color: rgb(67, 73, 82)
             icon: mdi:coffee-maker
             name: koffiemachine
+            state:
+              - value: "on"
+                color: rgb(218, 218, 219)
           - type: "custom:button-card"
             entity: switch.schuur
             color_type: card
-            color: rgb(218, 218, 219)
+            color: rgb(67, 73, 82)
             name: Schuur
             icon: mdi:barn
+            state:
+              - value: "on"
+                color: rgb(218, 218, 219)
           - type: "custom:button-card"
             entity: light.tradfri_driver
             color_type: card
-            color: rgb(218, 218, 219)
+            color: rgb(67, 73, 82)
             name: Werkplaats
             icon: mdi:soldering-iron
+            state:
+              - value: "on"
+                color: rgb(218, 218, 219)
         - type: horizontal-stack
           cards:
           - type: "custom:button-card" 
             color_type: label-card
-            color: rgb(218, 218, 219)
-            name: TV Geluid
+            color: rgb(67, 73, 82)
+            name: Entertainment
         - type: horizontal-stack
           cards:
           - type: "custom:button-card"
             color_type: card
-            color: rgb(218, 218, 219)
+            color: rgb(67, 73, 82)
             icon: mdi:speaker
             tap_action:
               action: call-service
@@ -120,7 +129,7 @@ views:
                 entity_id: script.versterker_aan
           - type: "custom:button-card"
             color_type: card
-            color: rgb(218, 218, 219)
+            color: rrgb(67, 73, 82)
             icon: mdi:volume-plus
             tap_action:
               action: call-service
@@ -132,7 +141,7 @@ views:
                 device: 46809977
           - type: "custom:button-card"
             color_type: card
-            color: rgb(218, 218, 219)
+            color: rgb(67, 73, 82)
             icon: mdi:volume-minus
             tap_action:
               action: call-service
@@ -142,6 +151,18 @@ views:
                 command:
                   - VolumeDown
                 device: 46809977
+          - type: "custom:button-card"
+            color_type: card
+            color: rgb(67, 73, 82)
+            icon: mdi:television
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.livingroom_2
+                command:
+                  - PowerToggle
+                device: 46809976
 
     #Right Stack
     - type: vertical-stack
