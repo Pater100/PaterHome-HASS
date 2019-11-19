@@ -29,6 +29,8 @@
       rgb_color: [255,182,109]
     light.woonkamer:
       state: false
+    light.eetkamer_group:
+      state: false
 
 #scene for turning off all lights
 - name: Alle Lampen uit
@@ -42,3 +44,35 @@
     light.slaapkamer_group:
       state: true
       brightness: 254
+
+#Cooking scene
+- name: Kook scene
+  entities:
+    light.keuken_group:
+      state: true
+      color_temp: 433
+      brightness: 254
+    light.eetkamer_group:
+      state: true
+      color_temp: 303
+      brightness: 50
+    light.woonkamer_group:
+      state: true
+      rgb_color: [255,194,114]
+      brightness: 2
+
+#Eating at Dinertable
+- name: eten aan eettafel
+  entities:
+    light.keuken_group:
+      state: true
+      color_temp: 433
+      brightness: 1
+    light.eetkamer_group:
+      state: true
+      color_temp: 400
+      brightness: 127
+    light.woonkamer_group:
+      state: true
+      rgb_color: [255,194,114]
+      brightness: 2
