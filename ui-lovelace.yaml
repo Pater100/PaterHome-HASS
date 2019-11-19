@@ -163,6 +163,41 @@ views:
                 command:
                   - PowerToggle
                 device: 46809976
+        - type: horizontal-stack
+          cards:
+          - type: "custom:button-card" 
+            color_type: label-card
+            color: rgb(67, 73, 82)
+            name: Scenes
+        - type: horizontal-stack
+          cards:
+          - type: "custom:button-card"
+            color_type: card
+            color: rgb(67, 73, 82)
+            icon: mdi:weather-sunset
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.ambiance
+          - type: "custom:button-card"
+            color_type: card
+            color: rgb(67, 73, 82)
+            icon: mdi:stove
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.kook_scene
+          - type: "custom:button-card"
+            color_type: card
+            color: rgb(67, 73, 82)
+            icon: mdi:silverware-variant
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.eten_aan_eettafel
 
     #Right Stack
     - type: vertical-stack
