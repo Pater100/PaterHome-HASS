@@ -30,6 +30,11 @@ discovery:
 frontend:
   themes: !include themes.yaml
 
+input_boolean:
+  sleep_mode:
+    name: Sleepmode
+    icon: mdi:sleep
+
 # Homekit entitie injectie
 homekit:
   filter:
