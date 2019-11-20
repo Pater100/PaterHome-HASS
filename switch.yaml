@@ -15,3 +15,11 @@
   payload_on: "ON"
   payload_off: "OFF"
   retain: true
+- platform: mqtt
+  name: "Wallscreen"
+  command_topic: "cmnd/sonoffwallmount/POWER"
+  state_topic: "cmnd/sonoffwallmount/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
