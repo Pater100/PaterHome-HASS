@@ -89,7 +89,7 @@ views:
             color_type: card
             color: rgb(67, 73, 82)
             icon: mdi:coffee-maker
-            name: koffiemachine
+            show_name: false
             state:
               - value: "on"
                 color: rgb(218, 218, 219)
@@ -97,8 +97,8 @@ views:
             entity: switch.schuur
             color_type: card
             color: rgb(67, 73, 82)
-            name: Schuur
             icon: mdi:barn
+            show_name: false
             state:
               - value: "on"
                 color: rgb(218, 218, 219)
@@ -106,8 +106,8 @@ views:
             entity: light.tradfri_driver
             color_type: card
             color: rgb(67, 73, 82)
-            name: Werkplaats
             icon: mdi:soldering-iron
+            show_name: false
             state:
               - value: "on"
                 color: rgb(218, 218, 219)
@@ -115,8 +115,8 @@ views:
             entity: input_boolean.sleep_mode
             color_type: card
             color: rgb(67, 73, 82)
-            name: Slaap modus
             icon: mdi:sleep
+            show_name: false
             state:
               - value: "on"
                 color: rgb(218, 218, 219)
@@ -187,7 +187,6 @@ views:
             color_type: card
             color: rgb(67, 73, 82)
             icon: mdi:weather-sunset
-            name: ambiance
             tap_action:
               action: call-service
               service: scene.turn_on
@@ -197,7 +196,6 @@ views:
             color_type: card
             color: rgb(67, 73, 82)
             icon: mdi:stove
-            name: koken
             tap_action:
               action: call-service
               service: scene.turn_on
@@ -207,7 +205,6 @@ views:
             color_type: card
             color: rgb(67, 73, 82)
             icon: mdi:silverware-variant
-            name: eten
             tap_action:
               action: call-service
               service: scene.turn_on
