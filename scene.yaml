@@ -18,16 +18,16 @@
     light.keuken_group:
       state: true
       color_temp: 433
-      brightness: 1
-    light.staande_lamp_bank:
+      brightness: 2
+    light.livingroom_standing_lamp:
       state: true
-      brightness: 1
+      brightness: 2
       rgb_color: [255,182,109]
-    light.tv_lamp:
+    light.bloom_tv_light:
       state: true
-      brightness: 1
+      brightness: 2
       rgb_color: [255,182,109]
-    light.woonkamer:
+    light.livingroom_center_light:
       state: false
     light.eetkamer_group:
       state: false
