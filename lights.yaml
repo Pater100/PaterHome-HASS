@@ -3,29 +3,29 @@
 - platform: group
   name: keuken_group
   entities: 
-    - light.keuken_1
-    - light.keuken_2
-    - light.keuken_3
+    - light.kitchen_1
+    - light.kitchen_2
+    - light.kitchen_3
 
 - platform: group
   name: eetkamer_group
   entities:
-    - light.eettafel_lamp_links
-    - light.eettafel_lamp_midden
-    - light.eettafel_lamp_rechts
+    - light.diner_table_1
+    - light.diner_table_2
+    - light.diner_table_3
 
 - platform: group
   name: woonkamer_group
   entities:
-    - light.tv_lamp
-    - light.woonkamer
-    - light.staande_lamp_bank
+    - light.bloom_tv_light
+    - light.livingroom_center_light
+    - light.livingroom_standing_lamp
 
 - platform: group
   name: gang_group
   entities:
-    - light.gang_richting_kamer
-    - light.gang_richting_voordeur
+    - light.hall_1
+    - light.hall_2
 
 - platform: group
   name: werkkamer_group
