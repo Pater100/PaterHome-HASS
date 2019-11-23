@@ -161,6 +161,34 @@
       entity_id: switch.schuur
     service: switch.turn_off
 
+- alias: if front door opens turn on lights, but only when its dark
+  initial_state: true
+  hide_entity: true
+  trigger:
+    entity_id: binary_sensor.frontdoor
+    platform: state
+    to: 'on'
+  condition:
+    condition: sun
+    after: sunset
+  action:
+    data:
+      entity_id: light.gang_group
+    service: light.turn_on
+
+- alias: if front door closes turn off lights
+  initial_state: true
+  hide_entity: true
+  trigger:
+    entity_id: binary_sensor.frontdoor
+    platform: state
+    to: 'off'
+    for:
+      minutes: 1
+  action:
+    data:
+      entity_id: light.gang_group
+    service: light.turn_off
 #   ___ _                                             _                 _   _             
 #  / _ \ | __ _ _   _  __ _ _ __ ___  _   _ _ __   __| |  ___  ___  ___| |_(_) ___  _ __  
 # / /_)/ |/ _` | | | |/ _` | '__/ _ \| | | | '_ \ / _` | / __|/ _ \/ __| __| |/ _ \| '_ \ 
