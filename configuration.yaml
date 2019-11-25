@@ -42,10 +42,15 @@ input_boolean:
 
 input_datetime:
   wakeup_time:
-    name: "start light at"
+    name: "Weekday Routine"
     has_time: true
     has_date: false
-    initial: "06:15"
+    initial: "06:05"
+  wakeup_time_weekend:
+    name: 'Weekend Routine'
+    has_time: true
+    has_date: false
+    initial: "06:50"
 
 # Homekit entitie injectie
 homekit:
@@ -53,6 +58,9 @@ homekit:
     include_domains:
       - climate
       - script
+      - switch
+      - input_booleans
+      - lights
       - switch
 
 calendar:
