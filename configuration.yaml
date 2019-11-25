@@ -30,10 +30,22 @@ discovery:
 frontend:
   themes: !include themes.yaml
 
+#input Booleans
 input_boolean:
   sleep_mode:
     name: Sleepmode
     icon: mdi:sleep
+  wakeup_enabled:
+    name: "wake-up lights"
+    initial: on
+    icon: mdi:theme-light-dark
+
+input_datetime:
+  wakeup_time:
+    name: "start light at"
+    has_time: true
+    has_date: false
+    initial: "06:15"
 
 # Homekit entitie injectie
 homekit:
@@ -179,6 +191,9 @@ sensor:
     image: qemux86-64
   - platform: version
     name: version_current
+  - platform: time_date
+    display_options:
+      - 'time'
 
 binary_sensor:
   #RFXCOM
