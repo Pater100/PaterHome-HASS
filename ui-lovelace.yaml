@@ -13,7 +13,7 @@ views:
         animate: true
         entities:
           - sensor.living_room_thermostat_temperature
-          - sensor.toilet_sensor_temperature
+          - sensor.temperature_toilet
           - sensor.bedroom_temperature
       - type: vertical-stack
         cards:
