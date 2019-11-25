@@ -103,7 +103,7 @@ views:
               - value: "on"
                 color: rgb(218, 218, 219)
           - type: "custom:button-card"
-            entity: light.tradfri_driver
+            entity: light.workspace
             color_type: card
             color: rgb(67, 73, 82)
             icon: mdi:soldering-iron
