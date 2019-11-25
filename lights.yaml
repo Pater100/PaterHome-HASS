@@ -54,4 +54,5 @@
     - light.bathroom_group
     - light.slaapkamer_group
     - light.werkkamer_group
-    - light.waskamer
+    - light.laundry_room
+    - light.wake_up_light_left
