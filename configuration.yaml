@@ -58,9 +58,13 @@ camera:
     still_image_url: !secret octoprint_still
     mjpeg_url: !secret octoprint_mjpeg
   - platform: foscam
-    ip: !secret foscam_ip
-    username: !secret foscam_username
-    password: !secret foscam_password
+    ip: !secret foscam_ip_voor
+    username: !secret foscam_username_voor
+    password: !secret foscam_password_voor
+  - platform: foscam
+    ip: !secret foscam_ip_achter
+    username: !secret foscam_username_achter
+    password: !secret foscam_password_achter
 
 #usb Passtrough RFXCOM
 rfxtrx:
