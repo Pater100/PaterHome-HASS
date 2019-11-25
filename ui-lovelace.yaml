@@ -71,10 +71,10 @@ views:
             title: Deur sensoren 
             show_header_toggle: false
             entities:
-              - binary_sensor.schuurpoort
-              - binary_sensor.schuurdeur
-              - binary_sensor.backdoor
-              - binary_sensor.frontdoor
+              - binary_sensor.schuur_poort
+              - binary_sensor.schuur_deur
+              - binary_sensor.back_door
+              - binary_sensor.front_door
         - type: horizontal-stack
           cards:
 #-------------------------------Schakelaars---------------------------------------------------
@@ -85,7 +85,7 @@ views:
         - type: horizontal-stack
           cards:
           - type: "custom:button-card"
-            entity: switch.kofiemachine
+            entity: switch.coffee_maker
             color_type: card
             color: rgb(67, 73, 82)
             icon: mdi:coffee-maker
@@ -261,6 +261,7 @@ views:
         update_interval: 1
         cameras:
           - entity: camera.foscam_camera
+          - entity: camera.foscam_camera_2
           - entity: camera.octoprint
 
   - id: schakelaars
