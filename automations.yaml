@@ -330,3 +330,45 @@
       entity_id: scene.slaapkamer_lichten_100
     service: scene.turn_on
 
+#  __  __                  _               ____             _   _            
+# |  \/  | ___  _ __ _ __ (_)_ __   __ _  |  _ \ ___  _   _| |_(_)_ __   ___ 
+# | |\/| |/ _ \| '__| '_ \| | '_ \ / _` | | |_) / _ \| | | | __| | '_ \ / _ \
+# | |  | | (_) | |  | | | | | | | | (_| | |  _ < (_) | |_| | |_| | | | |  __/
+# |_|  |_|\___/|_|  |_| |_|_|_| |_|\__, | |_| \_\___/ \__,_|\__|_|_| |_|\___|
+#                                  |___/                                     
+
+- alias: "wake-up start of the routine"
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.wakeup_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+    - condition: state
+      entity_id: input_boolean.wakeup_enabled
+      state: 'on'
+    - condition: or
+      conditions:
+        - condition: time
+          weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
+        - condition: state
+          entity_id: input_boolean.wakeup_weekend
+          state: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.wake_up_light_left
+    data:
+      transition: 600
+      brightness: 255
+
+#  _   _ _       _     _     ____             _   _            
+# | \ | (_) __ _| |__ | |_  |  _ \ ___  _   _| |_(_)_ __   ___ 
+# |  \| | |/ _` | '_ \| __| | |_) / _ \| | | | __| | '_ \ / _ \
+# | |\  | | (_| | | | | |_  |  _ < (_) | |_| | |_| | | | |  __/
+# |_| \_|_|\__, |_| |_|\__| |_| \_\___/ \__,_|\__|_|_| |_|\___|
+#          |___/   
