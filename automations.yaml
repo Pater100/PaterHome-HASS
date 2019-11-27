@@ -372,3 +372,18 @@
 # | |\  | | (_| | | | | |_  |  _ < (_) | |_| | |_| | | | |  __/
 # |_| \_|_|\__, |_| |_|\__| |_| \_\___/ \__,_|\__|_|_| |_|\___|
 #          |___/   
+- alias: when night mode is on, set house to sleep mode
+  initial_state: true
+  hide_entity: true
+  trigger: 
+    platform: state
+    entity_id: input_boolean.sleep_mode
+    to: 'on'
+  condition:
+    condition: time
+    after: '21:00:00'
+    before: '05:00:00'
+  action:
+    data:
+      entity_id: script.nightmode
+    service: script.turn_on

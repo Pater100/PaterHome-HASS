@@ -6,3 +6,28 @@ versterker_aan:
     data:
       activity: 'Versterker'
 
+#nightmode
+nightmode:
+  alias: sequence to turn on night mode
+  sequence:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.coffee_maker
+    - service: light.turn_off
+      data:
+        entity_id: light.keuken_group
+    - service: light.turn_off
+      data:
+        entity_id: light.eetkamer_group
+    - service: light.turn_off
+      data:
+        entity_id: light.woonkamer_group
+    - delay:
+        seconds: 20
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wallscreen
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.living_room
+        temprature: 17
