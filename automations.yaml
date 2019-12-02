@@ -14,6 +14,27 @@
     service: light.turn_off
     entity_id: group.all_lights
 
+- alias: 'screen on when home'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.patrick_presence
+    to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.wallscreen
+
+- alias: 'screen off when home'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.patrick_presence
+    to: 'off'
+    for: '00:08:00'
+  action:
+    service: switch.turn_off
+    entity_id: switch.wallscreen
+  
 #     __      _   _  __ _           _   _                 
 #  /\ \ \___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  ___ 
 # /  \/ / _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \/ __|
@@ -361,7 +382,7 @@
           state: 'on'
   action:
     service: light.turn_on
-    entity_id: light.wake_up_light_left
+    entity_id: light.slaapkamer_group
     data:
       transition: 600
       brightness: 255
