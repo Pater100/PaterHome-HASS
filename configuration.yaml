@@ -202,6 +202,10 @@ sensor:
   - platform: time_date
     display_options:
       - 'time'
+  - platform: mqtt
+    state_topic: "room/bedroom/bed/load"
+    name: Bed Mass
+    unit_of_measurement: "kg"
 
 binary_sensor:
   #RFXCOM
@@ -283,6 +287,7 @@ media_player:
 # Text to speech
 tts:
   - platform: google_translate
+    base_url: !secret base_url
 
 #HACS
 hacs:
