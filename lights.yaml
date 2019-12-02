@@ -39,6 +39,7 @@
     - light.bedroom_1
     - light.bedroom_2
     - light.bedroom_3
+    - light.wake_up_light_left
 
 - platform: group
   name: badkamer_group
