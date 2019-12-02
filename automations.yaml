@@ -358,6 +358,17 @@
 # |_|  |_|\___/|_|  |_| |_|_|_| |_|\__, | |_| \_\___/ \__,_|\__|_|_| |_|\___|
 #                                  |___/                                     
 
+- alias: "turn off sleep modus"
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: time
+    at: '05:00:00'
+  action:
+    data:
+      entity_id: input_boolean.sleep_mode
+    service: input_boolean.turn_off
+
 - alias: "wake-up start of the routine"
   initial_state: true
   hide_entity: true
