@@ -8,8 +8,8 @@
   hide_entity: true
   trigger:
     platform: state
-    entity_id: person.patrick_smits
-    to: 'not_home'
+    entity_id: binary_sensor.patrick_presence
+    to: 'off'
   action:
     service: light.turn_off
     entity_id: group.all_lights
@@ -50,8 +50,8 @@
     to: 'on'
   condition:
     - condition: state
-      entity_id: person.patrick_smits
-      state: 'not_home'
+      entity_id: binary_sensor.patrick_presence
+      state: 'off'
   action:
     service: notify.ios_pater100
     data:
@@ -66,8 +66,8 @@
     to: 'on'
   condition:
     - condition: state
-      entity_id: person.patrick_smits
-      state: 'not_home'
+      entity_id: binary_sensor.patrick_presence
+      state: 'off'
   action:
     service: notify.ios_pater100
     data:
@@ -82,8 +82,8 @@
     to: 'on'
   condition:
     - condition: state
-      entity_id: person.patrick_smits
-      state: 'not_home'
+      entity_id: binary_sensor.patrick_presence
+      state: 'off'
   action:
     service: notify.ios_pater100
     data:
@@ -98,8 +98,8 @@
     to: 'on'
   condition:
     - condition: state
-      entity_id: person.patrick_smits
-      state: 'not_home'
+      entity_id: binary_sensor.patrick_presence
+      state: 'off'
   action:
     service: notify.ios_pater100
     data:
@@ -314,7 +314,7 @@
   initial_state: true
   hide_entity: true
   trigger:
-    - entity_id: binary_sensor.frontdoor
+    - entity_id: binary_sensor.front_door
       platform: state
       to: 'on'
   condition:
@@ -334,7 +334,7 @@
   initial_state: true
   hide_entity: true
   trigger:
-    - entity_id: binary_sensor.backdoor
+    - entity_id: binary_sensor.back_door
       platform: state
       to: 'on'
   condition:
