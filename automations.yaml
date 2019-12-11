@@ -392,11 +392,10 @@
           entity_id: input_boolean.wakeup_weekend
           state: 'on'
   action:
-    service: light.turn_on
-    entity_id: light.slaapkamer_group
     data:
-      transition: 600
-      brightness: 255
+      entity_id: script.morning
+    service: script.turn_on
+
 
 #  _   _ _       _     _     ____             _   _            
 # | \ | (_) __ _| |__ | |_  |  _ \ ___  _   _| |_(_)_ __   ___ 

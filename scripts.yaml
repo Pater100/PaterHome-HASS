@@ -31,3 +31,64 @@ nightmode:
       data:
         entity_id: climate.living_room
         temprature: 17
+
+#Morning
+morning:
+  alias: Waking Up
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.slaapkamer_group
+        brightness: 255
+    - delay:
+        seconds: 2
+    - service: light.turn_off
+      data:
+        entity_id: light.slaapkamer_group
+    - delay:
+        seconds: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.slaapkamer_group
+        brightness: 255
+    - delay:
+        seconds: 2
+    - service: light.turn_off
+      data:
+        entity_id: light.slaapkamer_group
+    - delay:
+        seconds: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.slaapkamer_group
+        brightness: 255
+    - delay:
+        seconds: 2
+    - service: light.turn_off
+      data:
+        entity_id: light.slaapkamer_group
+    - delay:
+        seconds: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.slaapkamer_group
+        transition: 300
+        brightness: 255
+    - wait_template: "{{ is_state('binary_sensor.bedroom_motion', 'on') }}"
+      timeout: '00:15:00'
+      continue_on_timeout: 'true'
+    - service: switch.turn_on
+      data:
+        entity_id: switch.coffee_maker
+    - wait_template: "{{ is_state('binary_sensor.stairs', 'on') }}"
+    - service: switch.turn_on
+      data:
+        entity_id: switch.wallscreen
+    - service: browser_mod.no_blackout
+    - service: lights.turn_on
+      data:
+        entity_id: light.gang_group
+        brightness: 85
+    - service: scene.turn_on
+      data:
+        entity_id: scene.kook_scene

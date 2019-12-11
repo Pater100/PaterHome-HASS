@@ -209,16 +209,7 @@ views:
               action: call-service
               service: scene.turn_on
               service_data:
-                entity_id: scene.eten_aan_eettafel
-        - type: horizontal-stack
-          cards:
-#-------------------------------Routine---------------------------------------------------
-          - type: "custom:button-card" 
-            color_type: label-card
-            color: rgb(67, 73, 82)
-            name: Routine
-        - type: horizontal-stack
-          cards:
+                entity_id: scene.eten_aan_eettafel          
           - type: "custom:button-card"
             entity: input_boolean.wakeup_enabled
             color_type: card
@@ -228,6 +219,20 @@ views:
             state:
               - value: "on"
                 color: rgb(218, 218, 219)
+        - type: horizontal-stack
+          cards:
+#-------------------------------Routine---------------------------------------------------
+          - type: "custom:button-card" 
+            color_type: label-card
+            color: rgb(67, 73, 82)
+            name: Routine
+        - type: horizontal-stack
+          cards:
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - input_datetime.wakeup_time
+              - input_datetime.wakeup_time_weekend
 
     #Right Stack
     - type: vertical-stack
