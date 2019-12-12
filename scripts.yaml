@@ -84,7 +84,6 @@ morning:
     - service: switch.turn_on
       data:
         entity_id: switch.wallscreen
-    - service: browser_mod.no_blackout
     - service: lights.turn_on
       data:
         entity_id: light.gang_group
@@ -92,3 +91,4 @@ morning:
     - service: scene.turn_on
       data:
         entity_id: scene.kook_scene
+    - service: browser_mod.no_blackout
