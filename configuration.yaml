@@ -206,6 +206,7 @@ sensor:
     state_topic: "room/bedroom/bed/load"
     name: Bed Mass
     unit_of_measurement: "kg"
+  - platform: dsmr_reader
 
 binary_sensor:
   #RFXCOM
