@@ -152,10 +152,10 @@ sensor:
   - platform: rfxtrx
     automatic_add: false
   #slimme meter
-  - platform: dsmr
-    host: !secret dsmr_ip
-    port: !secret dsmr_poort
-    dsmr_version: 4
+  # - platform: dsmr
+  #   host: !secret dsmr_ip
+  #   port: !secret dsmr_poort
+  #   dsmr_version: 4
   #raam sensoren
   - platform: mqtt
     name: "Voor-links"
@@ -164,9 +164,9 @@ sensor:
     name: "voor-rechts"
     state_topic: "Voorraam-rechts"
   #essent
-  - platform: essent
-    username: !secret essent_user
-    password: !secret essent_password
+  # - platform: essent
+  #   username: !secret essent_user
+  #   password: !secret essent_password
   #postNL Pakket en Briefpost dienst
   - platform: postnl
     username: !secret POSTNL_USERNAME
