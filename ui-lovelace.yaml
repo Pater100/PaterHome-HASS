@@ -36,7 +36,7 @@ views:
           - type: custom:mini-graph-card
             name: Electriciteit verbruik
             entities:
-              - sensor.power_consumption
+              - sensor.dsmr_reading_electricity_currently_delivered
             line_color: yellow
             line_width: 8
             font_size: 75
@@ -52,9 +52,9 @@ views:
         - type: horizontal-stack
           cards:
           - type: custom:mini-graph-card
-            name: Gasverbruik
+            name: Gasverbruik p/dag
             entities:
-              - sensor.hourly_gas_consumption
+              - sensor.dsmr_day_consumption_gas
             line_color: red
             line_width: 8
             font_size: 75
