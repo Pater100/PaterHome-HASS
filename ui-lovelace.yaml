@@ -41,28 +41,46 @@ views:
             line_width: 8
             font_size: 75
           - type: custom:mini-graph-card
-            name: Luchtvochtigheid
-            entities:
-              - sensor.living_room_thermostat_humidity
-            line_color: blue
-            line_width: 8
-            font_size: 75
-      - type: vertical-stack
-        cards:
-        - type: horizontal-stack
-          cards:
-          - type: custom:mini-graph-card
             name: Gasverbruik p/dag
             entities:
               - sensor.dsmr_day_consumption_gas
             line_color: red
             line_width: 8
             font_size: 75
+      - type: vertical-stack
+        cards:
+        - type: horizontal-stack
+          cards:          
+          - type: custom:mini-graph-card
+            name: electriciteit
+            entities:
+              - sensor.dsmr_day_consumption_electricity_cost_merged
+            line_color: yellow
+            line_width: 8
+            font_size: 75
+          - type: custom:mini-graph-card
+            name: Gas
+            entities:
+              - sensor.dsmr_day_consumption_gas_cost
+            line_color: red
+            line_width: 8
+            font_size: 75
+      - type: vertical-stack
+        cards:
+        - type: horizontal-stack
+          cards:         
           - type: custom:mini-graph-card
             name: Server CPU
             entities:
               - sensor.cpu_temprature
             line_color: green
+            line_width: 8
+            font_size: 75
+          - type: custom:mini-graph-card
+            name: Luchtvochtigheid
+            entities:
+              - sensor.living_room_thermostat_humidity
+            line_color: blue
             line_width: 8
             font_size: 75
         - type: horizontal-stack
@@ -135,9 +153,10 @@ views:
             icon: mdi:speaker
             tap_action:
               action: call-service
-              service: script.turn_on
-              service_data:
-                entity_id: script.versterker_aan
+              service: remote.toggle
+              entity_id: remote.livingroom
+              data:
+                activity: Versterker
           - type: "custom:button-card"
             color_type: card
             color: rrgb(67, 73, 82)
