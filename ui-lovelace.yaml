@@ -153,13 +153,15 @@ views:
             icon: mdi:speaker
             tap_action:
               action: call-service
-              service: remote.toggle
-              entity_id: remote.livingroom
-              data:
-                activity: Versterker
+              service: remote.send_command
+              service_data:
+                entity_id: remote.livingroom_2
+                command:
+                  - PowerToggle
+                device: 46809977
           - type: "custom:button-card"
             color_type: card
-            color: rrgb(67, 73, 82)
+            color: rgb(67, 73, 82)
             icon: mdi:volume-plus
             tap_action:
               action: call-service
@@ -169,6 +171,7 @@ views:
                 command:
                   - VolumeUp
                 device: 46809977
+
           - type: "custom:button-card"
             color_type: card
             color: rgb(67, 73, 82)
