@@ -271,10 +271,13 @@
     - entity_id: media_player.samsung_tv_remote
       platform: state
       to: 'on'
-  action:
+  action:     
     data:
-      entity_id: script.versterker_aan
-    service: script.turn_on
+      entity_id: remote.livingroom_2
+      command:
+        - PowerToggle
+      device: 46809977
+    service: remote.send_command
 
 - alias: 'turn Homecinema Set off when TV is off'
   initial_state: true
@@ -283,10 +286,13 @@
     - entity_id: media_player.samsung_tv_remote
       platform: state
       to: 'off'
-  action:
+  action:     
     data:
-      entity_id: script.versterker_aan
-    service: script.turn_on
+      entity_id: remote.livingroom_2
+      command:
+        - PowerToggle
+      device: 46809977
+    service: remote.send_command
 
 - alias: 'tv on after sunset, turn on ambiance scene'
   initial_state: true
