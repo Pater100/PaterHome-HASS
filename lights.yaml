@@ -40,6 +40,7 @@
     - light.bedroom_2
     - light.bedroom_3
     - light.wake_up_light_left
+    - light.wakeup_light_rechts
 
 - platform: group
   name: badkamer_group
@@ -56,4 +57,3 @@
     - light.slaapkamer_group
     - light.werkkamer_group
     - light.laundry_room
-    - light.wake_up_light_left
