@@ -30,6 +30,12 @@ discovery:
 frontend:
   themes: !include themes.yaml
 
+panel_iframe:
+  valetudo:
+    title: Pater-zuiger
+    icon: mdi:robot-vacuum-variant
+    url: !secret ip_pater_zuiger_iframe
+
 #input Booleans
 input_boolean:
   sleep_mode:
@@ -67,7 +73,19 @@ calendar:
   - platform: caldav
     username: !secret caldav_username
     password: !secret caldav_password
-    url: https://caldav.icloud.com 
+    url: https://caldav.icloud.com
+
+vacuum:
+  - platform: xiaomi_miio
+    host: !secret pater_zuiger
+    token: !secret Pater_zuiger_token
+    name: Pater-Zuiger
+
+recorder:
+  # Ignore some entities that generate lots of data and aren't useful
+  exclude:
+    entities:
+      - sensor.xiaomi_map
 
 #camera
 stream:
@@ -207,6 +225,11 @@ sensor:
     name: Bed Mass
     unit_of_measurement: "kg"
   - platform: dsmr_reader
+  - platform: mqtt
+    state_topic: "valetudo/rockrobo/state"
+    json_attributes_topic: "valetudo/rockrobo/map_data"
+    name: xiaomi_map
+    value_template: 'OK'
 
 binary_sensor:
   #RFXCOM

@@ -293,6 +293,31 @@ views:
         cards:
         - type: thermostat
           entity: climate.living_room
+      - type: horizontal-stack
+        cards:
+        - type: custom:xiaomi-vacuum-card
+          entity: vacuum.pater_zuiger
+          name: Pater-Zuiger
+          buttons: true
+          labels:
+            status: Status
+            battery: Batterij
+            mode: Modus
+            main_brush: Borstel
+            side_brush: Zijborstel
+            filter: Filter
+            sensor: Sensor
+      - type: horizontal-stack
+        cards:
+          - type: "custom:valetudo-map-card"
+            entity: sensor.xiaomi_map
+            rotate: 0
+            crop:
+              top: 70
+              bottom: 70
+              left: 20
+              right: 20
+            min_height: 20
 
   - id: cameras
     title: Surveillance

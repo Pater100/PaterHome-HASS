@@ -18,3 +18,7 @@
   type: module
 - url: /community_plugin/decluttering-card/decluttering-card.js
   type: module
+- url: /community_plugin/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
+  type: js
+- url: /community_plugin/lovelace-valetudo-map-card/valetudo-map-card.js
+  type: js
