@@ -22,3 +22,5 @@
   type: js
 - url: /community_plugin/lovelace-valetudo-map-card/valetudo-map-card.js
   type: js
+- url: /community_plugin/lovelace-more-info-card/more-info-card.js
+  type: module

@@ -330,8 +330,8 @@ views:
         thumb_interval: 10
         update_interval: 1
         cameras:
-          - entity: camera.foscam_camera
-          - entity: camera.foscam_camera_2
+          - entity: camera.foscam_voor
+          - entity: camera.foscam_achter
           - entity: camera.octoprint
 
   - id: schakelaars
