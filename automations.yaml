@@ -310,6 +310,30 @@
       entity_id: scene.ambiance
     service: scene.turn_on
 
+- alias: pop-up when doorbel dings
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_data:
+      entity_id: sensor.ring_front_door_last_ding
+    event_type: state_changed
+  action:
+    data:
+      entity_id: script.popup_front_door
+    service: script.turn_on
+
+- alias: pop-up when doorbel dings
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.schuur_poort
+    to: "on"
+  action:
+    data:
+      entity_id: script.popup_back_door
+    service: script.turn_on
 #                          _ _         
 # ___  ___  ___ _   _ _ __(_) |_ _   _ 
 #/ __|/ _ \/ __| | | | '__| | __| | | |
@@ -402,7 +426,6 @@
       entity_id: script.morning
     service: script.turn_on
 
-
 #  _   _ _       _     _     ____             _   _            
 # | \ | (_) __ _| |__ | |_  |  _ \ ___  _   _| |_(_)_ __   ___ 
 # |  \| | |/ _` | '_ \| __| | |_) / _ \| | | | __| | '_ \ / _ \
@@ -424,3 +447,22 @@
     data:
       entity_id: script.nightmode
     service: script.turn_on
+
+#   ____ _                  _             
+#  / ___| | ___  __ _ _ __ (_)_ __   __ _ 
+# | |   | |/ _ \/ _` | '_ \| | '_ \ / _` |
+# | |___| |  __/ (_| | | | | | | | | (_| |
+#  \____|_|\___|\__,_|_| |_|_|_| |_|\__, |
+#                                   |___/
+
+- alias: start the clean up session.
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.sleep_mode
+    to: 'on'
+    for: "01:30:00"
+  action:
+    data:
+      entity_id: vacuum.pater_zuiger
+    service: vacuum.start

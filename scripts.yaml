@@ -92,3 +92,37 @@ morning:
       data:
         entity_id: scene.kook_scene
     - service: browser_mod.no_blackout
+
+popup_front_door:
+  alias: Pop-Up Front Door
+  sequence:
+    - service: browser_mod.popup
+      data_template:
+        large: true
+        auto_close: true
+        card:
+          type: picture-entity
+          entity: camera.foscam_voor
+          camera_view: live
+        deviceID:
+          - Wall-display
+    - delay:
+        minutes: 2
+    - service: browser_mod.close_popup
+
+popup_back_door:
+  alias: Pop-Up back Door
+  sequence:
+    - service: browser_mod.popup
+      data_template:
+        large: true
+        auto_close: true
+        card:
+          type: picture-entity
+          entity: camera.foscam_achter
+          camera_view: live
+        deviceID:
+          - Wall-display
+    - delay:
+        minutes: 2
+    - service: browser_mod.close_popup
