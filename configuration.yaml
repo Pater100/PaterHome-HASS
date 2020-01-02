@@ -66,7 +66,7 @@ homekit:
       - script
       - switch
       - input_booleans
-      - lights
+      - light
       - switch
 
 calendar:
@@ -99,10 +99,12 @@ camera:
     ip: !secret foscam_ip_voor
     username: !secret foscam_username_voor
     password: !secret foscam_password_voor
+    name: Foscam Voor
   - platform: foscam
     ip: !secret foscam_ip_achter
     username: !secret foscam_username_achter
     password: !secret foscam_password_achter
+    name: Foscam Achter
 
 #usb Passtrough RFXCOM
 rfxtrx:
@@ -230,6 +232,7 @@ sensor:
     json_attributes_topic: "valetudo/rockrobo/map_data"
     name: xiaomi_map
     value_template: 'OK'
+  - platform: authenticated
 
 binary_sensor:
   #RFXCOM
@@ -267,6 +270,8 @@ binary_sensor:
         to_state: 'home'
   #Ring
   - platform: ring
+  #binary Octoprint
+  - platform: octoprint
 
 #Pi-hole
 pi_hole:
@@ -292,11 +297,8 @@ octoprint:
   - host: !secret octoprint_host
     api_key: !secret octoprint_api
     name: Creality CR-10
+    bed: true
     number_of_tools: 1
-    sensors:
-      monitored_conditions:
-        - 'Current State'
-        - 'Job Percentage'
 
 #SabNZBD
 sabnzbd:
@@ -307,6 +309,26 @@ sabnzbd:
 media_player:
   - platform: samsungtv
     host: !secret tv_ip
+
+proxmoxve:
+  host: !secret proxmox_ip
+  verify_ssl: false
+  username: !secret proxmox_username
+  password: !secret proxmox_password
+  nodes:
+  - node: Proxmox
+    vms:
+      - 100
+      - 108
+      - 109
+    containers:
+      - 101
+      - 102
+      - 103
+      - 104
+      - 105
+      - 106
+      - 107
 
 # Text to speech
 tts:
@@ -332,7 +354,7 @@ updater:
 browser_mod:
   prefix: "browser_"
   devices:
-    7d7d0fa1-58e12222:
+    067973d0-c081114f:
       name: Wall-display
 
 
