@@ -254,7 +254,6 @@ views:
             show_header_toggle: false
             entities:
               - input_datetime.wakeup_time
-              - input_datetime.wakeup_time_weekend
 
     #Right Stack
     - type: vertical-stack
