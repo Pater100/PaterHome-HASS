@@ -171,7 +171,6 @@ views:
                 command:
                   - VolumeUp
                 device: 46809977
-
           - type: "custom:button-card"
             color_type: card
             color: rgb(67, 73, 82)
@@ -290,8 +289,8 @@ views:
           entity: light.slaapkamer_group
       - type: horizontal-stack
         cards:
-        - type: thermostat
-          entity: climate.living_room
+          - type: 'custom:simple-thermostat'
+            entity: climate.living_room
       - type: horizontal-stack
         cards:
         - type: custom:xiaomi-vacuum-card
@@ -333,33 +332,6 @@ views:
           - entity: camera.foscam_achter
           - entity: camera.octoprint
 
-  - id: schakelaars
-    icon: mdi:light-switch
-    title: Schakelaars
-    cards:
-      - type: horizontal-stack
-        cards:
-        - type: light
-          name: eetkamer lampen
-          icon: mdi:silverware-fork-knife
-          entity: light.eetkamer_group
-        - type: light
-          name: keuken lampen
-          icon: mdi:fridge-outline
-          entity: light.keuken_group
-        - type: light
-          name: woonkamer
-          icon: mdi:sofa
-          entity: light.woonkamer_group
-      - type: horizontal-stack
-        cards:
-        - type: light
-          name: workspace
-          icon: mdi:code-braces
-          entity: light.tradfri_driver
-        - type: entity-button
-          name: Schuur
-          icon: mdi:bank
-          entity: switch.schuur
+
 
 resources: !include resources.yaml
