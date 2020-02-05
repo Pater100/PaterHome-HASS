@@ -87,7 +87,6 @@ morning:
     - service: lights.turn_on
       data:
         entity_id: light.gang_group
-        brightness: 85
     - service: scene.turn_on
       data:
         entity_id: scene.kook_scene
@@ -146,48 +145,4 @@ goodmorning_message:
           Goedeavond,
           {% endif %}
           De temperatuur in huis is {{ states("sensor.living_room_thermostat_temperature") }} °C en buiten is het momenteel {{ state_attr("weather.uden", "temperature")  }} °C.
-          Het wordt vandaag
-          {% if states.sensor.br_temperature.state | int < 0 %}
-            erg koud met een temperatuur van {{states('sensor.br_temperature')|round}} graden, let op het kan glad zijn.
-            {% elif states.sensor.br_temperature.state | int < 10 %}
-            koud met een temperatuur van {{states('sensor.br_temperature')|round}} graden.   
-            {% elif states.sensor.br_temperature.state | int < 15 %}
-            fris met een temperatuur van {{states('sensor.br_temperature')|round}} graden.
-            {% elif states.sensor.br_temperature.state | int < 20 %}
-            lekker met een temperatuur van {{states('sensor.br_temperature')|round}} graden.
-            {% elif states.sensor.br_temperature.state | int > 20 %}
-            warm met een temperatuur van {{states('sensor.br_temperature')|round}} graden.          
-            {% endif %}
-            Het wordt vandaag
-            {% if states.sensor.br_temperature_1d.state | int < 0 %}
-            erg koud met een maximale temperatuur van {{states('sensor.br_temperature_1d')|round}} graden.
-            {% elif states.sensor.br_temperature_1d.state | int < 10 %}
-            koud met een maximale temperatuur van {{states('sensor.br_temperature_1d')|round}} graden.   
-            {% elif states.sensor.br_temperature_1d.state | int < 15 %}
-            fris met een maximale temperatuur van {{states('sensor.br_temperature_1d')|round}} graden.
-            {% elif states.sensor.br_temperature_1d.state | int < 20 %}
-            lekker met een maximale temperatuur van {{states('sensor.br_temperature_1d')|round}} graden.
-            {% elif states.sensor.br_temperature_1d.state | int > 20 %}
-            warm met een maximale temperatuur van {{states('sensor.br_temperature_1d')|round}} graden.          
-            {% endif %}
-            De kans op regen is vandaag
-            {% if states.sensor.br_rainchance_1d.state | int < 25 %}
-            heel erg klein met een kans van {{states('sensor.br_rainchance_1d')|round}} procent.
-            {% elif states.sensor.br_rainchance_1d.state | int < 50 %}
-            klein met een kans van {{states('sensor.br_rainchance_1d')|round}} procent.            
-            {% elif states.sensor.br_rainchance_1d.state | int < 75 %}
-            groot met een kans van {{states('sensor.br_rainchance_1d')|round}} procent.  
-            {% elif states.sensor.br_rainchance_1d.state | int > 75 %}
-            heel groot met een kans van {{states('sensor.br_rainchance_1d')|round}} procent.
-            {% endif %}
-            #De windkracht is vandaag
-            #{% if states.sensor.br_wind_force_1d.state | int < 2 %}
-            #erg laag met een windkracht van {{states('sensor.br_wind_force_1d')|round}}.
-            #{% elif states.sensor.br_wind_force_1d.state | int < 4 %}
-            #laag met een windkracht van{{states('sensor.br_wind_force_1d')|round}}.            
-            #{% elif states.sensor.br_wind_force_1d.state | int < 6 %}
-            #hoog met een windkracht van{{states('sensor.br_wind_force_1d')|round}}.  
-            #{% elif states.sensor.br_wind_force_1d.state | int > 6 %}
-            #erg hoog met een windkracht van {{states('sensor.br_wind_force_1d')|round}} let op windstoten.
-            #{% endif %}
 
