@@ -230,7 +230,7 @@ views:
               action: call-service
               service: scene.turn_on
               service_data:
-                entity_id: scene.eten_aan_eettafel          
+                entity_id: scene.eten_aan_eettafel
           - type: "custom:button-card"
             entity: input_boolean.wakeup_enabled
             color_type: card
@@ -295,6 +295,9 @@ views:
             name: false
             icon: false
             control: false
+            hide:
+              temperature: true
+              state: true
       - type: horizontal-stack
         cards:
         - type: custom:xiaomi-vacuum-card
