@@ -177,9 +177,6 @@ sensor:
   - platform: mqtt
     name: "voor-rechts"
     state_topic: "Voorraam-rechts"
-  - platform: postnl
-    username: !secret POSTNL_USERNAME
-    password: !secret POSTNL_PASSWORD
   #glances (Sensor from host)
   - platform: glances
     host: !secret glances_host
