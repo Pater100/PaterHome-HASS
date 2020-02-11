@@ -291,6 +291,10 @@ views:
         cards:
           - type: 'custom:simple-thermostat'
             entity: climate.living_room
+            step_layout: row
+            name: false
+            icon: false
+            control: false
       - type: horizontal-stack
         cards:
         - type: custom:xiaomi-vacuum-card
