@@ -268,7 +268,7 @@
   hide_entity: true
   initial_state: true
   trigger:
-    - entity_id: media_player.samsung_tv_remote
+    - entity_id: media_player.samsung_ue32f6400
       platform: state
       to: 'on'
   action:     
@@ -283,7 +283,7 @@
   initial_state: true
   hide_entity: true
   trigger:
-    - entity_id: media_player.samsung_tv_remote
+    - entity_id: media_player.samsung_ue32f6400
       platform: state
       to: 'off'
   action:     
@@ -298,7 +298,7 @@
   initial_state: true
   hide_entity: true
   trigger:
-    - entity_id: media_player.samsung_tv_remote
+    - entity_id: media_player.samsung_ue32f6400
       platform: state
       to: 'on'
   condition:
