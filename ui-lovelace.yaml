@@ -312,17 +312,6 @@ views:
             side_brush: Zijborstel
             filter: Filter
             sensor: Sensor
-      - type: horizontal-stack
-        cards:
-          - type: "custom:valetudo-map-card"
-            entity: sensor.xiaomi_map
-            rotate: 0
-            crop:
-              top: 70
-              bottom: 70
-              left: 20
-              right: 20
-            min_height: 20
 
   - id: cameras
     title: Surveillance
