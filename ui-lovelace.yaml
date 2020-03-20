@@ -26,6 +26,24 @@ views:
             entities:
               - calendar.patrick
               - calendar.afval_kalender
+        - type: horizontal-stack
+          cards:
+          - type: glance
+            title: COVID-19 Nederland
+            entities:
+              - sensor.netherlands_coronavirus_confirmed
+              - sensor.netherlands_coronavirus_current
+              - sensor.netherlands_coronavirus_deaths
+              - sensor.netherlands_coronavirus_recovered
+        - type: horizontal-stack
+          cards:
+          - type: glance
+            title: COVID-19 Wereldwijd
+            entities:
+              - sensor.worldwide_coronavirus_confirmed
+              - sensor.worldwide_coronavirus_current
+              - sensor.worldwide_coronavirus_deaths
+              - sensor.worldwide_coronavirus_recovered
     #Stack Middle
     - type: vertical-stack
       cards:
