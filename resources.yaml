@@ -28,3 +28,5 @@
   type: module
 - url: /community_plugin/simple-thermostat/simple-thermostat.js
   type: module
+- url: /community_plugin/button-text-card/button-text-card.js
+  type: module
