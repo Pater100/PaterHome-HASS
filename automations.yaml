@@ -448,6 +448,23 @@
       entity_id: script.nightmode
     service: script.turn_on
 
+- alias: Button for bedtime routine
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: bedroom_masterswitch
+      event: 4002
+  condition:
+    condition: time
+    after: '21:00:00'
+    before: '05:00:00'
+  action:
+    data:
+      entity_id: script.button_night
+    service: script.turn_on
 #   ____ _                  _             
 #  / ___| | ___  __ _ _ __ (_)_ __   __ _ 
 # | |   | |/ _ \/ _` | '_ \| | '_ \ / _` |
