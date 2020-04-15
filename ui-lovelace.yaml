@@ -116,14 +116,14 @@ views:
 #-------------------------------Schakelaars---------------------------------------------------
           - type: "custom:button-card" 
             color_type: label-card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             name: Schakelaars
         - type: horizontal-stack
           cards:
           - type: "custom:button-card"
             entity: switch.coffee_maker
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:coffee-maker
             show_name: false
             state:
@@ -132,7 +132,7 @@ views:
           - type: "custom:button-card"
             entity: switch.schuur
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:barn
             show_name: false
             state:
@@ -141,7 +141,7 @@ views:
           - type: "custom:button-card"
             entity: light.workspace
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:soldering-iron
             show_name: false
             state:
@@ -150,7 +150,7 @@ views:
           - type: "custom:button-card"
             entity: input_boolean.sleep_mode
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:sleep
             show_name: false
             state:
@@ -161,13 +161,13 @@ views:
 #-------------------------------Entertainment---------------------------------------------------
           - type: "custom:button-card" 
             color_type: label-card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             name: Entertainment
         - type: horizontal-stack
           cards:
           - type: "custom:button-card"
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:speaker
             tap_action:
               action: call-service
@@ -179,7 +179,7 @@ views:
                 device: 46809977
           - type: "custom:button-card"
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:volume-plus
             tap_action:
               action: call-service
@@ -191,7 +191,7 @@ views:
                 device: 46809977
           - type: "custom:button-card"
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:volume-minus
             tap_action:
               action: call-service
@@ -203,7 +203,7 @@ views:
                 device: 46809977
           - type: "custom:button-card"
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:television
             tap_action:
               action: call-service
@@ -218,13 +218,13 @@ views:
 #-------------------------------scenes---------------------------------------------------
           - type: "custom:button-card" 
             color_type: label-card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             name: Scenes
         - type: horizontal-stack
           cards:
           - type: "custom:button-card"
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:weather-sunset
             tap_action:
               action: call-service
@@ -233,7 +233,7 @@ views:
                 entity_id: scene.ambiance
           - type: "custom:button-card"
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:stove
             tap_action:
               action: call-service
@@ -242,7 +242,7 @@ views:
                 entity_id: scene.kook_scene
           - type: "custom:button-card"
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:silverware-variant
             tap_action:
               action: call-service
@@ -252,7 +252,7 @@ views:
           - type: "custom:button-card"
             entity: input_boolean.wakeup_enabled
             color_type: card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             icon: mdi:theme-light-dark
             show_name: false        
             state:
@@ -263,7 +263,7 @@ views:
 #-------------------------------Routine---------------------------------------------------
           - type: "custom:button-card" 
             color_type: label-card
-            color: rgb(67, 73, 82)
+            color: rgb(08, 10, 19)
             name: Routine
         - type: horizontal-stack
           cards:
