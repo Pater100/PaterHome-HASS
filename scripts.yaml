@@ -142,13 +142,13 @@ goodmorning_message:
         media_content_id: https://paternetworks.duckdns.org/local/soundfiles/regeneration_cycle_complete.mp3
         media_content_type: 'audio/mp3'
     - delay:
-        seconds: 30
+        seconds: 10
     - service: tts.google_translate_say
       entity_id: media_player.slaapkamer_mini
       data_template:
         message: >
           {% if now().strftime("%H")|int < 12 %}
-          Goodemorgen,
+          Goedemorgen,
           {% elif now().strftime("%H")|int < 18 %}
           Goedemiddag,
           {% else %}
