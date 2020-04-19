@@ -105,6 +105,18 @@
     data:
       title: 'Indringer!'
       message: 'Iemand komt binnen via de schuurpoort'
+- alias: 'notification when fire alarm goes off'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fire_54
+    from: false
+    to: true
+  action:
+    service: notify.ios_pater100
+    data:
+      title: "Brand"
+      message: 'Het brand alarm gaat af!'
 
 #   __ _       _     _                   _                 
 #  / /(_) __ _| |__ | |_   ___ _   _ ___| |_ ___ _ __ ___  
