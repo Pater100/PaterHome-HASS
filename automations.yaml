@@ -110,8 +110,8 @@
   trigger:
     platform: state
     entity_id: binary_sensor.fire_54
-    from: false
-    to: true
+    from: 'off'
+    to: 'on'
   action:
     service: notify.ios_pater100
     data:
