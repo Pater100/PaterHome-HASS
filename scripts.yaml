@@ -156,11 +156,6 @@ goodmorning_message:
           {% endif %}
           De temperatuur in huis is {{ states("sensor.living_room_thermostat_temperature") }} °C en buiten is het momenteel {{ state_attr("weather.uden", "temperature")  }} °C.
 
-button_night:
-  alias: Slaapknop
-  sequence:
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.slaapkamer_mini
-        media_content_id: https://paternetworks.duckdns.org/local/soundfiles/regeneration_cycle_complete.mp3
-        media_content_type: 'audio/mp3'
+# button_night:
+#   alias: Slaapknop
+#   sequence:
