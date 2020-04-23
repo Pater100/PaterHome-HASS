@@ -15,6 +15,17 @@ views:
           - sensor.living_room_thermostat_temperature
           - sensor.temperature_toilet
           - sensor.bedroom_temperature
+      - type: horizontal-stack
+        cards:
+        - type: 'custom:simple-thermostat'
+          entity: climate.living_room
+          step_layout: row
+          name: false
+          icon: false
+          control: false
+          hide:
+            temperature: true
+            state: true
       - type: vertical-stack
         cards:
         - type: horizontal-stack
@@ -305,17 +316,6 @@ views:
           name: slaapkamer
           icon: mdi:bed-empty
           entity: light.slaapkamer_group
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:simple-thermostat'
-            entity: climate.living_room
-            step_layout: row
-            name: false
-            icon: false
-            control: false
-            hide:
-              temperature: true
-              state: true
       - type: horizontal-stack
         cards:
         - type: custom:xiaomi-vacuum-card
