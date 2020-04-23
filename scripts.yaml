@@ -156,6 +156,23 @@ goodmorning_message:
           {% endif %}
           De temperatuur in huis is {{ states("sensor.living_room_thermostat_temperature") }} °C en buiten is het momenteel {{ state_attr("weather.uden", "temperature")  }} °C.
 
-# button_night:
-#   alias: Slaapknop
-#   sequence:
+button_night:
+  alias: Slaapknop
+  sequence:
+    - service: tts.google_translate_say
+      entity_id: media_player.slaapkamer_mini
+      data_template:
+        message: >
+          {% if now().strftime("%H")|int < 12 %}
+          Goedemorgen,
+          {% elif now().strftime("%H")|int < 18 %}
+          Goedemiddag,
+          {% else %}
+          Goedeavond,
+          {% endif %}
+          De tijd is {{ states("sensor.time") }}.
+          {% if states.input_boolean.wakeup_enabled == "on" %}
+          Ik wek je morgen om {{ states("input_datetime.wakeup_time") }}
+          {% if states.input_boolean.wakeup_enabled == "off" %}
+          De wekker staat uit dus ik laat je morgen uitslapen.
+          {% endif %}
