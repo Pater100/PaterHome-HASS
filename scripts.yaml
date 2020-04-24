@@ -164,15 +164,44 @@ button_night:
       data_template:
         message: >
           {% if now().strftime("%H")|int < 12 %}
-          Goedemorgen,
+            Goedemorgen,
           {% elif now().strftime("%H")|int < 18 %}
-          Goedemiddag,
+            Goedemiddag,
           {% else %}
-          Goedeavond,
+            Goedeavond,
           {% endif %}
-          De tijd is {{ states("sensor.time") }}.
-          {% if states.input_boolean.wakeup_enabled == "on" %}
-          Ik wek je morgen om {{ states("input_datetime.wakeup_time") }}
-          {% if states.input_boolean.wakeup_enabled == "off" %}
-          De wekker staat uit dus ik laat je morgen uitslapen.
+            De tijd is {{ states('sensor.time') }}.
+          {% if states('input_boolean.wakeup_enabled') == "on" %}
+            Ik wek je morgen om {{ states('input_datetime.wakeup_time') }}
+          {% else %}
+            De wekker staat uit dus ik laat je morgen uitslapen,
           {% endif %}
+          {% if states('group.deuren_gesloten') == "on" %}
+            ,Er staat nog ergens een deur open!
+          {% else %}
+            ,Zo te zien zijn alle deuren gesloten,
+          {% endif %}
+            ,Het huis wordt klaar gemaakt voor de nacht,
+            ,Slaap lekker
+    - delay:
+        seconds: 5
+    - service: light.turn_off
+      data:
+        entity_id: light.boven_group
+    - service: light.turn_on
+      data:
+        entity_id: light.wake_up_light_left
+        brightness: 100
+    - service: light.turn_on
+      data:
+        entity_id: light.wakeup_light_rechts
+        brightness: 100
+    - delay:
+        seconds: 20
+    - service: light.turn_off
+      data:
+        entity_id: light.wake_up_light_left
+    - service: light.turn_off
+      data:
+        entity_id: light.wakeup_light_rechts
+
