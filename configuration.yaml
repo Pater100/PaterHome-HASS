@@ -295,6 +295,8 @@ sabnzbd:
 media_player:
   - platform: samsungtv
     host: !secret tv_ip
+  - platform: mpd
+    host: 192.168.2.211
 
 proxmoxve:
   host: !secret proxmox_ip
