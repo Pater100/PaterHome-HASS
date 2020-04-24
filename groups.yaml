@@ -3,3 +3,11 @@ alarm_clock:
   entities:
     - input_datetime.wakeup_time
     - input_boolean.wakeup_enabled
+
+Deuren-gesloten:
+  name: "zijn alle deuren gesloten"
+  entities:
+    - binary_sensor.back_door
+    - binary_sensor.front_door
+    - binary_sensor.schuur_deur
+    - binary_sensor.schuur_poort
