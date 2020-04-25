@@ -219,6 +219,7 @@ sensor:
     name: xiaomi_map
     value_template: 'OK'
   - platform: authenticated
+  - platform: launch_library
 
 binary_sensor:
   #RFXCOM
