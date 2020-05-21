@@ -30,3 +30,5 @@
   type: module
 - url: /community_plugin/button-text-card/button-text-card.js
   type: module
+- url: /hacsfiles/lovelace-jumbo-card/jumbo-card.js
+  type: module
