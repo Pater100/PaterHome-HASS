@@ -5,7 +5,6 @@
 #\_/ \_/\_/\_/ \__,_|\__, |
 #                    |___/ 
 - alias: 'lichten_uit_bij_vertrek'
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.patrick_presence
@@ -15,7 +14,6 @@
     entity_id: group.all_lights
 
 - alias: 'screen on when home'
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.patrick_presence
@@ -25,7 +23,6 @@
     entity_id: switch.wallscreen
 
 - alias: 'screen off when home'
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.patrick_presence
@@ -42,7 +39,6 @@
 #\_\ \/ \___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|___/
 #                                                         
 - alias: 'alarm_openen_achterdeur'
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.back_door
@@ -58,7 +54,6 @@
       title: 'Indringer!'
       message: 'Iemand komt binnen via de achterdeur'
 - alias: 'alarm_openen_Voordeur'
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.front_door
@@ -74,7 +69,6 @@
       title: 'Indringer!'
       message: 'Iemand komt binnen via de voordeur'
 - alias: 'alarm_openen_schuurdeur'
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.schuur_deur
@@ -90,7 +84,6 @@
       title: 'Indringer!'
       message: 'Iemand komt binnen via de schuurdeur'
 - alias: 'alarm_openen_schuurpoort'
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.schuur_poort
@@ -105,8 +98,7 @@
     data:
       title: 'Indringer!'
       message: 'Iemand komt binnen via de schuurpoort'
-- alias: 'notification when fire alarm goes off'
-  hide_entity: true
+- alias: 'notification when fire alarm goes off Kitchen'
   trigger:
     platform: state
     entity_id: binary_sensor.fire_54
@@ -116,7 +108,31 @@
     service: notify.ios_pater100
     data:
       title: "Brand"
-      message: 'Het brand alarm gaat af!'
+      message: 'Het brand alarm gaat af! Keuken!'
+
+- alias: 'notification when fire alarm goes off Replicator Room'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.rookmelder_replicator_room
+    from: 'off'
+    to: 'on'
+  action:
+    service: notify.ios_pater100
+    data:
+      title: "Brand"
+      message: 'Het brand alarm gaat af! Replicator room!'
+
+- alias: 'notification when fire alarm goes off slaapkamer'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.rookmelder_slaapkamer
+    from: 'off'
+    to: 'on'
+  action:
+    service: notify.ios_pater100
+    data:
+      title: "Brand"
+      message: 'Het brand alarm gaat af! Slaapkamer!'
 
 #   __ _       _     _                   _                 
 #  / /(_) __ _| |__ | |_   ___ _   _ ___| |_ ___ _ __ ___  
@@ -128,7 +144,6 @@
 #light System in Shed
 - alias: "if shed door opens turn shed lights on"
   initial_state: true
-  hide_entity: true
   trigger:
     - entity_id: binary_sensor.schuur_deur
       platform: state
@@ -140,7 +155,6 @@
 
 - alias: door closed? turn off lights after 5 minutes
   initial_state: true
-  hide_entity: true
   trigger: 
     - entity_id: binary_sensor.schuur_deur
       platform: state
@@ -154,7 +168,6 @@
 
 - alias: "if shed backdoor opens turn on shed lights"
   initial_state: true
-  hide_entity: true
   trigger:
     - entity_id: binary_sensor.schuur_poort
       platform: state
@@ -166,7 +179,6 @@
 
 - alias: Poort closed? turn off lights after 5 minutes
   initial_state: true
-  hide_entity: true
   trigger:
     - entity_id: binary_sensor.schuur_poort
       platform: state
@@ -180,7 +192,6 @@
 
 - alias: if front door opens turn on lights, but only when its dark
   initial_state: true
-  hide_entity: true
   trigger:
     entity_id: binary_sensor.frontdoor
     platform: state
@@ -195,7 +206,6 @@
 
 - alias: if front door closes turn off lights
   initial_state: true
-  hide_entity: true
   trigger:
     entity_id: binary_sensor.frontdoor
     platform: state
@@ -209,7 +219,6 @@
 
 - alias: if motion on stairs is detected turn off all light on upper floor
   initial_state: true
-  hide_entity: true
   trigger:
     entity_id: binary_sensor.stairs
     platform: state
@@ -221,7 +230,6 @@
 
 - alias: if door opens in the cellar
   initial_state: true
-  hide_entity: true
   trigger:
     entity_id: binary_sensor.kelder
     platform: state
@@ -233,7 +241,6 @@
 
 - alias: if door opens in the cellar
   initial_state: true
-  hide_entity: true
   trigger:
     entity_id: binary_sensor.kelder
     platform: state
@@ -249,7 +256,6 @@
 #\/    |_|\__,_|\__, |\__, |_|  \___/ \__,_|_| |_|\__,_| |___/\___|\___|\__|_|\___/|_| |_|
 #               |___/ |___/                                                               
 - alias: 'Pressence_detected_Home'
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.patrick_presence
@@ -260,7 +266,6 @@
       title: 'Patrick is Thuis!'
       message: 'De sensor is geschakeld naar thuis'
 - alias: 'Pressence_detected_Away'
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.patrick_presence
@@ -277,7 +282,6 @@
 #/ /\/\ \ |_| | | |_| | | | | | |  __/ (_| | | (_| |
 #\/    \/\__,_|_|\__|_|_| |_| |_|\___|\__,_|_|\__,_|                                                   
 - alias: 'Turn Homecinema Set on when TV is on'
-  hide_entity: true
   initial_state: true
   trigger:
     - entity_id: media_player.samsung_ue32f6400
@@ -293,7 +297,6 @@
 
 - alias: 'turn Homecinema Set off when TV is off'
   initial_state: true
-  hide_entity: true
   trigger:
     - entity_id: media_player.samsung_ue32f6400
       platform: state
@@ -308,7 +311,6 @@
 
 - alias: 'tv on after sunset, turn on ambiance scene'
   initial_state: true
-  hide_entity: true
   trigger:
     - entity_id: media_player.samsung_ue32f6400
       platform: state
@@ -324,7 +326,6 @@
 
 - alias: pop-up when doorbel dings
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_data:
@@ -337,7 +338,6 @@
 
 - alias: pop-up when doorbel dings
   initial_state: true
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.schuur_poort
@@ -354,7 +354,6 @@
 #                                |___/ 
 - alias: 'if frontdoor opens at night, turn lights on in bedroom'
   initial_state: true
-  hide_entity: true
   trigger:
     - entity_id: binary_sensor.front_door
       platform: state
@@ -374,7 +373,6 @@
     service: scene.turn_on
 - alias: 'if backdoor opens at night, turn lights on in bedroom'
   initial_state: true
-  hide_entity: true
   trigger:
     - entity_id: binary_sensor.back_door
       platform: state
@@ -402,7 +400,6 @@
 
 - alias: "turn off sleep modus"
   initial_state: true
-  hide_entity: true
   trigger:
     platform: time
     at: '05:00:00'
@@ -413,7 +410,6 @@
 
 - alias: "wake-up start of the routine"
   initial_state: true
-  hide_entity: true
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (states.input_datetime.wakeup_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
@@ -446,7 +442,6 @@
 #          |___/   
 - alias: when night mode is on, set house to sleep mode
   initial_state: true
-  hide_entity: true
   trigger: 
     platform: state
     entity_id: input_boolean.sleep_mode
@@ -462,7 +457,6 @@
 
 - alias: Button for bedtime routine
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_type: deconz_event
