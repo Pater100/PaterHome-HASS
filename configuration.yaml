@@ -220,6 +220,10 @@ sensor:
     value_template: 'OK'
   - platform: authenticated
   - platform: launch_library
+  - platform: jumbo
+    username: !secret jumbo_username
+    password: !secret jumbo_password
+    type: "both"   
 
 binary_sensor:
   #RFXCOM
