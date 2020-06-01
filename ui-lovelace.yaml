@@ -352,7 +352,6 @@ views:
         cameras:
           - entity: camera.foscam_voor
           - entity: camera.foscam_achter
-          - entity: camera.octoprint
 
 
 
