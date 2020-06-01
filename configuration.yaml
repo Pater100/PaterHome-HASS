@@ -105,11 +105,6 @@ camera:
     password: !secret foscam_password_achter
     name: Foscam Achter
 
-#usb Passtrough RFXCOM
-rfxtrx:
-  device: /dev/ttyUSB0
-  debug: true
-
 #het weer
 weather:
   - platform: buienradar
@@ -167,9 +162,6 @@ remote:
 sensor:
   # Weather prediction
   - platform: yr
-  #RFXCOM
-  - platform: rfxtrx
-    automatic_add: false
   #raam sensoren
   - platform: mqtt
     name: "Voor-links"
@@ -226,18 +218,6 @@ sensor:
     type: "both"   
 
 binary_sensor:
-  #RFXCOM
-  - platform: rfxtrx
-    automatic_add: false
-    devices:
-      0b110067011f84d20a010f70:
-        name: Backdoor
-      0b11000a0161ec560a000070:
-        name: Frontdoor
-      0b1100000180f5ee0a000060:
-        name: Schuurdeur
-      0b1100000161ee3a0a000070:
-        name: schuurpoort
   # Bayesian Sensor
   - platform: bayesian
     prior: 0.5
