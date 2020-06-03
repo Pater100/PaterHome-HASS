@@ -338,5 +338,3 @@ views:
             - sensor.worldwide_coronavirus_current
             - sensor.worldwide_coronavirus_deaths
             - sensor.worldwide_coronavirus_recovered
-
-resources: !include resources.yaml
