@@ -33,12 +33,6 @@ discovery:
 frontend:
   themes: !include themes.yaml
 
-panel_iframe:
-  valetudo:
-    title: Pater-zuiger
-    icon: mdi:robot-vacuum-variant
-    url: !secret ip_pater_zuiger_iframe
-
 #input Booleans
 input_boolean:
   sleep_mode:
@@ -145,11 +139,6 @@ nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
-#ring
-ring:
-  username: !secret ring_username 
-  password: !secret ring_password
-
 #Harmony hubb
 remote:
   - platform: harmony
@@ -160,13 +149,6 @@ remote:
 sensor:
   # Weather prediction
   - platform: yr
-  #raam sensoren
-  - platform: mqtt
-    name: "Voor-links"
-    state_topic: "Voorraam-links"
-  - platform: mqtt
-    name: "voor-rechts"
-    state_topic: "Voorraam-rechts"
   #glances (Sensor from host)
   - platform: glances
     host: !secret glances_host
@@ -184,10 +166,6 @@ sensor:
     resource: !secret CPU_temp_sensor_adres
     value_template: '{{ value_json[3]["value"] }}'
     unit_of_measurement: "°C"
-  #pi-hole
-  - platform: pi_hole
-  #ring Sensor
-  - platform: ring
   #Version Checker
   - platform: version
     name: version_availeble
@@ -199,11 +177,6 @@ sensor:
     display_options:
       - 'time'
   - platform: dsmr_reader
-  - platform: mqtt
-    state_topic: "valetudo/rockrobo/state"
-    json_attributes_topic: "valetudo/rockrobo/map_data"
-    name: xiaomi_map
-    value_template: 'OK'
   - platform: authenticated
   - platform: launch_library
   - platform: jumbo
@@ -233,7 +206,6 @@ binary_sensor:
         prob_given_false: 0.2
         platform: 'state'
         to_state: 'home'
-  #binary Octoprint
 
 #ios intergratie
 ios:
@@ -254,11 +226,6 @@ mqtt:
 sabnzbd:
   api_key: !secret sabnzbd_api
   host: !secret sabnzbd_host
-
-#media player apparaten
-media_player:
-  - platform: samsungtv
-    host: !secret tv_ip
 
 proxmoxve:
   host: !secret proxmox_ip
