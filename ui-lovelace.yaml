@@ -339,20 +339,4 @@ views:
             - sensor.worldwide_coronavirus_deaths
             - sensor.worldwide_coronavirus_recovered
 
-  - id: cameras
-    title: Surveillance
-    icon: mdi:cctv
-    panel: true
-    cards:
-    - type: vertical-stack
-      cards:
-      - type: custom:surveillance-card
-        thumb_interval: 10
-        update_interval: 1
-        cameras:
-          - entity: camera.foscam_voor
-          - entity: camera.foscam_achter
-
-
-
 resources: !include resources.yaml
