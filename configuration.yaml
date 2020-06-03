@@ -92,11 +92,6 @@ recorder:
 #camera
 stream:
 camera:
-  - platform: ring
-  - platform: mjpeg
-    name: OctoPrint
-    still_image_url: !secret octoprint_still
-    mjpeg_url: !secret octoprint_mjpeg
   - platform: foscam
     ip: !secret foscam_ip_voor
     username: !secret foscam_username_voor
@@ -203,10 +198,6 @@ sensor:
   - platform: time_date
     display_options:
       - 'time'
-  - platform: mqtt
-    state_topic: "room/bedroom/bed/load"
-    name: Bed Mass
-    unit_of_measurement: "kg"
   - platform: dsmr_reader
   - platform: mqtt
     state_topic: "valetudo/rockrobo/state"
@@ -218,7 +209,7 @@ sensor:
   - platform: jumbo
     username: !secret jumbo_username
     password: !secret jumbo_password
-    type: "both"   
+    type: "both"
 
 binary_sensor:
   # Bayesian Sensor
@@ -242,14 +233,7 @@ binary_sensor:
         prob_given_false: 0.2
         platform: 'state'
         to_state: 'home'
-  #Ring
-  - platform: ring
   #binary Octoprint
-  - platform: octoprint
-
-#Pi-hole
-pi_hole:
-  host: !secret pi_hole_ip
 
 #ios intergratie
 ios:
@@ -266,14 +250,6 @@ mqtt:
   username: !secret mqtt_user
   password: !secret mqtt_password
 
-#Octoprint
-octoprint:
-  - host: !secret octoprint_host
-    api_key: !secret octoprint_api
-    name: Creality CR-10
-    bed: true
-    number_of_tools: 1
-
 #SabNZBD
 sabnzbd:
   api_key: !secret sabnzbd_api
@@ -283,14 +259,13 @@ sabnzbd:
 media_player:
   - platform: samsungtv
     host: !secret tv_ip
-  - platform: mpd
-    host: 192.168.2.211
 
 proxmoxve:
   host: !secret proxmox_ip
   verify_ssl: false
   username: !secret proxmox_username
   password: !secret proxmox_password
+  realm: pve
   nodes:
   - node: Proxmox
     vms:
