@@ -107,13 +107,6 @@ weather:
     forecast: true
 
 # Human pressence detection system (beta)
-device_tracker:
-  - platform: unifi_direct
-    host: !secret device_tracker_unifi_host
-    username: !secret device_tracker_user
-    password: !secret device_tracker_password
-    new_device_defaults:
-      track_new_devices: true
   #custom component for detecting Paterphone
   - platform: iphonedetect
     consider_home: 60
@@ -149,23 +142,6 @@ remote:
 sensor:
   # Weather prediction
   - platform: yr
-  #glances (Sensor from host)
-  - platform: glances
-    host: !secret glances_host
-    version: 3
-    resources:
-      - 'memory_use_percent'
-      - 'cpu_use_percent'
-      - 'memory_free'
-      - 'memory_use'
-      - 'disk_use'
-      - 'disk_free'
-  #platform rest API
-  - platform: rest
-    name: CPU-temprature
-    resource: !secret CPU_temp_sensor_adres
-    value_template: '{{ value_json[3]["value"] }}'
-    unit_of_measurement: "°C"
   #Version Checker
   - platform: version
     name: version_availeble
