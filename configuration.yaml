@@ -108,6 +108,7 @@ weather:
 
 # Human pressence detection system (beta)
   #custom component for detecting Paterphone
+device_tracker:
   - platform: iphonedetect
     consider_home: 60
     hosts:
