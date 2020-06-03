@@ -270,13 +270,13 @@ proxmoxve:
   - node: Proxmox
     vms:
       - 100
+      - 104
       - 108
       - 109
     containers:
       - 101
       - 102
       - 103
-      - 104
       - 105
       - 106
       - 107
@@ -312,6 +312,7 @@ browser_mod:
 # UI
 lovelace:
   mode: yaml
+  resources: !include resources.yaml
 
 #sun
 sun:
