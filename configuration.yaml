@@ -12,6 +12,7 @@ homeassistant:
   time_zone: Europe/Amsterdam
   # Customization file
   customize: !include customize.yaml
+  
 
 # Network information
 
