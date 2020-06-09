@@ -91,7 +91,7 @@ views:
           - type: custom:mini-graph-card
             name: Server CPU
             entities:
-              - sensor.cpu_temprature
+              - sensor.glances_tdie_temp
             line_color: green
             line_width: 8
             font_size: 75
