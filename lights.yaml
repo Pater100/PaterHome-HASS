@@ -31,7 +31,8 @@
   name: werkkamer_group
   entities:
     - light.replicator_room_1
-    - light.replicator_room_2
+    - light.replicator2
+    - light.replicator_room_3
 
 - platform: group
   name: slaapkamer_group
