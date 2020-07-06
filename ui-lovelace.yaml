@@ -15,6 +15,8 @@ views:
           - sensor.living_room_thermostat_temperature
           - sensor.temperature_toilet
           - sensor.bedroom_temperature
+          - sensor.temperature_60 #BathRoom
+          - sensor.temperature_57 #Print Sensor
       - type: horizontal-stack
         cards:
         - type: 'custom:simple-thermostat'
@@ -99,6 +101,8 @@ views:
             name: Luchtvochtigheid
             entities:
               - sensor.living_room_thermostat_humidity
+              - sensor.humidity_61 # bathRoom
+              - sensor.humidity_58 # Printer
             line_color: blue
             line_width: 8
             font_size: 75
