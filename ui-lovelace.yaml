@@ -17,6 +17,20 @@ views:
           - sensor.bedroom_temperature
           - sensor.temperature_60 #BathRoom
           - sensor.temperature_57 #Print Sensor
+        line_color: blue
+        line_width: 2
+        font_size: 100
+      - type: vertical-stack
+        cards:
+        - type: custom:mini-graph-card
+          name: Luchtvochtigheid
+          entities:
+            - sensor.living_room_thermostat_humidity
+            - sensor.humidity_61 # bathRoom
+            - sensor.humidity_58 # Printer
+          line_color: blue
+          line_width: 2
+          font_size: 100
       - type: horizontal-stack
         cards:
         - type: 'custom:simple-thermostat'
@@ -94,18 +108,10 @@ views:
             name: Server CPU
             entities:
               - sensor.glances_tdie_temp
+              - sensor.synology_average_disk_temp_volume_1
             line_color: green
-            line_width: 8
-            font_size: 75
-          - type: custom:mini-graph-card
-            name: Luchtvochtigheid
-            entities:
-              - sensor.living_room_thermostat_humidity
-              - sensor.humidity_61 # bathRoom
-              - sensor.humidity_58 # Printer
-            line_color: blue
-            line_width: 8
-            font_size: 75
+            line_width: 2
+            font_size: 100
         - type: horizontal-stack
           cards:
           - type: entities
@@ -326,19 +332,3 @@ views:
             sensor: Sensor
       - type: horizontal-stack
         cards:
-        - type: glance
-          title: COVID-19 Nederland
-          entities:
-            - sensor.netherlands_coronavirus_confirmed
-            - sensor.netherlands_coronavirus_current
-            - sensor.netherlands_coronavirus_deaths
-            - sensor.netherlands_coronavirus_recovered
-      - type: horizontal-stack
-        cards:
-        - type: glance
-          title: COVID-19 Wereldwijd
-          entities:
-            - sensor.worldwide_coronavirus_confirmed
-            - sensor.worldwide_coronavirus_current
-            - sensor.worldwide_coronavirus_deaths
-            - sensor.worldwide_coronavirus_recovered
