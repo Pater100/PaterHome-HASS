@@ -53,14 +53,6 @@ views:
             entities:
               - calendar.patrick
               - calendar.afval_kalender
-      - type: vertical-stack
-        cards:
-        - type: 'custom:jumbo-card'
-          time_slots_pick_up: sensor.jumbo_pick_up_time_slots
-          time_slots_pick_up_days: 2
-          deliveries: sensor.jumbo_delivery
-          pick_ups: sensor.jumbo_pick_up
-          basket: sensor.jumbo_basket
     #Stack Middle
     - type: vertical-stack
       cards:
@@ -332,3 +324,9 @@ views:
             sensor: Sensor
       - type: horizontal-stack
         cards:
+        - type: 'custom:jumbo-card'
+          time_slots_pick_up: sensor.jumbo_pick_up_time_slots
+          time_slots_pick_up_days: 2
+          deliveries: sensor.jumbo_delivery
+          pick_ups: sensor.jumbo_pick_up
+          basket: sensor.jumbo_basket
