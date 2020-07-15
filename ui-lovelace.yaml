@@ -65,14 +65,14 @@ views:
             entities:
               - sensor.dsmr_reading_electricity_currently_delivered
             line_color: yellow
-            line_width: 8
+            line_width: 2
             font_size: 75
           - type: custom:mini-graph-card
             name: Gasverbruik p/dag
             entities:
               - sensor.dsmr_day_consumption_gas
             line_color: red
-            line_width: 8
+            line_width: 2
             font_size: 75
       - type: vertical-stack
         cards:
@@ -83,14 +83,14 @@ views:
             entities:
               - sensor.dsmr_day_consumption_electricity_cost_merged
             line_color: yellow
-            line_width: 8
+            line_width: 2
             font_size: 75
           - type: custom:mini-graph-card
             name: Gas
             entities:
               - sensor.dsmr_day_consumption_gas_cost
             line_color: red
-            line_width: 8
+            line_width: 2
             font_size: 75
       - type: vertical-stack
         cards:
@@ -104,6 +104,16 @@ views:
             line_color: green
             line_width: 2
             font_size: 100
+        - type: horizontal-stack
+          cards:
+          - type: custom:mini-graph-card
+            name: Schijfruimte verbruikt
+            entities:
+              - sensor.glances_pater_movie_used_percent
+              - sensor.synology_volume_used_volume_1
+            line_color: red
+            line_width: 2
+            font_size: 75
         - type: horizontal-stack
           cards:
           - type: entities
