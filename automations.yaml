@@ -49,7 +49,7 @@
       entity_id: binary_sensor.patrick_presence
       state: 'off'
   action:
-    service: notify.ios_pater100
+    service: notify.mobile_app_paterphone
     data:
       title: 'Indringer!'
       message: 'Iemand komt binnen via de achterdeur'
@@ -64,7 +64,7 @@
       entity_id: binary_sensor.patrick_presence
       state: 'off'
   action:
-    service: notify.ios_pater100
+    service: notify.mobile_app_paterphone
     data:
       title: 'Indringer!'
       message: 'Iemand komt binnen via de voordeur'
@@ -79,7 +79,7 @@
       entity_id: binary_sensor.patrick_presence
       state: 'off'
   action:
-    service: notify.ios_pater100
+    service: notify.mobile_app_paterphone
     data:
       title: 'Indringer!'
       message: 'Iemand komt binnen via de schuurdeur'
@@ -94,7 +94,7 @@
       entity_id: binary_sensor.patrick_presence
       state: 'off'
   action:
-    service: notify.ios_pater100
+    service: notify.mobile_app_paterphone
     data:
       title: 'Indringer!'
       message: 'Iemand komt binnen via de schuurpoort'
@@ -105,7 +105,7 @@
     from: 'off'
     to: 'on'
   action:
-    service: notify.ios_pater100
+    service: notify.mobile_app_paterphone
     data:
       title: "Brand"
       message: 'Het brand alarm gaat af! Keuken!'
@@ -117,7 +117,7 @@
     from: 'off'
     to: 'on'
   action:
-    service: notify.ios_pater100
+    service: notify.mobile_app_paterphone
     data:
       title: "Brand"
       message: 'Het brand alarm gaat af! Replicator room!'
@@ -129,7 +129,7 @@
     from: 'off'
     to: 'on'
   action:
-    service: notify.ios_pater100
+    service: notify.mobile_app_paterphone
     data:
       title: "Brand"
       message: 'Het brand alarm gaat af! Slaapkamer!'
@@ -193,7 +193,7 @@
 - alias: if front door opens turn on lights, but only when its dark
   initial_state: true
   trigger:
-    entity_id: binary_sensor.frontdoor
+    entity_id: binary_sensor.front_door
     platform: state
     to: 'on'
   condition:
@@ -207,7 +207,7 @@
 - alias: if front door closes turn off lights
   initial_state: true
   trigger:
-    entity_id: binary_sensor.frontdoor
+    entity_id: binary_sensor.front_door
     platform: state
     to: 'off'
     for:
@@ -261,7 +261,7 @@
     entity_id: binary_sensor.patrick_presence
     to: 'on'
   action:
-    service: notify.ios_pater100
+    service: notify.mobile_app_paterphone
     data:
       title: 'Patrick is Thuis!'
       message: 'De sensor is geschakeld naar thuis'
@@ -271,7 +271,7 @@
     entity_id: binary_sensor.patrick_presence
     to: 'off'
   action:
-    service: notify.ios_pater100
+    service: notify.mobile_app_paterphone
     data:
       title: 'Patrick is niet meer thuis!'
       message: 'De sensor is geschakeld naar Afwezig'
