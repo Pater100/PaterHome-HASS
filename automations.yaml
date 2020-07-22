@@ -7,8 +7,8 @@
 - alias: 'lichten_uit_bij_vertrek'
   trigger:
     platform: state
-    entity_id: binary_sensor.patrick_presence
-    to: 'off'
+    entity_id: person.patrick_smits
+    to: 'away'
   action:
     service: light.turn_off
     entity_id: group.all_lights
@@ -16,8 +16,8 @@
 - alias: 'screen on when home'
   trigger:
     platform: state
-    entity_id: binary_sensor.patrick_presence
-    to: 'on'
+    entity_id: person.patrick_smits
+    to: 'home'
   action:
     service: switch.turn_on
     entity_id: switch.wallscreen
@@ -25,8 +25,8 @@
 - alias: 'screen off when home'
   trigger:
     platform: state
-    entity_id: binary_sensor.patrick_presence
-    to: 'off'
+    entity_id: person.patrick_smits
+    to: 'away'
     for: '00:08:00'
   action:
     service: switch.turn_off
@@ -46,8 +46,8 @@
     to: 'on'
   condition:
     - condition: state
-      entity_id: binary_sensor.patrick_presence
-      state: 'off'
+      entity_id: person.patrick_smits
+      state: 'away'
   action:
     service: notify.mobile_app_paterphone
     data:
@@ -61,8 +61,8 @@
     to: 'on'
   condition:
     - condition: state
-      entity_id: binary_sensor.patrick_presence
-      state: 'off'
+      entity_id: person.patrick_smits
+      state: 'away'
   action:
     service: notify.mobile_app_paterphone
     data:
@@ -76,8 +76,8 @@
     to: 'on'
   condition:
     - condition: state
-      entity_id: binary_sensor.patrick_presence
-      state: 'off'
+      entity_id: person.patrick_smits
+      state: 'away'
   action:
     service: notify.mobile_app_paterphone
     data:
@@ -91,8 +91,8 @@
     to: 'on'
   condition:
     - condition: state
-      entity_id: binary_sensor.patrick_presence
-      state: 'off'
+      entity_id: person.patrick_smits
+      state: 'away'
   action:
     service: notify.mobile_app_paterphone
     data:
