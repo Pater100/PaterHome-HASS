@@ -53,6 +53,13 @@
     data:
       title: 'Indringer!'
       message: 'Iemand komt binnen via de achterdeur'
+      data:
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1.0
+
 - alias: 'alarm_openen_Voordeur'
   trigger:
     platform: state
@@ -68,6 +75,13 @@
     data:
       title: 'Indringer!'
       message: 'Iemand komt binnen via de voordeur'
+      data:
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1.0
+
 - alias: 'alarm_openen_schuurdeur'
   trigger:
     platform: state
@@ -83,6 +97,13 @@
     data:
       title: 'Indringer!'
       message: 'Iemand komt binnen via de schuurdeur'
+      data:
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1.0
+
 - alias: 'alarm_openen_schuurpoort'
   trigger:
     platform: state
@@ -109,6 +130,12 @@
     data:
       title: "Brand"
       message: 'Het brand alarm gaat af! Keuken!'
+      data:
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1.0
 
 - alias: 'notification when fire alarm goes off Replicator Room'
   trigger:
@@ -121,6 +148,12 @@
     data:
       title: "Brand"
       message: 'Het brand alarm gaat af! Replicator room!'
+      data:
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1.0
 
 - alias: 'notification when fire alarm goes off slaapkamer'
   trigger:
@@ -133,6 +166,12 @@
     data:
       title: "Brand"
       message: 'Het brand alarm gaat af! Slaapkamer!'
+      data:
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1.0
 
 #   __ _       _     _                   _                 
 #  / /(_) __ _| |__ | |_   ___ _   _ ___| |_ ___ _ __ ___  
