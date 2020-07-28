@@ -8,7 +8,7 @@
   trigger:
     platform: state
     entity_id: person.patrick_smits
-    to: 'away'
+    to: 'not_home'
   action:
     service: light.turn_off
     entity_id: group.all_lights
@@ -26,7 +26,7 @@
   trigger:
     platform: state
     entity_id: person.patrick_smits
-    to: 'away'
+    to: 'not_home'
     for: '00:08:00'
   action:
     service: switch.turn_off
@@ -91,7 +91,7 @@
   condition:
     - condition: state
       entity_id: person.patrick_smits
-      state: 'away'
+      state: 'not_home'
   action:
     service: notify.mobile_app_paterphone
     data:
@@ -113,7 +113,7 @@
   condition:
     - condition: state
       entity_id: person.patrick_smits
-      state: 'away'
+      state: 'not_home'
   action:
     service: notify.mobile_app_paterphone
     data:
@@ -401,8 +401,8 @@
     condition: and
     conditions:
     - condition: state
-      entity_id: binary_sensor.patrick_presence
-      state: 'on'
+      entity_id: person.patrick_smits
+      state: 'home'
     - condition: time
       after: '23:00:00'
       before: '06:00:00'
@@ -413,15 +413,15 @@
 - alias: 'if backdoor opens at night, turn lights on in bedroom'
   initial_state: true
   trigger:
-    - entity_id: binary_sensor.back_door
+    - entity_id: person.patrick_smits
       platform: state
-      to: 'on'
+      to: 'home'
   condition:
     condition: and
     conditions:
     - condition: state
-      entity_id: binary_sensor.patrick_presence
-      state: 'on'
+      entity_id: person.patrick_smits
+      state: 'home'
     - condition: time
       after: '23:00:00'
       before: '06:00:00'
