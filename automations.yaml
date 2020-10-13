@@ -17,7 +17,7 @@
   trigger:
     platform: state
     entity_id: person.patrick_smits
-    to: 'home'
+    to: home
   action:
     service: switch.turn_on
     entity_id: switch.wallscreen
@@ -26,7 +26,7 @@
   trigger:
     platform: state
     entity_id: person.patrick_smits
-    to: 'not_home'
+    to: not_home
     for: '00:08:00'
   action:
     service: switch.turn_off
@@ -69,7 +69,7 @@
   condition:
     - condition: state
       entity_id: person.patrick_smits
-      state: 'away'
+      state: 'not_home'
   action:
     service: notify.mobile_app_paterphone
     data:
@@ -288,6 +288,53 @@
     data:
       entity_id: light.kelder_2
     service: light.turn_off
+
+- alias: if replicator room on is pressed turn on studymode
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: 00:17:88:01:04:f7:38:fa
+      event: 1002
+  action:
+    data:
+      entity_id: light.werkkamer_group
+    service: light.turn_ons
+
+- alias: if replicator room off is pressed turn off studymode
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: 00:17:88:01:04:f7:38:fa
+      event: 4002
+  action:
+    data:
+      entity_id: light.werkkamer_group
+    service: light.turn_off
+      
+
+- alias: if iPaterMac Turns on turn on workligt
+  trigger:
+    entity_id: binary_sensor.imac_van_patrick_active
+    platform: state
+    to: "on"
+  action:
+    data:
+      entity_id: light.downstairs_workarea
+    service: light.turn_on
+      
+
+- alias: if iPaterMac Turns off turn off workligt
+  trigger:
+    entity_id: binary_sensor.imac_van_patrick_active
+    platform: state
+    to: "off"
+  action:
+    data:
+      entity_id: light.downstairs_workarea
+    service: light.turn_off
+      
 #   ___ _                                             _                 _   _             
 #  / _ \ | __ _ _   _  __ _ _ __ ___  _   _ _ __   __| |  ___  ___  ___| |_(_) ___  _ __  
 # / /_)/ |/ _` | | | |/ _` | '__/ _ \| | | | '_ \ / _` | / __|/ _ \/ __| __| |/ _ \| '_ \ 
@@ -297,8 +344,8 @@
 - alias: 'Pressence_detected_Home'
   trigger:
     platform: state
-    entity_id: binary_sensor.patrick_presence
-    to: 'on'
+    entity_id: person.patrick_smits
+    to: 'home'
   action:
     service: notify.mobile_app_paterphone
     data:
@@ -307,8 +354,8 @@
 - alias: 'Pressence_detected_Away'
   trigger:
     platform: state
-    entity_id: binary_sensor.patrick_presence
-    to: 'off'
+    entity_id: person.patrick_smits
+    to: not_home
   action:
     service: notify.mobile_app_paterphone
     data:
