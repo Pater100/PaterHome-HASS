@@ -142,8 +142,6 @@ remote:
 
 # Sensors
 sensor:
-  # Weather prediction
-  - platform: yr
   #Version Checker
   - platform: version
     name: version_availeble
