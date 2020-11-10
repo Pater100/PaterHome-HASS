@@ -330,6 +330,10 @@
     entity_id: binary_sensor.imac_van_patrick_active
     platform: state
     to: "off"
+  condition:
+    - condition: state
+      entity_id: input_boolean.study_mode
+      state: "off" 
   action:
     data:
       entity_id: light.downstairs_workarea

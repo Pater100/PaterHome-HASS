@@ -254,14 +254,14 @@ views:
               service_data:
                 entity_id: scene.kook_scene
           - type: "custom:button-card"
+            entity: input_boolean.study_mode
             color_type: card
             color: rgb(08, 10, 19)
-            icon: mdi:silverware-variant
-            tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
-                entity_id: scene.eten_aan_eettafel
+            icon: mdi:school
+            show_name: false        
+            state:
+              - value: "on"
+                color: rgb(218, 218, 219)
           - type: "custom:button-card"
             entity: input_boolean.wakeup_enabled
             color_type: card
