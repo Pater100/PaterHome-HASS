@@ -374,7 +374,7 @@
 - alias: 'Turn Homecinema Set on when TV is on'
   initial_state: true
   trigger:
-    - entity_id: media_player.samsung_ue32f6400
+    - entity_id: media_player.pater_panel
       platform: state
       to: 'on'
   action:     
@@ -388,7 +388,7 @@
 - alias: 'turn Homecinema Set off when TV is off'
   initial_state: true
   trigger:
-    - entity_id: media_player.samsung_ue32f6400
+    - entity_id: media_player.pater_panel
       platform: state
       to: 'off'
   action:     
@@ -402,7 +402,7 @@
 - alias: 'tv on after sunset, turn on ambiance scene'
   initial_state: true
   trigger:
-    - entity_id: media_player.samsung_ue32f6400
+    - entity_id: media_player.pater_panel
       platform: state
       to: 'on'
   condition:

@@ -224,11 +224,18 @@ proxmoxve:
       - 106
       - 107
 
+#WebOS
+webostv:
+  host: !secret Paterpannel-ip
+  name: Pater-panel
+
 # Text to speech
 tts:
   - platform: google_translate
     base_url: !secret tts_url
     language: 'nl'
+  - platform: reversotts
+    language: "Zoe-Belgian-Dutch"
 
 #HACS
 hacs:
@@ -255,7 +262,7 @@ browser_mod:
 # UI
 lovelace:
   mode: yaml
-  resources: !include resources.yaml
+  
 
 #sun
 sun:
@@ -268,3 +275,4 @@ script: !include scripts.yaml
 light: !include lights.yaml
 switch: !include switch.yaml
 scene: !include scene.yaml
+resources: !include resources.yaml

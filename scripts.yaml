@@ -76,7 +76,7 @@ morning:
         brightness: 255
     - wait_template: "{{ is_state('binary_sensor.bedroom_motion', 'on') }}"
       timeout: '00:15:00'
-      continue_on_timeout: 'true'
+      continue_on_timeout: true
     - service: script.turn_on
       data:
         entity_id: script.goodmorning_message
@@ -143,7 +143,7 @@ goodmorning_message:
         media_content_type: 'audio/mp3'
     - delay:
         seconds: 10
-    - service: tts.google_translate_say
+    - service: tts.cloud_say
       entity_id: media_player.slaapkamer_mini
       data_template:
         message: >
@@ -155,11 +155,14 @@ goodmorning_message:
           Goedeavond,
           {% endif %}
           De temperatuur in huis is {{ states("sensor.living_room_thermostat_temperature") }} °C en buiten is het momenteel {{ state_attr("weather.uden", "temperature")  }} °C.
+        options:
+          gender: female
+        language: nl-NL
 
 button_night:
   alias: Slaapknop
   sequence:
-    - service: tts.google_translate_say
+    - service: tts.cloud_say
       entity_id: media_player.slaapkamer_mini
       data_template:
         message: >
@@ -183,6 +186,9 @@ button_night:
           {% endif %}
             ,Het huis wordt klaar gemaakt voor de nacht,
             ,Slaap lekker
+        options:
+          gender: female
+        language: nl-NL
     - delay:
         seconds: 5
     - service: light.turn_off
