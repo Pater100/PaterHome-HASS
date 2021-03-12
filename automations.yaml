@@ -173,6 +173,17 @@
             critical: 1
             volume: 1.0
 
+- alias: 'Announce Coming home'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door
+    from: 'off'
+    to: 'on'
+  action:
+    service: tts.cloud_say
+    entity_id: media_player.slaapkamer
+    data:
+      message: 'Initializing, Welcome Home, I am Starting up Paterhome'
 #   __ _       _     _                   _                 
 #  / /(_) __ _| |__ | |_   ___ _   _ ___| |_ ___ _ __ ___  
 # / / | |/ _` | '_ \| __| / __| | | / __| __/ _ \ '_ ` _ \ 
