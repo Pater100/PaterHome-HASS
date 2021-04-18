@@ -65,6 +65,13 @@ homekit:
       - input_booleans
       - light
       - switch
+    include_entities:
+      - sensor.bedroom_temperature
+      - sensor.temperature_60
+      - sensor.temperature_57
+    include_entity_globs:
+      - light.browser
+
 
 calendar:
   - platform: caldav
