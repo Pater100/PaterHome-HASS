@@ -1,7 +1,6 @@
 views:
-  - id: Algemeen nieuw
+  - title: Info Glance
     icon: mdi:castle
-    title: Info Glance
     cards:
     #Stack Left
     - type: vertical-stack
@@ -99,8 +98,8 @@ views:
           - type: custom:mini-graph-card
             name: Server CPU
             entities:
-              - sensor.glances_tdie_temp
-              - sensor.synology_average_disk_temp_volume_1
+              - sensor.glances_tdie_temperature_2
+              - sensor.paternet_temperature
             line_color: green
             line_width: 2
             font_size: 100
