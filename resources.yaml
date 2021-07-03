@@ -28,3 +28,7 @@
   type: js
 - url: /hacsfiles/lovelace-auto-entities/auto-entities.js 
   type: module
+- url: /hacsfiles/button-text-card/button-text-card.js
+  type: module
+- url: /hacsfiles/lovelace-layout-card/layout-card.js
+  type: module
