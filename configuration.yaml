@@ -239,10 +239,6 @@ webostv:
 # Text to speech
 tts:
 
-#HACS
-hacs:
-  token: !secret Git_hub_token
-
 #iBeacon zones (in need for change)
 zone:
   - name: 'paterhome'
@@ -265,6 +261,13 @@ browser_mod:
 lovelace:
   mode: yaml
   resources: !include resources.yaml
+  dashboards:
+    index-lovelace:
+      mode: yaml
+      title: hidden
+      show_in_sidebar: false
+      filename: index.yaml
+
 
 #sun
 sun:
