@@ -1,0 +1,490 @@
+button_card_templates: !include index/button_card_templates.yaml
+
+views:
+  - type: custom:grid-layout
+    path: 0
+    layout:
+      #default
+      grid-gap: var(--custom-layout-card-padding)
+      grid-template-columns: repeat(4, 1fr) 0
+      grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
+      grid-template-areas: |
+        "sidebar  .           .       .       ."
+        "sidebar  vardagsrum  studio  sovrum  ."
+        "sidebar  media       övrigt  hemma   ."
+        "sidebar  footer      footer  footer  ."
+      mediaquery:
+        #phone
+        "(max-width: 800px)":
+          grid-gap: calc(var(--custom-layout-card-padding) * 1.5)
+          grid-template-columns: 0 repeat(2, 1fr) 0
+          grid-template-rows: 0 repeat(5, fit-content(100%)) 0fr
+          grid-template-areas: |
+            ".  .           .        ."
+            ".  sidebar     sidebar  ."
+            ".  vardagsrum  sovrum   ."
+            ".  studio      övrigt   ."
+            ".  media       hemma    ."
+            ".  footer      footer   ."
+            ".  .           .        ."
+        #portrait
+        "(max-width: 1200px)":
+          grid-gap: var(--custom-layout-card-padding)
+          grid-template-columns: repeat(3, 1fr) 0
+          grid-template-rows: 0 repeat(3, fit-content(100%)) 0fr
+          grid-template-areas: |
+            "sidebar  .           .       ."
+            "sidebar  vardagsrum  sovrum  ."
+            "sidebar  studio      övrigt  ."
+            "sidebar  media       hemma   ."
+            "sidebar  footer      footer  ."
+            "sidebar  .           .       ."
+    cards:
+
+      #################################################
+      #                                               #
+      #                    SIDEBAR                    #
+      #                                               #
+      #################################################
+
+      - type: markdown
+        view_layout:
+          grid-area: sidebar
+        content: |
+          {% set attributes = states.sensor.template_sidebar.attributes | default %}
+          {% for template in attributes %}
+          {{ state_attr('sensor.template_sidebar', template) }}
+          {% endfor %}
+        style: #force style - duplicate of themes markdown
+          {.: "ha-card{background-color:#00000010;border-radius:0;min-height:100vh;animation:ha-card 1s forwards}@keyframes ha-card{0%,100%{border-right:.1vw solid rgba(58,69,73,.2)}}@media screen and (max-width:800px){ha-card{background:0 0;min-height:100%;animation:none}}\n", ha-markdown: {.: "ha-markdown{padding:var(--custom-layout-card-padding) 2vw 0 var(--custom-layout-card-padding)!important;pointer-events:none}@media screen and (max-width:800px){ha-markdown{padding:0!important}}\n", $: "p>span{font-family:SF Text;font-size:var(--markdown-sidebar-clock-font-size);font-weight:200;line-height:var(--markdown-sidebar-clock-line-height);letter-spacing:-.05vw;margin-left:-.3vw;color:var(--ha-card-header-color)}p>span>span{position:relative;top:-.09em}p{font-family:SF Display;font-size:var(--markdown-sidebar-font-size);line-height:var(--markdown-sidebar-line-height);font-weight:300;letter-spacing:.06vw;color:#6a7377}p>b{color:var(--ha-card-header-color)}@media screen and (max-width:1200px){p>span{font-size:calc(var(--markdown-sidebar-clock-font-size) * 1.4);line-height:calc(var(--markdown-sidebar-clock-line-height) * 1.4)}p{font-size:calc(var(--markdown-sidebar-font-size) * 1.4);line-height:calc(var(--markdown-sidebar-line-height) * 1.4)}}@media screen and (max-width:800px){p>span{font-size:calc(var(--markdown-sidebar-clock-font-size) * 2.6);line-height:calc(var(--markdown-sidebar-clock-line-height) * 2.6)}p{font-size:calc(var(--markdown-sidebar-font-size) * 2.6);line-height:calc(var(--markdown-sidebar-line-height) * 2.6);letter-spacing:.16vw}}\n"}}
+
+      - type: conditional
+        view_layout:
+          grid-area: sidebar
+        conditions:
+          - entity: input_boolean.laundry_display
+            state: 'on'
+        card:
+          type: custom:button-card
+          entity: timer.laundry
+          template: laundry
+
+      - type: grid
+        view_layout:
+          grid-area: sidebar
+        cards:
+          - type: button
+            icon: mdi:robot-vacuum
+            tap_action:
+              !include index/popup/sidebar_vacuum.yaml
+
+          - type: button
+            icon: mdi:information-outline
+            tap_action:
+              !include index/popup/sidebar_information.yaml
+
+          - type: button
+            icon: mdi:arrow-up-bold-circle-outline
+            tap_action:
+              !include index/popup/sidebar_update.yaml
+
+      #################################################
+      #                                               #
+      #                  VARDAGSRUM                   #
+      #                                               #
+      #################################################
+
+      - type: grid
+        title: Vardagsrum
+        view_layout:
+          grid-area: vardagsrum
+        columns: 2
+        cards:
+
+          - type: custom:button-card
+            entity: light.vardagsrum #hue_group
+            name: Belysning
+            template:
+              - light
+              - icon_shade
+
+          - type: custom:button-card
+            entity: switch.balkong
+            name: Balkong
+            hold_action:
+              !include index/popup/vardagsrum_balkong.yaml
+            template:
+              - base
+              - icon_hue
+              - loader
+
+          - type: custom:button-card
+            entity: media_player.sony_bravia_tv
+            name: Tv
+            hold_action:
+              !include index/popup/vardagsrum_tv.yaml
+            template:
+              - base
+              - icon_tv
+              - loader
+
+          - type: custom:button-card
+            entity: switch.playstation_5
+            name: Playstation
+            hold_action:
+              !include index/popup/vardagsrum_playstation.yaml
+            template:
+              - base
+              - icon_ps5
+              - loader
+
+      #################################################
+      #                                               #
+      #                    STUDIO                     #
+      #                                               #
+      #################################################
+
+      - type: grid
+        title: Studio
+        view_layout:
+          grid-area: studio
+        columns: 2
+        cards:
+
+          - type: custom:button-card
+            entity: light.dator
+            name: Datorlampa
+            template:
+              - light
+              - icon_hue
+
+          - type: custom:button-card
+            entity: light.taklampor #hue_group
+            name: Taklampor
+            template:
+              - light
+              - icon_spot
+
+          - type: custom:button-card
+            entity: switch.computer_imac
+            name: Dator
+            triggers_update:
+              - lock.dator
+              - script.home_leave
+            hold_action:
+              !include index/popup/studio_dator.yaml
+            template:
+              - base
+              - icon_imac
+              - loader
+              - lock
+
+          - type: custom:button-card
+            entity: switch.wemo_monitors
+            name: Monitorer
+            triggers_update: sensor.monitors_volume
+            hold_action:
+              !include index/popup/studio_monitorer.yaml
+            template:
+              - base
+              - icon_monitors
+              - circle
+              - loader
+            variables:
+              circle_input: >
+                [[[
+                  var entity_id = 'sensor.monitors_volume';
+                  return states[entity_id] === undefined ? null : states[entity_id].state;
+                ]]]
+
+      #################################################
+      #                                               #
+      #                    SOVRUM                     #
+      #                                               #
+      #################################################
+
+      - type: grid
+        title: Sovrum
+        view_layout:
+          grid-area: sovrum
+        columns: 2
+        cards:
+
+          - type: custom:button-card
+            entity: light.sovrum #hue_group
+            name: Sänglampor
+            template:
+              - light
+              - icon_lamp
+
+          - type: custom:button-card
+            entity: fan.air_purifier
+            name: Luftrenare
+            hold_action:
+              !include index/popup/sovrum_luftrenare.yaml
+            template:
+              - base
+              - icon_air_purifier
+              - circle
+              - loader
+            variables:
+              circle_input: >
+                [[[
+                  return entity === undefined ?
+                    null :
+                    parseInt(entity.attributes.percentage_step);
+                ]]]
+
+          - type: custom:button-card
+            entity: fan.sovrum_anslut
+            name: Fläkt
+            hold_action:
+              !include index/popup/sovrum_flakt.yaml
+            template:
+              - base
+              - icon_fan
+              - circle
+              - loader
+            variables:
+              circle_input: >
+                [[[
+                  return entity === undefined ?
+                    null :
+                    parseInt(entity.attributes.percentage_step);
+                ]]]
+
+          - type: custom:button-card
+            entity: media_player.samsung_tv
+            name: "Tv\u00B2"
+            hold_action:
+              !include index/popup/sovrum_tv2.yaml
+            template:
+              - base
+              - icon_tv
+              - loader
+
+      #################################################
+      #                                               #
+      #                     MEDIA                     #
+      #                                               #
+      #################################################
+
+      - type: grid
+        title: Media
+        view_layout:
+          grid-area: media
+        columns: 1
+        cards:
+
+          - type: custom:swipe-card
+            start_card: 1
+            parameters:
+              roundLengths: true
+              effect: coverflow
+              speed: 650
+              spaceBetween: 20
+              threshold: 7
+              coverflowEffect:
+                rotate: 80
+                depth: 300
+            cards:
+
+              - type: vertical-stack
+                cards:
+
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.conditional_media
+                        state: Senast nedladdat
+                    card:
+                      type: custom:button-card
+                      entity: sensor.plex_recently_added
+                      tap_action:
+                        action: none
+                      template:
+                        - conditional_media
+                        - recently_downloaded
+                        - icon_plex
+
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.conditional_media
+                        state: Vardagsrum
+                    card:
+                      type: custom:button-card
+                      entity: media_player.vardagsrum
+                      template:
+                        - conditional_media
+                        - icon_apple_tv
+
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.conditional_media
+                        state: Sovrum
+                    card:
+                      type: custom:button-card
+                      entity: media_player.sovrum
+                      template:
+                        - conditional_media
+                        - icon_apple_tv
+
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.conditional_media
+                        state: Spotify
+                    card:
+                      type: custom:button-card
+                      entity: media_player.spotify
+                      template:
+                        - conditional_media
+                        - icon_spotify
+
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.conditional_media
+                        state: Google Nest Mini
+                    card:
+                      type: custom:button-card
+                      entity: media_player.kok
+                      template:
+                        - conditional_media
+                        - icon_nest_mini
+
+              - type: grid
+                columns: 2
+                cards:
+
+                  - type: custom:button-card
+                    entity: media_player.vardagsrum
+                    name: Vardagsrum
+                    template:
+                      - media
+                      - icon_apple_tv
+
+                  - type: custom:button-card
+                    name: Sovrum
+                    entity: media_player.sovrum
+                    template:
+                      - media
+                      - icon_apple_tv
+
+                  - type: custom:button-card
+                    entity: media_player.spotify
+                    name: Spotify
+                    template:
+                      - media
+                      - icon_spotify
+
+                  - type: custom:button-card
+                    entity: media_player.kok
+                    name: Nest Mini
+                    template:
+                      - media
+                      - icon_nest_mini
+
+      #################################################
+      #                                               #
+      #                    ÖVRIGT                     #
+      #                                               #
+      #################################################
+
+      - type: grid
+        title: Övrigt
+        view_layout:
+          grid-area: övrigt
+        columns: 2
+        cards:
+
+          - type: custom:button-card
+            entity: light.badrum #hue_group
+            name: Badrum
+            template:
+              - light
+              - icon_bathroom
+
+          - type: custom:button-card
+            entity: fan.studio_wemo
+            name: "Fläkt\u00B2"
+            hold_action:
+              !include index/popup/studio_flakt.yaml
+            template:
+              - base
+              - icon_fan2
+              - loader
+
+          - type: custom:button-card
+            entity: light.garderob
+            name: Garderob
+            template:
+              - light
+              - icon_closet
+
+          - type: custom:button-card
+            entity: light.hall #hue_group
+            name: Hall
+            template:
+              - light
+              - icon_spot
+
+      #################################################
+      #                                               #
+      #                     HEMMA                     #
+      #                                               #
+      #################################################
+
+      - type: grid
+        title: Hemma
+        view_layout:
+          grid-area: hemma
+        columns: 2
+        cards:
+
+          - type: custom:button-card
+            entity: person.matte
+            name: Mattias
+            tap_action:
+              !include index/popup/hemma_mattias.yaml
+            hold_action:
+              action: none
+            template: person
+
+          - type: custom:button-card
+            entity: person.sanja
+            name: Sanja
+            tap_action:
+              !include index/popup/hemma_sanja.yaml
+            hold_action:
+              action: none
+            template: person
+
+          - type: custom:button-card
+            entity: script.home_leave
+            name: Stäng allt
+            hold_action:
+              action: none
+            template:
+              - base
+              - icon_away
+
+          - type: custom:button-card
+            entity: script.home_arrive
+            name: Hemma
+            hold_action:
+              action: none
+            template:
+              - base
+              - icon_home
+
+      #################################################
+      #                                               #
+      #                    FOOTER                     #
+      #                                               #
+      #################################################
+
+      - type: markdown
+        view_layout:
+          grid-area: footer
+        content: >
+          {{ state_attr('sensor.template_coronavirus', 'template') }}
+        style: #force style - duplicate of themes markdown
+          {.: "ha-card,ha-markdown{background:0 0;padding:0!important;pointer-events:none;margin-top:-1vw}ha-markdown{overflow:hidden}\n", ha-markdown$: "ha-markdown-element{opacity:.6;font-size:1.26vw;font-weight:400;--mdc-icon-size:1.2vw;font-family:SF Display;letter-spacing:.05vw;line-height:0;white-space:nowrap}ha-icon{vertical-align:3%;opacity:.4}@media screen and (max-width:800px){ha-markdown-element{display:none}}\n"}
