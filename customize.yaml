@@ -1,0 +1,2 @@
+sensor.dsmr_reading_electricity_currently_delivered:
+  device_class: energy
