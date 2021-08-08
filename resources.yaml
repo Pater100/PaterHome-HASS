@@ -32,3 +32,9 @@
   type: module
 - url: /hacsfiles/lovelace-layout-card/layout-card.js
   type: module
+- url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+  type: module
+- url: /hacsfiles/vertical-stack-in-card.js?v=0.4.1
+  type: js
+- url: /hacsfiles/bar-card/bar-card.js
+  type: module
