@@ -320,7 +320,7 @@ views:
       - type: horizontal-stack
         cards:
         - type: custom:xiaomi-vacuum-card
-          entity: vacuum.pater_zuiger
+          entity: vacuum.rockrobo
           name: Pater-Zuiger
           buttons: true
           labels:
@@ -331,11 +331,3 @@ views:
             side_brush: Zijborstel
             filter: Filter
             sensor: Sensor
-      - type: horizontal-stack
-        cards:
-        - type: 'custom:jumbo-card'
-          time_slots_pick_up: sensor.jumbo_pick_up_time_slots
-          time_slots_pick_up_days: 2
-          deliveries: sensor.jumbo_delivery
-          pick_ups: sensor.jumbo_pick_up
-          basket: sensor.jumbo_basket
