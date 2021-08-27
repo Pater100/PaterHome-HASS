@@ -331,3 +331,9 @@ views:
             side_brush: Zijborstel
             filter: Filter
             sensor: Sensor
+      - type: horizontal-stack
+        cards:
+        - type: picture-glance
+          title: Stofzuiger kaart
+          entities: []
+          camera_image: camera.rockrobo_map
