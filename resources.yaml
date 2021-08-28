@@ -34,9 +34,11 @@
   type: module
 - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
   type: module
-- url: /hacsfiles/vertical-stack-in-card.js?v=0.4.1
+- url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js?v=0.4.1
   type: js
 - url: /hacsfiles/bar-card/bar-card.js
   type: module
 - url: /hacsfiles/lovelace-valetudo-map-card/valetudo-map-card.js
   type: js
+- url: /hacsfiles/vacuum-card/vacuum-card.js
+  type: module
