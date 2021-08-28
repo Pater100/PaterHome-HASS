@@ -7,6 +7,11 @@ views:
       cards:
       - type: custom:weather-card
         entity: weather.uden
+      - type: 'custom:neerslag-card'
+        title: Neerslag
+        entities: 
+          - sensor.neerslag_buienalarm_regen_data
+          - sensor.neerslag_buienradar_regen_data
       - type: custom:mini-graph-card
         name: Tempratuur
         animate: true
@@ -47,7 +52,7 @@ views:
           cards:
           - type: custom:calendar-card
             title: "Agenda Patrick"
-            numberOfDays: 7
+            numberOfDays: 3
             progressBar: true
             entities:
               - calendar.patrick
@@ -319,21 +324,33 @@ views:
           entity: light.slaapkamer_group
       - type: horizontal-stack
         cards:
-        - type: custom:xiaomi-vacuum-card
+        - type: 'custom:vacuum-card'
           entity: vacuum.rockrobo
-          name: Pater-Zuiger
-          buttons: true
-          labels:
-            status: Status
-            battery: Batterij
-            mode: Modus
-            main_brush: Borstel
-            side_brush: Zijborstel
-            filter: Filter
-            sensor: Sensor
-      - type: horizontal-stack
-        cards:
-        - type: picture-glance
-          title: Stofzuiger kaart
-          entities: []
-          camera_image: camera.rockrobo_map
+          map: camera.rockrobo_map
+          stats:
+            default:
+              - attribute: filter
+                unit: uur
+                subtitle: Filter
+              - attribute: sideBrush
+                unit: uur
+                subtitle: Zij borstel
+              - attribute: mainBrush
+                unit: uur
+                subtitle: Hoofd borstel
+              - attribute: sensor
+                unit: uur
+                subtitle: Sensors
+              - attribute: currentCleanArea
+                unit: m2
+                subtitle: Oppervlak
+              - attribute: currentCleanTime
+                unit: min
+                subtitle: Zuigtijd
+          actions:
+          - name: turug naar oplader
+            service: vacuum.return_to_base
+            icon: 'mdi:home'
+          - name: start / pauze
+            service: vacuum.start_pause
+            icon: 'mdi:play-pause'
