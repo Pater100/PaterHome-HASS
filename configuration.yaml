@@ -105,15 +105,6 @@ camera:
     password: !secret foscam_password_achter
     name: Foscam Achter
 
-#het weer
-weather:
-  - platform: buienradar
-    name: 'Uden'
-    # Forceer 'Meetstation Uden
-    latitude: !secret weerstation_latitude
-    longitude: !secret weerstation_longitude
-    forecast: true
-
 # Human pressence detection system (beta)
   #custom component for detecting Paterphone
 device_tracker:
@@ -162,10 +153,19 @@ sensor:
   - platform: dsmr_reader
   - platform: authenticated
   - platform: launch_library
-  - platform: jumbo
-    username: !secret jumbo_username
-    password: !secret jumbo_password
-    type: "both"
+  - platform: unifigateway
+    host: !secret unifi_host
+    username: !secret unifi_username
+    password: !secret unifi_password
+    version: UDMP-unifiOS
+    port: 443
+    monitored_conditions:
+      - www
+      - wlan
+      - wan
+      - alerts
+      - firmware
+      - lan
 
 binary_sensor:
   # Bayesian Sensor
