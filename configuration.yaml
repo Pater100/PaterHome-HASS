@@ -262,11 +262,12 @@ lovelace:
   mode: yaml
   resources: !include resources.yaml
   dashboards:
-    index-lovelace:
+    status-lovelace:
       mode: yaml
-      title: hidden
-      show_in_sidebar: false
-      filename: index.yaml
+      title: status
+      show_in_sidebar: true
+      filename: status.yaml
+      icon: mdi:lan
 
 
 #sun
