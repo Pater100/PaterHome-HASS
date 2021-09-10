@@ -599,7 +599,7 @@
     below: 11
   action:
     data:
-      entity_id: switch.on_off_plug_in_unit_30
+      entity_id: switch.ipad_charger
     service: switch.turn_on
 
 - alias: stop Charge kitchen ipad when full
@@ -610,5 +610,5 @@
     above: 99
   action:
     data:
-      entity_id: switch.on_off_plug_in_unit_30
+      entity_id: switch.ipad_charger
     service: switch.turn_off
