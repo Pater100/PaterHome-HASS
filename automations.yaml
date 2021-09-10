@@ -590,3 +590,25 @@
     data:
       entity_id: vacuum.rockrobo
     service: vacuum.start
+
+- alias: Charge kitchen ipad when empty
+  initial_state: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.ipadje_battery_level_2
+    below: 11
+  action:
+    data:
+      entity_id: switch.on_off_plug_in_unit_30
+    service: switch.turn_on
+
+- alias: stop Charge kitchen ipad when full
+  initial_state: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.ipadje_battery_level_2
+    above: 99
+  action:
+    data:
+      entity_id: switch.on_off_plug_in_unit_30
+    service: switch.turn_off
