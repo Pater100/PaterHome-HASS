@@ -12,6 +12,9 @@ homeassistant:
   time_zone: Europe/Amsterdam
   # Customization file
   customize: !include customize.yaml
+  #Internal and External Urls
+  external_url: !secret base_url
+  internal_url: !secret internal_url
   
 
 # Network information
@@ -22,7 +25,6 @@ default_config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
-  base_url: !secret base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
