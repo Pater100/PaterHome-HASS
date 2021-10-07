@@ -1,0 +1,27 @@
+views:
+  - title: Network Status
+    icon: mdi:lan
+    cards:
+    - type: vertical-stack
+      cards:
+      - type: custom:bar-card
+        name: ' '
+        entity: sensor.unifi_gateway_wan
+        attribute: system-stats.cpu
+        entity_row: true
+        animation:
+          state: on
+        positions:
+          name: inside
+          value: inside
+        icon: mdi:cpu-64-bit
+        severity:
+          - color: green
+            from: 0
+            to: 29
+          - color: orange
+            from: 30
+            to: 79
+          - color: red
+            from: 80
+            to: 100
