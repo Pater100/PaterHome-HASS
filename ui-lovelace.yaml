@@ -325,7 +325,7 @@ views:
       - type: horizontal-stack
         cards:
         - type: 'custom:vacuum-card'
-          entity: vacuum.rockrobo
+          entity: vacuum.pater_zuiger_2
           map: camera.rockrobo_map
           stats:
             default:
