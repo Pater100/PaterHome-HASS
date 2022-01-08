@@ -71,7 +71,9 @@ homekit:
       - sensor.bedroom_temperature
       - sensor.temperature_60
       - sensor.temperature_57
-    include_entity_globs:
+      - camera.paternet_foscam_huis_achter
+      - camera.paternet_foscam_voor
+    exclude_entity_globs:
       - light.browser
 
 
@@ -94,18 +96,18 @@ recorder:
       - sensor.xiaomi_map
 
 #camera
-stream:
-camera:
-  - platform: foscam
-    ip: !secret foscam_ip_voor
-    username: !secret foscam_username_voor
-    password: !secret foscam_password_voor
-    name: Foscam Voor
-  - platform: foscam
-    ip: !secret foscam_ip_achter
-    username: !secret foscam_username_achter
-    password: !secret foscam_password_achter
-    name: Foscam Achter
+#stream:
+#camera:
+# - platform: foscam
+#    ip: !secret foscam_ip_voor
+#    username: !secret foscam_username_voor
+#    password: !secret foscam_password_voor
+#    name: Foscam Voor
+#  - platform: foscam
+#    ip: !secret foscam_ip_achter
+#    username: !secret foscam_username_achter
+#    password: !secret foscam_password_achter
+#    name: Foscam Achter
 
 # Human pressence detection system (beta)
   #custom component for detecting Paterphone
