@@ -11,3 +11,8 @@ Deuren-gesloten:
     - binary_sensor.front_door
     - binary_sensor.schuur_deur
     - binary_sensor.schuur_poort
+
+Livingroom:
+  name: Livingroom
+  entities:
+  - light.woonkamer_group
