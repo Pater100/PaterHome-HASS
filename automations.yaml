@@ -251,7 +251,7 @@
     after: sunset
   action:
     data:
-      entity_id: light.gang_group
+      entity_id: light.gang_lamp
     service: light.turn_on
 
 - alias: if front door closes turn off lights
@@ -264,7 +264,7 @@
       minutes: 1
   action:
     data:
-      entity_id: light.gang_group
+      entity_id: light.gang_lamp
     service: light.turn_off
 
 - alias: if motion on stairs is detected turn off all light on upper floor
@@ -275,7 +275,7 @@
     to: "on"
   action:
     data:
-      entity_id: light.boven_group
+      entity_id: light.boven_lamp
     service: light.turn_off
 
 - alias: if door opens in the cellar
@@ -309,7 +309,7 @@
       event: 1002
   action:
     data:
-      entity_id: light.werkkamer_group
+      entity_id: light.werkkamer_lamp
     service: light.turn_ons
 
 - alias: if replicator room off is pressed turn off studymode
@@ -321,7 +321,7 @@
       event: 4002
   action:
     data:
-      entity_id: light.werkkamer_group
+      entity_id: light.werkkamer_lamp
     service: light.turn_off
       
 

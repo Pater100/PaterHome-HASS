@@ -1,41 +1,41 @@
 #Licht groepen
 
 - platform: group
-  name: keuken_group
+  name: keuken lamp
   entities: 
     - light.kitchen_1
     - light.kitchen_2
     - light.kitchen_3
 
 - platform: group
-  name: eetkamer_group
+  name: eetkamer lamp
   entities:
     - light.diner_table_1
     - light.diner_table_2
     - light.diner_table_3
 
 - platform: group
-  name: woonkamer_group
+  name: woonkamer lamp
   entities:
     - light.bloom_tv_light
     - light.livingroom_center_light
     - light.livingroom_standing_lamp
 
 - platform: group
-  name: gang_group
+  name: Gang lamp
   entities:
     - light.hall_1
     - light.hall_2
 
 - platform: group
-  name: werkkamer_group
+  name: werkkamer lamp
   entities:
     - light.replicator_room_1
     - light.replicator2
     - light.replicator_room_3
 
 - platform: group
-  name: slaapkamer_group
+  name: slaapkamer lamp
   entities:
     - light.bedroom_1
     - light.bedroom_2
@@ -44,14 +44,14 @@
     - light.wakeup_light_rechts
 
 - platform: group
-  name: badkamer_group
+  name: badkamer lamp
   entities:
     - light.bathroom_1
     - light.bathroom_2
     - light.bathroom_3
 
 - platform: group
-  name: Boven_group
+  name: Boven lamp
   entities:
     - light.badkamer_group
     - light.bathroom_group
