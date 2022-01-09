@@ -297,36 +297,46 @@ views:
         - type: light
           name: Woonkamer
           icon: mdi:sofa
-          entity: light.woonkamer_group
+          entity: light.woonkamer_lamp
         - type: light
           name: Eetkamertafel
           icon: mdi:silverware-fork-knife
-          entity: light.eetkamer_group
+          entity: light.eetkamer_lamp
       - type: horizontal-stack
         cards:
         - type: light
           name: keuken
           icon: mdi:fridge-outline
-          entity: light.keuken_group
+          entity: light.keuken_lamp
         - type: light
           name: gang
           icon: mdi:hanger
-          entity: light.gang_group
+          entity: light.gang_lamp
       - type: horizontal-stack
         cards:
         - type: light
           name: Replicator
           icon: mdi:printer-3d-nozzle
-          entity: light.werkkamer_group
+          entity: light.werkkamer_lamp
         - type: light
           name: slaapkamer
           icon: mdi:bed-empty
-          entity: light.slaapkamer_group
+          entity: light.slaapkamer_lamp
+      - type: horizontal-stack
+        cards:
+        - type: light
+          name: badkamer
+          icon: mdi:shower
+          entity: light.badkamer_lamp
+        - type: light
+          name: Toilet
+          icon: mdi:toilet
+          entity: light.toilet
       - type: horizontal-stack
         cards:
         - type: 'custom:vacuum-card'
-          entity: vacuum.pater_zuiger_2
-          map: camera.rockrobo_map
+          entity: vacuum.valetudo_pater_zuiger
+          map: camera.map_data
           stats:
             default:
               - attribute: filter
