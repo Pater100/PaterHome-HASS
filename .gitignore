@@ -8,6 +8,7 @@
 !*.md
 !/index
 !/index/popup
+!/ui_lovelace_minimalist
 
 # Ignore folders.
 .storage
