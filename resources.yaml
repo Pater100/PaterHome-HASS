@@ -42,3 +42,6 @@
   type: js
 - url: /hacsfiles/vacuum-card/vacuum-card.js
   type: module
+- url: /hacsfiles/lovelace-mushroom/mushroom.js
+  type: module
+                

@@ -1,213 +1,189 @@
-#versterker aan
 versterker_aan:
   alias: toggle reciever
   sequence:
     service: remote.toggle
     data:
-      activity: 'Versterker'
-
-#nightmode
+      activity: Versterker
 nightmode:
   alias: sequence to turn on night mode
   sequence:
-    - service: switch.turn_off
-      data:
-        entity_id: switch.coffee_maker
-    - service: light.turn_off
-      data:
-        entity_id: light.keuken_lamp
-    - service: light.turn_off
-      data:
-        entity_id: light.eetkamer_lamp
-    - service: light.turn_off
-      data:
-        entity_id: light.woonkamer_lamp
-    - delay:
-        seconds: 20
-    - service: switch.turn_off
-      data:
-        entity_id: switch.wallscreen
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.living_room
-        temprature: 17
-
-#Morning
+  - service: switch.turn_off
+    data:
+      entity_id: switch.coffee_maker
+  - service: light.turn_off
+    data:
+      entity_id: light.keuken_lamp
+  - service: light.turn_off
+    data:
+      entity_id: light.eetkamer_lamp
+  - service: light.turn_off
+    data:
+      entity_id: light.woonkamer_lamp
+  - delay:
+      seconds: 20
+  - service: switch.turn_off
+    data:
+      entity_id: switch.wallscreen
+  - service: climate.set_temperature
+    data:
+      entity_id: climate.living_room
+      temprature: 17
 morning:
   alias: Waking Up
   sequence:
-    - service: light.turn_on
-      data:
-        entity_id: light.slaapkamer_lamp
-        brightness: 255
-    - delay:
-        seconds: 2
-    - service: light.turn_off
-      data:
-        entity_id: light.slaapkamer_lamp
-    - delay:
-        seconds: 5
-    - service: light.turn_on
-      data:
-        entity_id: light.slaapkamer_lamp
-        brightness: 255
-    - delay:
-        seconds: 2
-    - service: light.turn_off
-      data:
-        entity_id: light.slaapkamer_lamp
-    - delay:
-        seconds: 5
-    - service: light.turn_on
-      data:
-        entity_id: light.slaapkamer_lamp
-        brightness: 255
-    - delay:
-        seconds: 2
-    - service: light.turn_off
-      data:
-        entity_id: light.slaapkamer_lamp
-    - delay:
-        seconds: 5
-    - service: light.turn_on
-      data:
-        entity_id: light.slaapkamer_lamp
-        transition: 300
-        brightness: 255
-    - wait_template: "{{ is_state('binary_sensor.bedroom_motion', 'on') }}"
-      timeout: '00:15:00'
-      continue_on_timeout: true
-    - service: script.turn_on
-      data:
-        entity_id: script.goodmorning_message
-    - service: switch.turn_on
-      data:
-        entity_id: switch.coffee_maker
-    - wait_template: "{{ is_state('binary_sensor.stairs', 'on') }}"
-    - service: switch.turn_on
-      data:
-        entity_id: switch.wallscreen
-    - service: lights.turn_on
-      data:
-        entity_id: light.gang_lamp
-    - service: scene.turn_on
-      data:
-        entity_id: scene.kook_scene
-    - service: browser_mod.no_blackout
-
+  - service: light.turn_on
+    data:
+      entity_id: light.slaapkamer_lamp
+      brightness: 255
+  - delay:
+      seconds: 2
+  - service: light.turn_off
+    data:
+      entity_id: light.slaapkamer_lamp
+  - delay:
+      seconds: 5
+  - service: light.turn_on
+    data:
+      entity_id: light.slaapkamer_lamp
+      brightness: 255
+  - delay:
+      seconds: 2
+  - service: light.turn_off
+    data:
+      entity_id: light.slaapkamer_lamp
+  - delay:
+      seconds: 5
+  - service: light.turn_on
+    data:
+      entity_id: light.slaapkamer_lamp
+      brightness: 255
+  - delay:
+      seconds: 2
+  - service: light.turn_off
+    data:
+      entity_id: light.slaapkamer_lamp
+  - delay:
+      seconds: 5
+  - service: light.turn_on
+    data:
+      entity_id: light.slaapkamer_lamp
+      transition: 300
+      brightness: 255
+  - wait_template: '{{ is_state(''binary_sensor.bedroom_motion'', ''on'') }}'
+    timeout: 00:15:00
+    continue_on_timeout: true
+  - service: script.turn_on
+    data:
+      entity_id: script.goodmorning_message
+  - service: switch.turn_on
+    data:
+      entity_id: switch.coffee_maker
+  - wait_template: '{{ is_state(''binary_sensor.stairs'', ''on'') }}'
+  - service: switch.turn_on
+    data:
+      entity_id: switch.wallscreen
+  - service: lights.turn_on
+    data:
+      entity_id: light.gang_lamp
+  - service: scene.turn_on
+    data:
+      entity_id: scene.kook_scene
+  - service: browser_mod.no_blackout
 popup_front_door:
   alias: Pop-Up Front Door
   sequence:
-    - service: browser_mod.popup
-      data_template:
-        large: true
-        auto_close: true
-        card:
-          type: picture-entity
-          entity: camera.foscam_voor
-          camera_view: live
-        deviceID:
-          - Wall-display
-    - delay:
-        minutes: 2
-    - service: browser_mod.close_popup
-
+  - service: browser_mod.popup
+    data_template:
+      large: true
+      auto_close: true
+      card:
+        type: picture-entity
+        entity: camera.foscam_voor
+        camera_view: live
+      deviceID:
+      - Wall-display
+  - delay:
+      minutes: 2
+  - service: browser_mod.close_popup
 popup_back_door:
   alias: Pop-Up back Door
   sequence:
-    - service: browser_mod.popup
-      data_template:
-        large: true
-        auto_close: true
-        card:
-          type: picture-entity
-          entity: camera.foscam_achter
-          camera_view: live
-        deviceID:
-          - Wall-display
-    - service: tts.google_translate_say
-      entity_id: media_player.wall_display
-      data_template:
-        message: Let op! Schuurdeur gaat open
-    - delay:
-        minutes: 2
-    - service: browser_mod.close_popup
-
+  - service: browser_mod.popup
+    data_template:
+      large: true
+      auto_close: true
+      card:
+        type: picture-entity
+        entity: camera.foscam_achter
+        camera_view: live
+      deviceID:
+      - Wall-display
+  - service: tts.google_translate_say
+    entity_id: media_player.wall_display
+    data_template:
+      message: Let op! Schuurdeur gaat open
+  - delay:
+      minutes: 2
+  - service: browser_mod.close_popup
 goodmorning_message:
   alias: goedemorgen
   sequence:
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.slaapkamer_mini
-        media_content_id: https://paternetworks.duckdns.org/local/soundfiles/regeneration_cycle_complete.mp3
-        media_content_type: 'audio/mp3'
-    - delay:
-        seconds: 10
-    - service: tts.cloud_say
-      entity_id: media_player.slaapkamer_mini
-      data_template:
-        message: >
-          {% if now().strftime("%H")|int < 12 %}
-          Goedemorgen,
-          {% elif now().strftime("%H")|int < 18 %}
-          Goedemiddag,
-          {% else %}
-          Goedeavond,
-          {% endif %}
-          De temperatuur in huis is {{ states("sensor.living_room_thermostat_temperature") }} °C en buiten is het momenteel {{ state_attr("weather.uden", "temperature")  }} °C.
-        options:
-          gender: female
-        language: nl-NL
+  - service: media_player.play_media
+    data:
+      media_content_id: https://paternetworks.duckdns.org/local/soundfiles/regeneration_cycle_complete.mp3
+      media_content_type: audio/mp3
+    target:
+      device_id: 0f0e937931320ce30c773a5f79270837
+  - delay:
+      seconds: 10
+  - service: tts.cloud_say
+    entity_id: media_player.slaapkamer_mini
+    data_template:
+      message: '{% if now().strftime("%H")|int < 12 %} Goedemorgen, {% elif now().strftime("%H")|int
+        < 18 %} Goedemiddag, {% else %} Goedeavond, {% endif %} De temperatuur in
+        huis is {{ states("sensor.living_room_thermostat_temperature") }} °C en buiten
+        is het momenteel {{ state_attr("weather.uden", "temperature")  }} °C.
 
+        '
+      options:
+        gender: female
+      language: nl-NL
+  mode: single
 button_night:
   alias: Slaapknop
   sequence:
-    - service: tts.cloud_say
-      entity_id: media_player.slaapkamer_mini
-      data_template:
-        message: >
-          {% if now().strftime("%H")|int < 12 %}
-            Goedemorgen,
-          {% elif now().strftime("%H")|int < 18 %}
-            Goedemiddag,
-          {% else %}
-            Goedeavond,
-          {% endif %}
-            De tijd is {{ states('sensor.time') }}.
-          {% if states('input_boolean.wakeup_enabled') == "on" %}
-            Ik wek je morgen om {{ states('input_datetime.wakeup_time') }}
-          {% else %}
-            De wekker staat uit dus ik laat je morgen uitslapen,
-          {% endif %}
-          {% if states('group.deuren_gesloten') == "on" %}
-            ,Er staat nog ergens een deur open!
-          {% else %}
-            ,Zo te zien zijn alle deuren gesloten,
-          {% endif %}
-            ,Het huis wordt klaar gemaakt voor de nacht,
-            ,Slaap lekker
-        options:
-          gender: female
-        language: nl-NL
-    - delay:
-        seconds: 5
-    - service: light.turn_off
-      data:
-        entity_id: light.boven_lamp
-    - service: light.turn_on
-      data:
-        entity_id: light.wake_up_light_left
-        brightness: 100
-    - service: light.turn_on
-      data:
-        entity_id: light.wakeup_light_rechts
-        brightness: 100
-    - delay:
-        seconds: 20
-    - service: light.turn_off
-      data:
-        entity_id: light.wake_up_light_left
-    - service: light.turn_off
-      data:
-        entity_id: light.wakeup_light_rechts
-
+  - service: tts.cloud_say
+    entity_id: media_player.paterpod_woonkamer
+    data_template:
+      message: "{% if now().strftime(\"%H\")|int < 12 %}\n  Goedemorgen,\n{% elif\
+        \ now().strftime(\"%H\")|int < 18 %}\n  Goedemiddag,\n{% else %}\n  Goedeavond,\n\
+        {% endif %}\n  De tijd is {{ states('sensor.time') }}.\n{% if states('input_boolean.wakeup_enabled')\
+        \ == \"on\" %}\n  Ik wek je morgen om {{ states('input_datetime.wakeup_time')\
+        \ }}\n{% else %}\n  De wekker staat uit dus ik laat je morgen uitslapen,\n\
+        {% endif %} {% if states('group.deuren_gesloten') == \"on\" %}\n  ,Er staat\
+        \ nog ergens een deur open!\n{% else %}\n  ,Zo te zien zijn alle deuren gesloten,\n\
+        {% endif %}\n  ,Het huis wordt klaar gemaakt voor de nacht,\n  ,Slaap lekker\n"
+      options:
+        gender: female
+      language: nl-NL
+  - delay:
+      seconds: 5
+  - service: light.turn_off
+    data:
+      entity_id: light.boven_lamp
+  - service: light.turn_on
+    data:
+      entity_id: light.wake_up_light_left
+      brightness: 100
+  - service: light.turn_on
+    data:
+      entity_id: light.wakeup_light_rechts
+      brightness: 100
+  - delay:
+      seconds: 20
+  - service: light.turn_off
+    data:
+      entity_id: light.wake_up_light_left
+  - service: light.turn_off
+    data:
+      entity_id: light.wakeup_light_rechts

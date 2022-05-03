@@ -612,3 +612,14 @@
     data:
       entity_id: switch.ipad_charger
     service: switch.turn_off
+
+# - alias: "test"
+#   initial_state: true
+#   trigger:
+#     - entity_id: binary_sensor.switch1
+#       platform: state
+#       to: 'on'
+#   action:
+#     data:
+#       entity_id: switch.schuur
+#     service: switch.toggle
