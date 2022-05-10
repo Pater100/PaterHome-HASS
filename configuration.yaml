@@ -209,11 +209,6 @@ mqtt:
   username: !secret mqtt_user
   password: !secret mqtt_password
 
-#SabNZBD
-sabnzbd:
-  api_key: !secret sabnzbd_api
-  host: !secret sabnzbd_host
-
 proxmoxve:
   host: !secret proxmox_ip
   verify_ssl: false
@@ -249,9 +244,6 @@ zone:
     latitude: !secret latitude
     longitude: !secret longitude
     radius: 100
-
-#checking for updates
-updater:
 
 #BrowserMOD
 browser_mod:
