@@ -1,20 +1,20 @@
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: PaterHome
+  #name: PaterHome
   # Location required to calculate the time the sun rises and sets
-  latitude: !secret latitude
-  longitude: !secret longitude
+  #latitude: !secret latitude
+  #longitude: !secret longitude
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: !secret elevation
+  #elevation: !secret elevation
   # metric for Metric, imperial for Imperial
-  unit_system: metric
+  #unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: Europe/Amsterdam
+  #time_zone: Europe/Amsterdam
   # Customization file
   customize: !include customize.yaml
   #Internal and External Urls
-  external_url: !secret base_url
-  internal_url: !secret internal_url
+  #external_url: !secret base_url
+  #internal_url: !secret internal_url
   
 
 # Network information
@@ -154,13 +154,13 @@ sensor:
   - platform: time_date
     display_options:
       - 'time'
-  - platform: dsmr_reader
+  #- platform: dsmr_reader
   - platform: authenticated
   - platform: launch_library
-  - platform: unifigateway
-    host: !secret unifi_host
-    username: !secret unifi_username
-    password: !secret unifi_password
+  # - platform: unifigateway
+  #   host: !secret unifi_host
+  #   username: !secret unifi_username
+  #   password: !secret unifi_password
     version: UDMP-unifiOS
     port: 443
     monitored_conditions:
@@ -204,10 +204,10 @@ apple_tv:
     credentials: !secret apple_tv_credentials
 
 #mqtt broker
-mqtt:
-  broker: !secret mqtt_broker
-  username: !secret mqtt_user
-  password: !secret mqtt_password
+#mqtt:
+  #broker: !secret mqtt_broker
+  #username: !secret mqtt_user
+  #password: !secret mqtt_password
 
 proxmoxve:
   host: !secret proxmox_ip
@@ -239,11 +239,11 @@ webostv:
 tts:
 
 #iBeacon zones (in need for change)
-zone:
-  - name: 'paterhome'
-    latitude: !secret latitude
-    longitude: !secret longitude
-    radius: 100
+# zone:
+#   - name: 'paterhome'
+#     latitude: !secret latitude
+#     longitude: !secret longitude
+#     radius: 100
 
 #BrowserMOD
 browser_mod:

@@ -1,19 +1,13 @@
-#   _                      
-#  /_\__      ____ _ _   _ 
-# //_\\ \ /\ / / _` | | | |
-#/  _  \ V  V / (_| | |_| |
-#\_/ \_/\_/\_/ \__,_|\__, |
-#                    |___/ 
-- alias: 'lichten_uit_bij_vertrek'
+- alias: lichten_uit_bij_vertrek
   trigger:
     platform: state
     entity_id: person.patrick_smits
-    to: 'not_home'
+    to: not_home
   action:
     service: light.turn_off
     entity_id: group.all_lights
-
-- alias: 'screen on when home'
+  id: 810f7f5aebfa48748574497f20980856
+- alias: screen on when home
   trigger:
     platform: state
     entity_id: person.patrick_smits
@@ -21,105 +15,100 @@
   action:
     service: switch.turn_on
     entity_id: switch.wallscreen
-
-- alias: 'screen off when home'
+  id: 9b888654426a44f2b8c79492658f9383
+- alias: screen off when home
   trigger:
     platform: state
     entity_id: person.patrick_smits
     to: not_home
-    for: '00:08:00'
+    for: 00:08:00
   action:
     service: switch.turn_off
     entity_id: switch.wallscreen
-  
-#     __      _   _  __ _           _   _                 
-#  /\ \ \___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  ___ 
-# /  \/ / _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \/ __|
-#/ /\  / (_) | |_| |  _| | (_| (_| | |_| | (_) | | | \__ \
-#\_\ \/ \___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|___/
-#                                                         
-- alias: 'alarm_openen_achterdeur'
+  id: b644bbe223404ee7a759db9aaa7fb9e2
+- alias: alarm_openen_achterdeur
   trigger:
     platform: state
     entity_id: binary_sensor.back_door
     from: 'off'
     to: 'on'
   condition:
-    - condition: state
-      entity_id: person.patrick_smits
-      state: 'away'
+  - condition: state
+    entity_id: person.patrick_smits
+    state: away
   action:
     service: notify.mobile_app_paterphone
     data:
-      title: 'Indringer!'
-      message: 'Iemand komt binnen via de achterdeur'
+      title: Indringer!
+      message: Iemand komt binnen via de achterdeur
       data:
         push:
           sound:
             name: default
             critical: 1
             volume: 1.0
-
-- alias: 'alarm_openen_Voordeur'
+  id: a103d50f4b6444b188c63130b6d07c87
+- alias: alarm_openen_Voordeur
   trigger:
     platform: state
     entity_id: binary_sensor.front_door
     from: 'off'
     to: 'on'
   condition:
-    - condition: state
-      entity_id: person.patrick_smits
-      state: 'not_home'
+  - condition: state
+    entity_id: person.patrick_smits
+    state: not_home
   action:
     service: notify.mobile_app_paterphone
     data:
-      title: 'Indringer!'
-      message: 'Iemand komt binnen via de voordeur'
+      title: Indringer!
+      message: Iemand komt binnen via de voordeur
       data:
         push:
           sound:
             name: default
             critical: 1
             volume: 1.0
-
-- alias: 'alarm_openen_schuurdeur'
+  id: 022ec35b177747dca53bf9634349be06
+- alias: alarm_openen_schuurdeur
   trigger:
     platform: state
     entity_id: binary_sensor.schuur_deur
     from: 'off'
     to: 'on'
   condition:
-    - condition: state
-      entity_id: person.patrick_smits
-      state: 'not_home'
+  - condition: state
+    entity_id: person.patrick_smits
+    state: not_home
   action:
     service: notify.mobile_app_paterphone
     data:
-      title: 'Indringer!'
-      message: 'Iemand komt binnen via de schuurdeur'
+      title: Indringer!
+      message: Iemand komt binnen via de schuurdeur
       data:
         push:
           sound:
             name: default
             critical: 1
             volume: 1.0
-
-- alias: 'alarm_openen_schuurpoort'
+  id: 3e802caf90d74f83b1d47b02989f15fd
+- alias: alarm_openen_schuurpoort
   trigger:
     platform: state
     entity_id: binary_sensor.schuur_poort
     from: 'off'
     to: 'on'
   condition:
-    - condition: state
-      entity_id: person.patrick_smits
-      state: 'not_home'
+  - condition: state
+    entity_id: person.patrick_smits
+    state: not_home
   action:
     service: notify.mobile_app_paterphone
     data:
-      title: 'Indringer!'
-      message: 'Iemand komt binnen via de schuurpoort'
-- alias: 'notification when fire alarm goes off Kitchen'
+      title: Indringer!
+      message: Iemand komt binnen via de schuurpoort
+  id: ea04038eb15c4652b0159b9112324162
+- alias: notification when fire alarm goes off Kitchen
   trigger:
     platform: state
     entity_id: binary_sensor.fire_54
@@ -128,16 +117,16 @@
   action:
     service: notify.mobile_app_paterphone
     data:
-      title: "Brand"
-      message: 'Het brand alarm gaat af! Keuken!'
+      title: Brand
+      message: Het brand alarm gaat af! Keuken!
       data:
         push:
           sound:
             name: default
             critical: 1
             volume: 1.0
-
-- alias: 'notification when fire alarm goes off Replicator Room'
+  id: 0a01431e893d42d296c0b9df9bb521c4
+- alias: notification when fire alarm goes off Replicator Room
   trigger:
     platform: state
     entity_id: binary_sensor.rookmelder_replicator_room
@@ -146,16 +135,16 @@
   action:
     service: notify.mobile_app_paterphone
     data:
-      title: "Brand"
-      message: 'Het brand alarm gaat af! Replicator room!'
+      title: Brand
+      message: Het brand alarm gaat af! Replicator room!
       data:
         push:
           sound:
             name: default
             critical: 1
             volume: 1.0
-
-- alias: 'notification when fire alarm goes off slaapkamer'
+  id: 501d34fc827c451fbe48ee5021c8c743
+- alias: notification when fire alarm goes off slaapkamer
   trigger:
     platform: state
     entity_id: binary_sensor.rookmelder_slaapkamer
@@ -164,16 +153,16 @@
   action:
     service: notify.mobile_app_paterphone
     data:
-      title: "Brand"
-      message: 'Het brand alarm gaat af! Slaapkamer!'
+      title: Brand
+      message: Het brand alarm gaat af! Slaapkamer!
       data:
         push:
           sound:
             name: default
             critical: 1
             volume: 1.0
-
-- alias: 'Announce Coming home'
+  id: 136d93f44184440d8e4ed749b8c40b35
+- alias: Announce Coming home
   trigger:
     platform: state
     entity_id: binary_sensor.front_door
@@ -183,63 +172,56 @@
     service: tts.cloud_say
     entity_id: media_player.slaapkamer
     data:
-      message: 'Initializing, Welcome Home, I am Starting up Paterhome'
-#   __ _       _     _                   _                 
-#  / /(_) __ _| |__ | |_   ___ _   _ ___| |_ ___ _ __ ___  
-# / / | |/ _` | '_ \| __| / __| | | / __| __/ _ \ '_ ` _ \ 
-#/ /__| | (_| | | | | |_  \__ \ |_| \__ \ ||  __/ | | | | |
-#\____/_|\__, |_| |_|\__| |___/\__, |___/\__\___|_| |_| |_|
-#        |___/                 |___/                       
-
-#light System in Shed
-- alias: "if shed door opens turn shed lights on"
+      message: Initializing, Welcome Home, I am Starting up Paterhome
+  id: 87d45655540b49ddb132aa43ed1f295a
+- alias: if shed door opens turn shed lights on
   initial_state: true
   trigger:
-    - entity_id: binary_sensor.schuur_deur
-      platform: state
-      to: 'on'
+  - entity_id: binary_sensor.schuur_deur
+    platform: state
+    to: 'on'
   action:
     data:
-      entity_id: switch.schuur
+      entity_id: switch.verlichting_schuur
     service: switch.turn_on
-
+  id: af75778d42a944c599fc0e3c02b2ce95
 - alias: door closed? turn off lights after 5 minutes
   initial_state: true
-  trigger: 
-    - entity_id: binary_sensor.schuur_deur
-      platform: state
-      to: 'off'
-      for:
-        minutes: 2
+  trigger:
+  - entity_id: binary_sensor.schuur_deur
+    platform: state
+    to: 'off'
+    for:
+      minutes: 2
   action:
     data:
-      entity_id: switch.schuur
+      entity_id: switch.verlichting_schuur
     service: switch.turn_off
-
-- alias: "if shed backdoor opens turn on shed lights"
+  id: 2034fb2ffb8d4ad58c69ab6c75304971
+- alias: if shed backdoor opens turn on shed lights
   initial_state: true
   trigger:
-    - entity_id: binary_sensor.schuur_poort
-      platform: state
-      to: 'on'
+  - entity_id: binary_sensor.schuur_poort
+    platform: state
+    to: 'on'
   action:
     data:
-      entity_id: switch.schuur
+      entity_id: switch.verlichting_schuur
     service: switch.turn_on
-
+  id: 78800c97e1d2416882b16bd7631377fe
 - alias: Poort closed? turn off lights after 5 minutes
   initial_state: true
   trigger:
-    - entity_id: binary_sensor.schuur_poort
-      platform: state
-      to: 'off'
-      for:
-        minutes: 2
+  - entity_id: binary_sensor.schuur_poort
+    platform: state
+    to: 'off'
+    for:
+      minutes: 2
   action:
     data:
-      entity_id: switch.schuur
+      entity_id: switch.verlichting_schuur
     service: switch.turn_off
-
+  id: ae4913cad830415bab784d9625c4423e
 - alias: if front door opens turn on lights, but only when its dark
   initial_state: true
   trigger:
@@ -253,7 +235,7 @@
     data:
       entity_id: light.gang_lamp
     service: light.turn_on
-
+  id: 0f15f494a74e4716af7279c3a1acf2f7
 - alias: if front door closes turn off lights
   initial_state: true
   trigger:
@@ -266,40 +248,40 @@
     data:
       entity_id: light.gang_lamp
     service: light.turn_off
-
+  id: 68b9a81e9dd94d418ed7aade5aa4b3d7
 - alias: if motion on stairs is detected turn off all light on upper floor
   initial_state: true
   trigger:
     entity_id: binary_sensor.stairs
     platform: state
-    to: "on"
+    to: 'on'
   action:
     data:
       entity_id: light.boven_lamp
     service: light.turn_off
-
+  id: 79e991a190b34774802b3e9546518a3d
 - alias: if door opens in the cellar
   initial_state: true
   trigger:
     entity_id: binary_sensor.kelder
     platform: state
-    to: "on"
+    to: 'on'
   action:
     data:
       entity_id: light.kelder_2
     service: light.turn_on
-
+  id: 2c80f78207f84efa91baf6082917558e
 - alias: if door opens in the cellar
   initial_state: true
   trigger:
     entity_id: binary_sensor.kelder
     platform: state
-    to: "off"
+    to: 'off'
   action:
     data:
       entity_id: light.kelder_2
     service: light.turn_off
-
+  id: 974c652166674089994c1a3cb71ce5c2
 - alias: if replicator room on is pressed turn on studymode
   trigger:
     platform: event
@@ -311,7 +293,7 @@
     data:
       entity_id: light.werkkamer_lamp
     service: light.turn_ons
-
+  id: a10a0735a7cc43c1baccfd7b8e77af53
 - alias: if replicator room off is pressed turn off studymode
   trigger:
     platform: event
@@ -323,50 +305,43 @@
     data:
       entity_id: light.werkkamer_lamp
     service: light.turn_off
-      
-
+  id: 651a918b160744258e7f91c24ddb611f
 - alias: if iPaterMac Turns on turn on workligt
   trigger:
     entity_id: binary_sensor.imac_van_patrick_active
     platform: state
-    to: "on"
+    to: 'on'
   action:
     data:
       entity_id: light.downstairs_workarea
     service: light.turn_on
-      
-
+  id: 4ec16cffc13b4d11962bf9fd9d0c60ce
 - alias: if iPaterMac Turns off turn off workligt
   trigger:
     entity_id: binary_sensor.imac_van_patrick_active
     platform: state
-    to: "off"
+    to: 'off'
   condition:
-    - condition: state
-      entity_id: input_boolean.study_mode
-      state: "off" 
+  - condition: state
+    entity_id: input_boolean.study_mode
+    state: 'off'
   action:
     data:
       entity_id: light.downstairs_workarea
     service: light.turn_off
-      
-#   ___ _                                             _                 _   _             
-#  / _ \ | __ _ _   _  __ _ _ __ ___  _   _ _ __   __| |  ___  ___  ___| |_(_) ___  _ __  
-# / /_)/ |/ _` | | | |/ _` | '__/ _ \| | | | '_ \ / _` | / __|/ _ \/ __| __| |/ _ \| '_ \ 
-#/ ___/| | (_| | |_| | (_| | | | (_) | |_| | | | | (_| | \__ \  __/ (__| |_| | (_) | | | |
-#\/    |_|\__,_|\__, |\__, |_|  \___/ \__,_|_| |_|\__,_| |___/\___|\___|\__|_|\___/|_| |_|
-#               |___/ |___/                                                               
-- alias: 'Pressence_detected_Home'
+  id: 9dbc3fa3af8e4304be446f7846dc991b
+- alias: Pressence_detected_Home
   trigger:
     platform: state
     entity_id: person.patrick_smits
-    to: 'home'
+    to: home
   action:
     service: notify.mobile_app_paterphone
     data:
-      title: 'Patrick is Thuis!'
-      message: 'De sensor is geschakeld naar thuis'
-- alias: 'Pressence_detected_Away'
+      title: Patrick is Thuis!
+      message: De sensor is geschakeld naar thuis
+  id: 9b22a0a929eb4d17a5b418bcdc55b8d9
+- alias: Pressence_detected_Away
   trigger:
     platform: state
     entity_id: person.patrick_smits
@@ -374,57 +349,52 @@
   action:
     service: notify.mobile_app_paterphone
     data:
-      title: 'Patrick is niet meer thuis!'
-      message: 'De sensor is geschakeld naar Afwezig'
-
-#              _ _   _                    _ _       
-#  /\/\  _   _| | |_(_)_ __ ___   ___  __| (_) __ _ 
-# /    \| | | | | __| | '_ ` _ \ / _ \/ _` | |/ _` |
-#/ /\/\ \ |_| | | |_| | | | | | |  __/ (_| | | (_| |
-#\/    \/\__,_|_|\__|_|_| |_| |_|\___|\__,_|_|\__,_|                                                   
-- alias: 'Turn Homecinema Set on when TV is on'
+      title: Patrick is niet meer thuis!
+      message: De sensor is geschakeld naar Afwezig
+  id: 061376f6501548adb9986554d12a824f
+- alias: Turn Homecinema Set on when TV is on
   initial_state: true
   trigger:
-    - entity_id: media_player.pater_panel
-      platform: state
-      to: 'on'
-  action:     
+  - entity_id: media_player.pater_panel
+    platform: state
+    to: 'on'
+  action:
     data:
       entity_id: remote.livingroom_2
       command:
-        - PowerToggle
+      - PowerToggle
       device: 46809977
     service: remote.send_command
-
-- alias: 'turn Homecinema Set off when TV is off'
+  id: 9b847ba3c27143c89553f6acd49ed44a
+- alias: turn Homecinema Set off when TV is off
   initial_state: true
   trigger:
-    - entity_id: media_player.pater_panel
-      platform: state
-      to: 'off'
-  action:     
+  - entity_id: media_player.pater_panel
+    platform: state
+    to: 'off'
+  action:
     data:
       entity_id: remote.livingroom_2
       command:
-        - PowerToggle
+      - PowerToggle
       device: 46809977
     service: remote.send_command
-
-- alias: 'tv on after sunset, turn on ambiance scene'
+  id: 69aa9460d0d441e989d84e459b3d49c4
+- alias: tv on after sunset, turn on ambiance scene
   initial_state: true
   trigger:
-    - entity_id: media_player.pater_panel
-      platform: state
-      to: 'on'
+  - entity_id: media_player.pater_panel
+    platform: state
+    to: 'on'
   condition:
     condition: sun
     after: sunset
-    after_offset: "-00:30:00"
+    after_offset: -00:30:00
   action:
     data:
       entity_id: scene.ambiance
     service: scene.turn_on
-
+  id: ccbe397970484b7093b5604b469f04fe
 - alias: pop-up when doorbel dings
   initial_state: true
   trigger:
@@ -436,126 +406,110 @@
     data:
       entity_id: script.popup_front_door
     service: script.turn_on
-
+  id: ea432f280b654d0b824f386250200aa2
 - alias: pop-up when doorbel dings
   initial_state: true
   trigger:
     platform: state
     entity_id: binary_sensor.schuur_poort
-    to: "on"
+    to: 'on'
   action:
     data:
       entity_id: script.popup_back_door
     service: script.turn_on
-#                          _ _         
-# ___  ___  ___ _   _ _ __(_) |_ _   _ 
-#/ __|/ _ \/ __| | | | '__| | __| | | |
-#\__ \  __/ (__| |_| | |  | | |_| |_| |
-#|___/\___|\___|\__,_|_|  |_|\__|\__, |
-#                                |___/ 
-- alias: 'if frontdoor opens at night, turn lights on in bedroom'
+  id: 3351870500bb42bc8fca06e016e208fa
+- alias: if frontdoor opens at night, turn lights on in bedroom
   initial_state: true
   trigger:
-    - entity_id: binary_sensor.front_door
-      platform: state
-      to: 'on'
+  - entity_id: binary_sensor.front_door
+    platform: state
+    to: 'on'
   condition:
     condition: and
     conditions:
     - condition: state
       entity_id: person.patrick_smits
-      state: 'home'
+      state: home
     - condition: time
       after: '23:00:00'
-      before: '06:00:00'
+      before: 06:00:00
   action:
     data:
       entity_id: scene.slaapkamer_lichten_100
     service: scene.turn_on
-- alias: 'if backdoor opens at night, turn lights on in bedroom'
+  id: cc067e3155fc45038d8cc2bc6ed7a422
+- alias: if backdoor opens at night, turn lights on in bedroom
   initial_state: true
   trigger:
-    - entity_id: person.patrick_smits
-      platform: state
-      to: 'home'
+  - entity_id: person.patrick_smits
+    platform: state
+    to: home
   condition:
     condition: and
     conditions:
     - condition: state
       entity_id: person.patrick_smits
-      state: 'home'
+      state: home
     - condition: time
       after: '23:00:00'
-      before: '06:00:00'
+      before: 06:00:00
   action:
     data:
       entity_id: scene.slaapkamer_lichten_100
     service: scene.turn_on
-
-#  __  __                  _               ____             _   _            
-# |  \/  | ___  _ __ _ __ (_)_ __   __ _  |  _ \ ___  _   _| |_(_)_ __   ___ 
-# | |\/| |/ _ \| '__| '_ \| | '_ \ / _` | | |_) / _ \| | | | __| | '_ \ / _ \
-# | |  | | (_) | |  | | | | | | | | (_| | |  _ < (_) | |_| | |_| | | | |  __/
-# |_|  |_|\___/|_|  |_| |_|_|_| |_|\__, | |_| \_\___/ \__,_|\__|_|_| |_|\___|
-#                                  |___/                                     
-
-- alias: "turn off sleep modus"
+  id: 839d7182c22e43bd924bfdada52fd860
+- alias: turn off sleep modus
   initial_state: true
   trigger:
     platform: time
-    at: '05:00:00'
+    at: 05:00:00
   action:
     data:
       entity_id: input_boolean.sleep_mode
     service: input_boolean.turn_off
-
-- alias: "wake-up start of the routine"
+  id: cad68a3d649f40098ea4e274fd745515
+- alias: wake-up start of the routine
   initial_state: true
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (states.input_datetime.wakeup_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: '{{ states(''sensor.time'') == (states.input_datetime.wakeup_time.attributes.timestamp
+      | int | timestamp_custom(''%H:%M'', False)) }}'
   condition:
+  - condition: state
+    entity_id: input_boolean.wakeup_enabled
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
     - condition: state
-      entity_id: input_boolean.wakeup_enabled
+      entity_id: input_boolean.wakeup_weekend
       state: 'on'
-    - condition: or
-      conditions:
-        - condition: time
-          weekday:
-            - mon
-            - tue
-            - wed
-            - thu
-            - fri
-        - condition: state
-          entity_id: input_boolean.wakeup_weekend
-          state: 'on'
   action:
     data:
       entity_id: script.morning
     service: script.turn_on
-
-#  _   _ _       _     _     ____             _   _            
-# | \ | (_) __ _| |__ | |_  |  _ \ ___  _   _| |_(_)_ __   ___ 
-# |  \| | |/ _` | '_ \| __| | |_) / _ \| | | | __| | '_ \ / _ \
-# | |\  | | (_| | | | | |_  |  _ < (_) | |_| | |_| | | | |  __/
-# |_| \_|_|\__, |_| |_|\__| |_| \_\___/ \__,_|\__|_|_| |_|\___|
-#          |___/   
+  id: 0b93f1d5a4974f46ac81333b35b3bec3
 - alias: when night mode is on, set house to sleep mode
   initial_state: true
-  trigger: 
+  trigger:
     platform: state
     entity_id: input_boolean.sleep_mode
     to: 'on'
   condition:
     condition: time
     after: '21:00:00'
-    before: '05:00:00'
+    before: 05:00:00
   action:
     data:
       entity_id: script.nightmode
     service: script.turn_on
-
+  id: f019dcb578bc425194b89c08c46438f2
 - alias: Button for bedtime routine
   initial_state: true
   trigger:
@@ -567,30 +521,24 @@
   condition:
     condition: time
     after: '21:00:00'
-    before: '05:00:00'
+    before: 05:00:00
   action:
     data:
       entity_id: script.button_night
     service: script.turn_on
-#   ____ _                  _             
-#  / ___| | ___  __ _ _ __ (_)_ __   __ _ 
-# | |   | |/ _ \/ _` | '_ \| | '_ \ / _` |
-# | |___| |  __/ (_| | | | | | | | | (_| |
-#  \____|_|\___|\__,_|_| |_|_|_| |_|\__, |
-#                                   |___/
-
+  id: 4555ef743523454eb485c54176334d29
 - alias: start the clean up session.
   initial_state: true
   trigger:
     platform: state
     entity_id: input_boolean.sleep_mode
     to: 'on'
-    for: "01:30:00"
+    for: 01:30:00
   action:
     data:
       entity_id: vacuum.pater_zuiger_2
     service: vacuum.start
-
+  id: be0b23e34412486d9d8833b1b983a041
 - alias: Charge kitchen ipad when empty
   initial_state: true
   trigger:
@@ -601,7 +549,7 @@
     data:
       entity_id: switch.ipad_charger
     service: switch.turn_on
-
+  id: 806fc92f9cce483784040762d88f6d66
 - alias: stop Charge kitchen ipad when full
   initial_state: true
   trigger:
@@ -612,14 +560,63 @@
     data:
       entity_id: switch.ipad_charger
     service: switch.turn_off
-
-# - alias: "test"
-#   initial_state: true
-#   trigger:
-#     - entity_id: binary_sensor.switch1
-#       platform: state
-#       to: 'on'
-#   action:
-#     data:
-#       entity_id: switch.schuur
-#     service: switch.toggle
+  id: 28f21be73e774b7eb8d4eeee2d4534f1
+- id: '1658749974625'
+  alias: Buitenlamp aan bij deur open
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: d09eabd7c9dd4b2b82ec1b0f2cf2fad1
+    entity_id: binary_sensor.back_door
+    domain: binary_sensor
+  condition:
+  - condition: sun
+    after: sunset
+    after_offset: -00:30:00
+  action:
+  - type: turn_on
+    device_id: 02136a5ba6c009cc42920ccc8b9d972e
+    entity_id: light.tafel_lamp_buiten
+    domain: light
+    brightness_pct: 50
+  mode: single
+- id: '1658750243357'
+  alias: Buitenlamp uit bij deur dicht
+  description: ''
+  trigger:
+  - type: not_opened
+    platform: device
+    device_id: d09eabd7c9dd4b2b82ec1b0f2cf2fad1
+    entity_id: binary_sensor.back_door
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 02136a5ba6c009cc42920ccc8b9d972e
+    entity_id: light.tafel_lamp_buiten
+    domain: light
+  mode: single
+- id: '1658771290587'
+  alias: lamp aan als zon onder gaat
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+  condition:
+  - type: is_open
+    condition: device
+    device_id: d09eabd7c9dd4b2b82ec1b0f2cf2fad1
+    entity_id: binary_sensor.back_door
+    domain: binary_sensor
+  action:
+  - type: turn_on
+    device_id: 02136a5ba6c009cc42920ccc8b9d972e
+    entity_id: light.tafel_lamp_buiten
+    domain: light
+    brightness_pct: 50
+  mode: single

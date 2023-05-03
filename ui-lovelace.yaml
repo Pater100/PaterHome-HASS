@@ -19,8 +19,8 @@ views:
           - sensor.living_room_thermostat_temperature
           - sensor.temperature_toilet
           - sensor.bedroom_temperature
-          - sensor.temperature_60 #BathRoom
-          - sensor.temperature_57 #Print Sensor
+          #- sensor.temperature_60 #BathRoom
+          #- sensor.temperature_57 #Print Sensor
         line_color: blue
         line_width: 2
         font_size: 100
@@ -101,23 +101,22 @@ views:
         - type: horizontal-stack
           cards:         
           - type: custom:mini-graph-card
-            name: Server CPU
             entities:
-              - sensor.glances_tdie_temperature_2
               - sensor.paternet_temperature
+              #- sensor.glances_tdie_temperature_2
+              - sensor.solaredge_temp_sink
             line_color: green
             line_width: 2
             font_size: 100
         - type: horizontal-stack
           cards:
-          - type: custom:mini-graph-card
-            name: Schijfruimte verbruikt
-            entities:
-              - sensor.glances_pater_movie_used_percent
-              - sensor.synology_volume_used_volume_1
-            line_color: red
-            line_width: 2
-            font_size: 75
+          - type: energy-usage-graph
+        - type: horizontal-stack
+          cards:
+          - type: energy-solar-graph
+        - type: horizontal-stack
+          cards:
+          - type: energy-distribution
         - type: horizontal-stack
           cards:
           - type: entities
@@ -334,9 +333,15 @@ views:
           entity: light.toilet
       - type: horizontal-stack
         cards:
+        - type: energy-grid-neutrality-gauge
+      - type: horizontal-stack
+        cards: 
+        - type: energy-solar-consumed-gauge
+      - type: horizontal-stack
+        cards:
         - type: 'custom:vacuum-card'
           entity: vacuum.valetudo_pater_zuiger
-          map: camera.map_data
+          #map: camera.map_data
           stats:
             default:
               - attribute: filter
