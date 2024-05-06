@@ -28,10 +28,6 @@ http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
-# Discover some devices automatically
-discovery:
-  ignore:
-    - apple_tv
 #themes
 frontend:
   themes: !include_dir_merge_named themes
@@ -43,11 +39,11 @@ input_boolean:
     icon: mdi:sleep
   wakeup_enabled:
     name: "wake-up lights"
-    initial: on
+    initial: off
     icon: mdi:theme-light-dark
   wakeup_weekend:
     name: "wake-up Weekend"
-    initial: on
+    initial: off
     icon: mdi:brightness-4
 
 input_datetime:
@@ -130,11 +126,6 @@ logger:
   logs:
     pydeconz: debug
     homeassistant.components.deconz: debug
-
-#thermostaat
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
 
 #Harmony hubb
 remote:

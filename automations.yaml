@@ -92,10 +92,12 @@
             critical: 1
             volume: 1.0
   id: 3e802caf90d74f83b1d47b02989f15fd
-- alias: alarm_openen_schuurpoort
+- id: ea04038eb15c4652b0159b9112324162
+  alias: alarm_openen_schuurpoort
   trigger:
-    platform: state
-    entity_id: binary_sensor.schuur_poort
+  - platform: state
+    entity_id:
+    - binary_sensor.schuur_poort
     from: 'off'
     to: 'on'
   condition:
@@ -103,11 +105,10 @@
     entity_id: person.patrick_smits
     state: not_home
   action:
-    service: notify.mobile_app_paterphone
+  - service: notify.mobile_app_paterphone
     data:
       title: Indringer!
       message: Iemand komt binnen via de schuurpoort
-  id: ea04038eb15c4652b0159b9112324162
 - alias: notification when fire alarm goes off Kitchen
   trigger:
     platform: state
@@ -619,4 +620,40 @@
     entity_id: light.tafel_lamp_buiten
     domain: light
     brightness_pct: 50
+  mode: single
+- id: '1705768452590'
+  alias: verlichting schuur aan
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: 1895b617baba0c9d520a824be493aaf0
+    entity_id: d4e03213b6dc056b90c1bde7efda8e3d
+    domain: binary_sensor
+  condition: []
+  action:
+  - type: turn_on
+    device_id: b0444298fb77062a1ce3139c4660a51c
+    entity_id: c64e35340055b2f74a38ca520a1b9ff5
+    domain: switch
+  mode: single
+- id: '1705768541759'
+  alias: Verlichting schuur uit
+  description: ''
+  trigger:
+  - type: no_motion
+    platform: device
+    device_id: 1895b617baba0c9d520a824be493aaf0
+    entity_id: d4e03213b6dc056b90c1bde7efda8e3d
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition: []
+  action:
+  - type: turn_off
+    device_id: b0444298fb77062a1ce3139c4660a51c
+    entity_id: c64e35340055b2f74a38ca520a1b9ff5
+    domain: switch
   mode: single

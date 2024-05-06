@@ -16,7 +16,7 @@ views:
         name: Tempratuur
         animate: true
         entities:
-          - sensor.living_room_thermostat_temperature
+          - sensor.living_room_temperatuur
           - sensor.temperature_toilet
           - sensor.bedroom_temperature
           #- sensor.temperature_60 #BathRoom
@@ -29,7 +29,7 @@ views:
         - type: custom:mini-graph-card
           name: Luchtvochtigheid
           entities:
-            - sensor.living_room_thermostat_humidity
+            - sensor.living_room_luchtvochtigheid
             - sensor.humidity_61 # bathRoom
             - sensor.humidity_58 # Printer
           line_color: blue
@@ -46,17 +46,13 @@ views:
           hide:
             temperature: true
             state: true
-      - type: vertical-stack
+      - type: horizontal-stack
         cards:
-        - type: horizontal-stack
-          cards:
-          - type: custom:calendar-card
-            title: "Agenda Patrick"
-            numberOfDays: 3
-            progressBar: true
-            entities:
-              - calendar.patrick
-              - calendar.afval_kalender
+        - type: 'custom:simple-thermostat'
+          entity: climate.airco_slaapkamer
+          name: false
+          icon: true
+          control: true
     #Stack Middle
     - type: vertical-stack
       cards:
@@ -146,7 +142,7 @@ views:
               - value: "on"
                 color: rgb(218, 218, 219)
           - type: "custom:button-card"
-            entity: switch.schuur
+            entity: switch.verlichting_schuur
             color_type: card
             color: rgb(08, 10, 19)
             icon: mdi:barn
@@ -164,10 +160,10 @@ views:
               - value: "on"
                 color: rgb(218, 218, 219)
           - type: "custom:button-card"
-            entity: input_boolean.sleep_mode
+            entity: switch.afzuigkap
             color_type: card
             color: rgb(08, 10, 19)
-            icon: mdi:sleep
+            icon: mdi:cloud-off
             show_name: false
             state:
               - value: "on"
