@@ -140,7 +140,6 @@ sensor:
       - 'time'
   #- platform: dsmr_reader
   - platform: authenticated
-  - platform: launch_library
   # - platform: unifigateway
   #   host: !secret unifi_host
   #   username: !secret unifi_username
