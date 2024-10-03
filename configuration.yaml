@@ -135,13 +135,6 @@ remote:
 
 # Sensors
 sensor:
-  #Version Checker
-  - platform: version
-    name: version_availeble
-    source: hassio
-    image: qemux86-64
-  - platform: version
-    name: version_current
   - platform: time_date
     display_options:
       - 'time'
