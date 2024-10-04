@@ -127,12 +127,6 @@ logger:
     pydeconz: debug
     homeassistant.components.deconz: debug
 
-#Harmony hubb
-remote:
-  - platform: harmony
-    name: livingroom
-    host: !secret remote_host
-
 # Sensors
 sensor:
   - platform: time_date
