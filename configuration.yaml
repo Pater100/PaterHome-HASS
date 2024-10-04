@@ -79,12 +79,6 @@ calendar:
     password: !secret caldav_password
     url: https://caldav.icloud.com
 
-vacuum:
-  - platform: xiaomi_miio
-    host: !secret pater_zuiger
-    token: !secret Pater_zuiger_token
-    name: Pater-Zuiger
-
 recorder:
   # Ignore some entities that generate lots of data and aren't useful
   exclude:
